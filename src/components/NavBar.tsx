@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import ThemeToggle from "@/components/ThemeToggle";
+import { openContact } from "@/components/ContactDialog";
 
 const links = [
   { href: "/#about", label: "who I am" },
@@ -52,12 +53,12 @@ export default function NavBar() {
 
         <div className="hidden items-center gap-3 md:flex">
           <ThemeToggle />
-          <a
-            href="mailto:dreamsofboo@gmail.com"
+          <button
+            onClick={openContact}
             className="rounded-full bg-ink px-5 py-2.5 font-body text-[13px] font-semibold text-cream transition-transform hover:-translate-y-0.5"
           >
             say hi
-          </a>
+          </button>
         </div>
 
         <div className="flex items-center gap-2 md:hidden">
@@ -94,12 +95,15 @@ export default function NavBar() {
               {l.label}
             </Link>
           ))}
-          <a
-            href="mailto:dreamsofboo@gmail.com"
+          <button
+            onClick={() => {
+              setOpen(false);
+              openContact();
+            }}
             className="mt-1 rounded-xl bg-ink px-4 py-2.5 text-center font-body text-sm font-semibold text-cream"
           >
             say hi
-          </a>
+          </button>
         </div>
       )}
     </header>

@@ -36,10 +36,21 @@ export default function BlogIndexPage() {
               <Link
                 key={post.slug}
                 href={`/blog/${post.slug}`}
-                className={`group rounded-3xl border border-line bg-paper p-7 shadow-[0_4px_0_0_var(--line)] transition-transform hover:-translate-y-1 ${
+                className={`group flex gap-6 rounded-3xl border border-line bg-paper p-7 shadow-[0_4px_0_0_var(--line)] transition-transform hover:-translate-y-1 ${
                   i % 2 === 0 ? "sm:rotate-[-0.4deg]" : "sm:rotate-[0.4deg]"
                 }`}
               >
+                {post.thumbnail && (
+                  /* eslint-disable-next-line @next/next/no-img-element --
+                     the thumbnail path comes from the admin desk at runtime,
+                     so it is not known at build time for next/image */
+                  <img
+                    src={post.thumbnail}
+                    alt={post.thumbnailAlt}
+                    className="hidden h-32 w-44 shrink-0 rounded-2xl object-cover sm:block"
+                  />
+                )}
+                <div className="min-w-0 flex-1">
                 <p className="font-body text-xs font-bold uppercase tracking-[0.2em] text-ink-soft">
                   {format(new Date(post.date), "MMMM d, yyyy")} · {post.readingTime}
                 </p>
@@ -66,6 +77,7 @@ export default function BlogIndexPage() {
                       →
                     </span>
                   </span>
+                </div>
                 </div>
               </Link>
             ))}

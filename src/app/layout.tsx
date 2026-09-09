@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Fraunces, Caveat, Manrope } from "next/font/google";
 import "./globals.css";
 import CustomCursor from "@/components/CustomCursor";
+import ContactDialog from "@/components/ContactDialog";
 import PersonalDoor from "@/components/PersonalDoor";
 import ThemeProvider, { themeInitScript } from "@/components/ThemeProvider";
 
@@ -239,6 +240,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           <CustomCursor />
           {children}
           <PersonalDoor />
+          <ContactDialog />
         </ThemeProvider>
       </body>
     </html>

@@ -10,11 +10,13 @@ import { animate, useInView } from "framer-motion";
 export default function CountUp({
   to,
   prefix = "",
+  suffix = "",
   duration = 2.2,
   className = "",
 }: {
   to: number;
   prefix?: string;
+  suffix?: string;
   duration?: number;
   className?: string;
 }) {
@@ -36,6 +38,7 @@ export default function CountUp({
     <span ref={ref} className={className}>
       {prefix}
       {new Intl.NumberFormat("en-IN").format(value)}
+      {suffix}
     </span>
   );
 }

@@ -1,85 +1,59 @@
-"use client";
-
-import { useState } from "react";
+import EventsCarousel from "@/components/EventsCarousel";
+import { getEvents } from "@/lib/collections";
 import { speakingMoments } from "@/content/speaking";
 
-const gradients = [
-  "from-coral to-lavender",
-  "from-sage to-butter",
-  "from-lavender to-pink",
-  "from-butter to-coral",
-];
-
+/*
+  Reads the events the admin desk has published. Until there are any, it falls
+  back to the written moments so the section is never an empty rail.
+*/
 export default function SpeakingSection() {
-  const [flipped, setFlipped] = useState<Record<string, boolean>>({});
-
-  const toggle = (id: string) =>
-    setFlipped((prev) => ({ ...prev, [id]: !prev[id] }));
+  const events = getEvents();
 
   return (
     <section id="speaking" className="wash-plum px-4 py-20 sm:px-8">
       <div className="mx-auto max-w-6xl">
-        <div className="mb-10 text-center">
-          <p className="font-hand text-2xl text-coral-deep">a mic makes everything better</p>
+        <div className="mb-10 max-w-xl">
+          <p className="font-hand text-2xl text-coral-deep">
+            a mic makes everything better
+          </p>
           <h2 className="mt-1 font-display text-3xl font-semibold text-ink sm:text-4xl">
             stages I have stood on
           </h2>
-          <p className="mx-auto mt-3 max-w-lg font-body text-sm text-ink-soft">
-            I talk for a living, and then I go find more rooms to talk in for
-            free. Tap a card for the story behind it.
+          <p className="mt-3 font-body text-[15px] leading-relaxed text-ink-soft">
+            I talk for a living, then go find more rooms to talk in for free.
+            Twenty something of them so far.
           </p>
         </div>
 
-        <div className="flex snap-x snap-mandatory gap-5 overflow-x-auto pb-6 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-          {speakingMoments.map((m, i) => {
-            const isFlipped = !!flipped[m.id];
-            return (
-              <button
-                key={m.id}
-                onClick={() => toggle(m.id)}
-                className="relative h-80 w-64 shrink-0 snap-center [perspective:1200px]"
-                aria-label={`read the story behind ${m.title}`}
-              >
-                <div
-                  className="relative h-full w-full rounded-3xl shadow-[0_10px_30px_rgba(23,20,15,0.06)] transition-transform duration-500 [transform-style:preserve-3d]"
-                  style={{ transform: isFlipped ? "rotateY(180deg)" : "rotateY(0deg)" }}
+        {events.length > 0 ? (
+          <EventsCarousel events={events} />
+        ) : (
+          <>
+            <div className="flex snap-x snap-mandatory gap-5 overflow-x-auto pb-6 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+              {speakingMoments.map((m) => (
+                <article
+                  key={m.id}
+                  className="w-[19rem] shrink-0 snap-center rounded-3xl border border-line bg-paper p-6 shadow-[0_10px_30px_rgba(23,20,15,0.06)]"
                 >
-                  <div
-                    className={`absolute inset-0 flex flex-col justify-end rounded-3xl bg-gradient-to-br ${gradients[i % gradients.length]} p-5 [backface-visibility:hidden]`}
-                  >
-                    <span className="mb-2 text-3xl">🎤</span>
-                    <h3 className="font-display text-lg font-semibold text-[#17140f]">
-                      {m.title}
-                    </h3>
-                    <p className="mt-1 font-body text-xs font-bold uppercase tracking-wide text-[#17140f]/70">
-                      {m.venue}
-                    </p>
-                    <p className="mt-3 font-hand text-sm text-[#17140f]/70">
-                      tap for the story →
-                    </p>
-                  </div>
-
-                  <div
-                    className="absolute inset-0 flex flex-col justify-center rounded-3xl border border-line bg-paper p-6 text-left [backface-visibility:hidden]"
-                    style={{ transform: "rotateY(180deg)" }}
-                  >
-                    <p className="font-body text-sm leading-relaxed text-ink-soft">
-                      {m.story}
-                    </p>
-                    <p className="mt-4 font-hand text-sm text-coral-deep">
-                      tap to flip back
-                    </p>
-                  </div>
-                </div>
-              </button>
-            );
-          })}
-        </div>
-
-        <p className="mt-4 text-center font-hand text-lg text-ink-soft">
-          real photos from real stages coming soon, this gallery updates the
-          day I get them.
-        </p>
+                  <span className="text-3xl">🎤</span>
+                  <h3 className="mt-3 font-display text-lg font-semibold leading-snug text-ink">
+                    {m.title}
+                  </h3>
+                  <p className="mt-1 font-body text-[11px] font-bold uppercase tracking-[0.16em] text-coral-deep">
+                    {m.venue}
+                  </p>
+                  <p className="mt-3 font-body text-sm leading-relaxed text-ink-soft">
+                    {m.story}
+                  </p>
+                </article>
+              ))}
+            </div>
+            <p className="mt-4 font-hand text-lg text-ink-soft">
+              the real photos go in from the admin desk, and this rail becomes
+              the live gallery the moment they do.
+            </p>
+          </>
+        )}
       </div>
     </section>
   );

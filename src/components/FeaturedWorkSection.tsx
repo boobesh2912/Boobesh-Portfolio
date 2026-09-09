@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import ImageSlot from "@/components/ImageSlot";
 import Reveal from "@/components/Reveal";
+import PathSpine from "@/components/PathSpine";
 
 const featured = [
   {
@@ -39,6 +40,23 @@ const featured = [
     ],
     tint: "from-sage/18 to-lavender/12",
   },
+  {
+    name: "Gari Tech",
+    role: "Founder",
+    since: "Feb 2026 → now",
+    site: "the one that is mine",
+    href: "https://www.linkedin.com/in/boobesh2912",
+    shot: "/shots/gari-tech.png",
+    blurb:
+      "Started as a Canva shop in my first year of college and turned into a content and web studio. It runs on referrals and trials, which is a polite way of saying we earn every client twice.",
+    points: [
+      "Content marketing, personal branding and social growth for founders",
+      "WordPress builds, from the domain up",
+      "Positioning work, which is the part most people skip",
+      "A small team I have to actually manage now",
+    ],
+    tint: "from-butter/20 to-coral/12",
+  },
 ];
 
 export default function FeaturedWorkSection() {
@@ -50,20 +68,36 @@ export default function FeaturedWorkSection() {
             03 — where I do it
           </p>
           <h2 className="mt-6 max-w-2xl font-display text-3xl font-semibold leading-[1.15] text-ink sm:text-[2.6rem]">
-            Two places take most of my week.
+            Three stops take most of my week.
           </h2>
+          <p className="mt-4 max-w-xl font-body text-[17px] leading-[1.8] text-ink-soft">
+            Follow the line. It is not a tidy career path, it is the route I
+            actually walked, and each stop paid for the next one.
+          </p>
         </Reveal>
 
-        <div className="mt-14 space-y-20">
+        {/*
+          The stops sit along a drawn route. The spine is decorative and sits
+          behind everything, off to the left on small screens and down the
+          middle once there is room for two columns.
+        */}
+        <div className="relative mt-16">
+          <PathSpine className="-left-2 w-16 sm:left-2 lg:left-1/2 lg:w-24 lg:-translate-x-1/2" />
+
+          <div className="relative space-y-24">
           {featured.map((f, i) => (
             <Reveal key={f.name}>
               <motion.article
                 whileHover={{ y: -4 }}
                 transition={{ type: "spring", stiffness: 260, damping: 24 }}
-                className={`grid items-center gap-10 lg:grid-cols-2 ${
+                className={`relative grid items-center gap-10 lg:grid-cols-2 lg:gap-20 ${
                   i % 2 === 1 ? "lg:[&>figure]:order-2" : ""
                 }`}
               >
+                {/* the stop marker sitting on the route */}
+                <span className="absolute -left-[1.15rem] top-0 z-10 flex h-9 w-9 items-center justify-center rounded-full border border-coral/40 bg-paper font-body text-[11px] font-bold text-coral-deep shadow-[0_4px_14px_rgba(23,20,15,0.10)] sm:left-[0.6rem] lg:left-1/2 lg:-translate-x-1/2">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
                 <figure className="relative">
                   <div
                     className={`absolute -inset-4 rounded-[2rem] bg-gradient-to-br ${f.tint} blur-2xl`}
@@ -120,6 +154,7 @@ export default function FeaturedWorkSection() {
               </motion.article>
             </Reveal>
           ))}
+          </div>
         </div>
       </div>
     </section>

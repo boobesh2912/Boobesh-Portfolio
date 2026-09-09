@@ -1,4 +1,5 @@
 import CountUp from "@/components/CountUp";
+import TypedLine from "@/components/TypedLine";
 import Reveal from "@/components/Reveal";
 import TiltCard from "@/components/TiltCard";
 
@@ -28,27 +29,39 @@ export default function AboutSection() {
         <div className="mt-8 grid gap-14 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
           <Reveal>
             <h2 className="max-w-lg font-display text-3xl font-semibold leading-[1.15] text-ink sm:text-[2.6rem]">
-              I am a marketer. That is the whole thing, not a phase.
+              So what do you actually do?
             </h2>
+            <p className="mt-3 font-hand text-2xl text-coral-deep">
+              I get asked this a lot. Usually at weddings.
+            </p>
 
             <div className="mt-7 space-y-5 font-body text-[17px] leading-[1.8] text-ink-soft">
               <p>
-                Not a designer who drifted into marketing. Not a writer who
-                fell into growth. A marketer. It is the lens I put on
-                everything, from one line of a Reel script to a full quarter
-                of content.
-              </p>
-              <p className="border-l-2 border-coral pl-5 font-medium text-ink">
-                Most brands do not need more ideas. They need someone who
-                stays consistent long enough for one idea to work. That is
-                most of the job.
+                Short answer: I am a marketer. Not a designer who drifted here.
+                Not a writer who fell into growth. A marketer, on purpose.
               </p>
               <p>
-                I learned that the slow way. Reselling on Sharechat at 15.
-                Building websites for clients before I knew WordPress.
-                Starting a community, watching it die, starting another one.
-                The wins came from showing up after week two, when it stopped
-                being exciting.
+                Long answer... it is the lens I put on everything. One line of
+                a Reel script. A whole quarter of content. The subject line
+                nobody reads. Same lens, different zoom.
+              </p>
+              <p className="border-l-2 border-coral pl-5 font-medium text-ink">
+                Here is the part people do not want to hear. Most brands do
+                not need more ideas. They need someone who stays consistent
+                long enough for one idea to work. That is most of the job. The
+                rest is taste.
+              </p>
+              <p>
+                I learned that the slow way, obviously. Reselling on Sharechat
+                at 15. Building client websites before I had opened WordPress
+                once. Starting a community, watching it die, starting another
+                one anyway.
+              </p>
+              <p className="text-ink">
+                <TypedLine
+                  text="Everything that worked, worked after week two. When it stopped being exciting."
+                  speed={22}
+                />
               </p>
             </div>
           </Reveal>

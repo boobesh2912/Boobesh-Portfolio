@@ -5,7 +5,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import Link from "next/link";
 import AskAI from "@/components/AskAI";
 import ImageSlot from "@/components/ImageSlot";
-import TorchLight from "@/components/TorchLight";
+import TypedLine from "@/components/TypedLine";
 
 const ticker = [
   "MARKETING LEAD AT TRIBE FORTIS",
@@ -84,20 +84,34 @@ export default function HeroSection() {
               <span className="italic text-[#ffd9a8]">then stay.</span>
             </motion.h1>
 
-            <motion.p
+            <motion.div
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.75, delay: 0.16 }}
-              className="mt-7 max-w-xl font-body text-base leading-[1.75] text-white/70 sm:text-[17px]"
+              className="mt-7 max-w-xl space-y-3 font-body text-base leading-[1.75] text-white/70 sm:text-[17px]"
             >
-              I am Boobesh. I sold kitchen utensils on Sharechat in 10th grade
-              before I knew the word marketing. Today I lead marketing at
-              <span className="font-semibold text-white"> Tribe Fortis</span>,
-              run content at{" "}
-              <span className="font-semibold text-white">Your College Senior</span>
-              , and build <span className="font-semibold text-white">Gari Tech</span>{" "}
-              on the side. Same instinct, better tools.
-            </motion.p>
+              <p>
+                Okay so... short version. I was 15, selling kitchen utensils on
+                Sharechat, sourcing them off Meesho, keeping the difference. I
+                had no idea that was marketing. I just knew people bought
+                things when you said it the right way.
+              </p>
+              <p>
+                Ten years of saying it the right way later:{" "}
+                <span className="font-semibold text-white">Tribe Fortis</span>{" "}
+                for marketing,{" "}
+                <span className="font-semibold text-white">
+                  Your College Senior
+                </span>{" "}
+                for content,{" "}
+                <span className="font-semibold text-white">Gari Tech</span>{" "}
+                because I could not sit still. Same instinct. Much better
+                tools.
+              </p>
+              <p className="text-white/55">
+                <TypedLine text="and no, I still have not figured out the rest..." />
+              </p>
+            </motion.div>
 
             <motion.div
               initial={{ opacity: 0, y: 16 }}
@@ -117,7 +131,6 @@ export default function HeroSection() {
               >
                 read what I write
               </Link>
-              <TorchLight tone="dark" className="ml-1" />
             </motion.div>
 
             <motion.div

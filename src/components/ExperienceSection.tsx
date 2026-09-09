@@ -31,10 +31,11 @@ export default function ExperienceSection() {
             04 — what I did
           </p>
           <h2 className="mt-6 font-display text-3xl font-semibold leading-[1.15] text-ink sm:text-[2.6rem]">
-            Ten rooms I learned in.
+            Student &rarr; founder &rarr; builder, in that order.
           </h2>
-          <p className="mt-4 max-w-lg font-body text-[15px] leading-relaxed text-ink-soft">
-            Marketing, founding, engineering. Tap any of them to see what the
+          <p className="mt-4 max-w-xl font-body text-[15px] leading-relaxed text-ink-soft">
+            The path was not planned this neatly. Looking back though, every
+            stop taught the next one something. Tap any of them to see what the
             work actually was.
           </p>
         </Reveal>

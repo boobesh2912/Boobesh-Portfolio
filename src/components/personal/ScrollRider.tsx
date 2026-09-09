@@ -5,9 +5,9 @@ import { usePrefersReducedMotion } from "@/lib/usePrefersReducedMotion";
 
 /*
   A cyclist pinned to the bottom of the window who rides the whole story.
-  He starts in the right corner at the title and works his way left as you
+  He sets off from the left edge at the title and works his way right as you
   read, so he doubles as a progress bar you can actually watch. The road
-  under him fills in behind.
+  fills in behind him, ending exactly under his back wheel.
 */
 export default function ScrollRider() {
   const reduced = usePrefersReducedMotion();
@@ -19,26 +19,29 @@ export default function ScrollRider() {
     restDelta: 0.0005,
   });
 
-  const left = useTransform(eased, [0, 1], ["88%", "4%"]);
-  const spin = useTransform(eased, [0, 1], [0, -2600]);
-  const roadFill = useTransform(eased, [0, 1], ["0%", "100%"]);
+  const left = useTransform(eased, [0, 1], ["4%", "92%"]);
+  const spin = useTransform(eased, [0, 1], [0, 2600]);
+  const roadFill = useTransform(eased, [0, 1], ["4%", "92%"]);
 
   if (reduced) return null;
 
   return (
     <div className="pointer-events-none fixed inset-x-0 bottom-0 z-20 hidden h-16 sm:block">
-      {/* the road he is on, drawn from the right as he travels */}
-      <div className="absolute bottom-[13px] left-0 right-0 h-px bg-[rgba(var(--card-skin),0.12)]" />
+      {/*
+        The road. Both lines sit on bottom-[10px], which is where the wheels
+        meet the ground once the svg is scaled, so he rides on the line rather
+        than above or through it. The travelled part fills in behind him.
+      */}
+      <div className="absolute bottom-[10px] left-0 right-0 h-px bg-[rgba(var(--card-skin),0.12)]" />
       <motion.div
         style={{ width: roadFill }}
-        className="absolute bottom-[13px] right-0 h-px bg-ember/50"
+        className="absolute bottom-[10px] left-0 h-px bg-ember/50"
       />
 
-      <motion.div style={{ left }} className="absolute bottom-[7px]">
+      <motion.div style={{ left }} className="absolute bottom-[4px]">
         <svg
           viewBox="0 0 200 120"
           className="h-11 w-[72px] -translate-x-1/2"
-          style={{ transform: "scaleX(-1)" }}
           role="img"
           aria-label="a cyclist marking how far you have read"
         >

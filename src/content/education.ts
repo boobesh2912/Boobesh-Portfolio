@@ -1,24 +1,27 @@
 export type Schooling = {
   stage: string;
   place: string;
+  where: string;
+  course: string;
   detail: string;
 };
 
-/*
-  Replace `place` with the real names once confirmed.
-*/
 export const schooling: Schooling[] = [
   {
     stage: "School",
-    place: "Add your school name",
+    place: "Santhome Higher Secondary School",
+    where: "Mylapore, Chennai",
+    course: "Computer Science group",
     detail:
-      "Where the computer lab mattered more to me than the playground. I broke my first PC here by installing too much software.",
+      "Picked Computer Science because the lab mattered more to me than the playground. This is also roughly when I broke my first PC by installing too much software on it.",
   },
   {
     stage: "College",
-    place: "Add your college name",
+    place: "Panimalar Engineering College",
+    where: "Chennai",
+    course: "B.Tech, Computer Science and Business Systems",
     detail:
-      "Started Gari Tech in my first year and have been running it alongside classes ever since. Most of what I know about marketing, I learned outside this classroom.",
+      "CSBS is half engineering, half business, which is unfairly close to how my head already worked. Started Gari Tech in first year and have been running it beside classes ever since.",
   },
 ];
 

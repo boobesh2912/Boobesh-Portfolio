@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Fraunces, Caveat, Manrope } from "next/font/google";
 import "./globals.css";
 import CursorSparkles from "@/components/CursorSparkles";
+import PersonalDoor from "@/components/PersonalDoor";
 
 const fraunces = Fraunces({
   variable: "--font-display",
@@ -89,6 +90,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         />
         <CursorSparkles />
         {children}
+        <PersonalDoor />
       </body>
     </html>
   );

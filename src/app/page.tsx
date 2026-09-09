@@ -13,7 +13,6 @@ import WhatILoveSection from "@/components/WhatILoveSection";
 import BlogTeaserSection from "@/components/BlogTeaserSection";
 import ContentFeedSection from "@/components/ContentFeedSection";
 import Footer from "@/components/Footer";
-import PersonalDoor from "@/components/PersonalDoor";
 
 export default function Home() {
   return (
@@ -35,7 +34,6 @@ export default function Home() {
         <ContentFeedSection />
       </main>
       <Footer />
-      <PersonalDoor />
     </>
   );
 }

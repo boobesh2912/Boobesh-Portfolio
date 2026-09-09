@@ -12,6 +12,45 @@ export const storyOpener = [
   "I am talking to you here, not writing copy for a crowd. So I am not going to fill this with things I do not mean just to sound impressive. **Only the stuff that is actually true.**",
 ];
 
+/* What people decide about me, as chips instead of a paragraph. */
+export const labels: { text: string; tone: "kind" | "harsh" | "flat" }[] = [
+  { text: "a freelancer", tone: "flat" },
+  { text: "the startup guy in college", tone: "flat" },
+  { text: "fully into business", tone: "flat" },
+  { text: "a techie", tone: "flat" },
+  { text: "a marketing guy", tone: "flat" },
+  { text: "passionate", tone: "kind" },
+  { text: "narcissistic", tone: "harsh" },
+  { text: "obsessed with money", tone: "harsh" },
+  { text: "someone who can mentor them", tone: "kind" },
+  { text: "a bad person", tone: "harsh" },
+  { text: "a very good person", tone: "kind" },
+];
+
+/* The arc, compressed into one glanceable strip. */
+export const lifeStrip = [
+  { when: "2nd std", what: "my father's touchscreen phone" },
+  { when: "4th std", what: "photo edits on an old S-Pen" },
+  { when: "5th std", what: "computer institute, then a dead PC" },
+  { when: "10th std", what: "sold kitchenware on Sharechat" },
+  { when: "1st year", what: "started Gari Tech" },
+  { when: "2025", what: "Start The Up, then Vizhva" },
+  { when: "now", what: "marketing at Tribe Fortis and YCS" },
+];
+
+export const driveStats = [
+  { value: "50+", label: "projects on my drive" },
+  { value: "20-30", label: "of them unfinished" },
+  { value: "1", label: "platform I never quit" },
+];
+
+export const pullQuotes = {
+  money: "The money was small. The lesson was not.",
+  wordpress:
+    "I told him I knew WordPress. I had never opened it. So technically, I lied.",
+  consistency: "I am still working out how to turn curiosity into consistency.",
+};
+
 export const storyIntro = [
   "Some people know me as a freelancer. Some know me as the startup guy in college. Some think I am fully into business. Some think I am a techie. Some think I am a marketing guy. Some think I am passionate. Some think I am narcissistic. Some think I am obsessed with money. Some think I can mentor them. Some think I am a bad person. Some think I am a very good person.",
   "So the real question is simple. **Who is Boobesh, actually?** Honestly, I am still figuring that out.",

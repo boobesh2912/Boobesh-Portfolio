@@ -1,25 +1,31 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
-import { start } from "@/lib/ambientAudio";
+import { unlock } from "@/lib/ambientAudio";
 
 /*
-  The corner door. Clicking it starts the music (this click is the user
-  gesture browsers require), plays a circular expand over the whole screen,
-  then soft-navigates to /personal, which fades in underneath.
+  The corner door, present on every page except the personal one.
+  The click primes audio silently (browsers need a gesture), plays a
+  circular expand, then soft navigates. Sound only starts once the
+  personal page itself mounts.
 */
 export default function PersonalDoor() {
   const [opening, setOpening] = useState(false);
   const router = useRouter();
+  const pathname = usePathname();
+
+  if (pathname?.startsWith("/personal") || pathname?.startsWith("/admin")) {
+    return null;
+  }
 
   const open = () => {
     if (opening) return;
     setOpening(true);
-    start();
+    unlock();
     router.prefetch("/personal");
-    setTimeout(() => router.push("/personal"), 620);
+    setTimeout(() => router.push("/personal"), 640);
   };
 
   return (
@@ -31,10 +37,11 @@ export default function PersonalDoor() {
         transition={{ delay: 0.8, type: "spring", stiffness: 200, damping: 15 }}
         whileHover={{ scale: 1.06 }}
         aria-label="open my personal space"
-        className="group fixed bottom-6 right-6 z-40 flex h-[70px] w-[70px] items-center justify-center rounded-full bg-ink text-cream shadow-[0_6px_20px_rgba(23,20,15,0.35)]"
+        className="group fixed bottom-7 right-7 z-40 flex h-[88px] w-[88px] items-center justify-center rounded-full bg-ink text-cream shadow-[0_10px_30px_rgba(23,20,15,0.4)]"
       >
-        <span className="absolute inset-0 animate-ping rounded-full bg-coral/25" />
-        <span className="relative text-center font-hand text-[15px] leading-[1.05]">
+        <span className="absolute inset-0 animate-ping rounded-full bg-coral/20" />
+        <span className="absolute inset-[-6px] rounded-full border border-ink/15" />
+        <span className="relative text-center font-hand text-[19px] leading-[1.05]">
           the
           <br />
           real me
@@ -45,11 +52,11 @@ export default function PersonalDoor() {
         {opening && (
           <motion.div
             className="fixed inset-0 z-[95] bg-night"
-            initial={{ clipPath: "circle(0px at calc(100% - 41px) calc(100% - 41px))" }}
+            initial={{ clipPath: "circle(0px at calc(100% - 51px) calc(100% - 51px))" }}
             animate={{
-              clipPath: "circle(150% at calc(100% - 41px) calc(100% - 41px))",
+              clipPath: "circle(150% at calc(100% - 51px) calc(100% - 51px))",
             }}
-            transition={{ duration: 0.75, ease: [0.76, 0, 0.24, 1] }}
+            transition={{ duration: 0.78, ease: [0.76, 0, 0.24, 1] }}
           />
         )}
       </AnimatePresence>

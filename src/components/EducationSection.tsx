@@ -22,10 +22,14 @@ export default function EducationSection() {
                 <p className="font-body text-[11px] font-semibold uppercase tracking-[0.22em] text-ink-soft">
                   {s.stage}
                 </p>
-                <h3 className="mt-2 font-display text-xl font-semibold text-ink">
+                <h3 className="mt-2 font-display text-xl font-semibold leading-snug text-ink">
                   {s.place}
                 </h3>
-                <p className="mt-3 font-body text-[15px] leading-[1.75] text-ink-soft">
+                <p className="font-body text-[13px] text-ink-soft">{s.where}</p>
+                <p className="mt-3 inline-block rounded-full border border-coral/30 bg-coral/10 px-3 py-1 font-body text-[12px] font-semibold text-coral-deep">
+                  {s.course}
+                </p>
+                <p className="mt-4 font-body text-[15px] leading-[1.75] text-ink-soft">
                   {s.detail}
                 </p>
               </div>

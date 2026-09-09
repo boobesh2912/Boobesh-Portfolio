@@ -43,13 +43,21 @@ export default function GariTechDrop({
           }
           className="relative mx-auto mt-2 w-28 shrink-0 sm:w-32"
         >
-          <ImageSlot
-            src="/shots/gari-tech.png"
-            alt="Gari Tech logo"
-            label="gari tech logo"
-            className="h-28 w-full sm:h-32"
-            rounded="rounded-2xl"
-          />
+          {/*
+            The mark is white with a transparent ground, so it needs a dark
+            tile under it or it disappears entirely in day mode. The tile also
+            gives it a frame to land on.
+          */}
+          <div className="overflow-hidden rounded-2xl bg-[#17140f] p-4 shadow-[0_18px_40px_rgba(23,20,15,0.28)]">
+            <ImageSlot
+              src="/shots/gari-tech.png"
+              alt="Gari Tech logo"
+              label="gari tech logo"
+              className="h-20 w-full sm:h-24"
+              rounded="rounded-none"
+              fit="contain"
+            />
+          </div>
         </motion.div>
       </div>
     </div>

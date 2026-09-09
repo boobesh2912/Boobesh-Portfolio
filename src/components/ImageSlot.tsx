@@ -16,12 +16,15 @@ export default function ImageSlot({
   label,
   className = "",
   rounded = "rounded-2xl",
+  fit = "cover",
 }: {
   src: string;
   alt: string;
   label?: string;
   className?: string;
   rounded?: string;
+  /* logos need containing, photographs want filling */
+  fit?: "cover" | "contain";
 }) {
   const [failed, setFailed] = useState(false);
 
@@ -54,7 +57,7 @@ export default function ImageSlot({
       src={src}
       alt={alt}
       onError={() => setFailed(true)}
-      className={`object-cover ${rounded} ${className}`}
+      className={`${fit === "contain" ? "object-contain" : "object-cover"} ${rounded} ${className}`}
     />
   );
 }

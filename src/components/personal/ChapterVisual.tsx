@@ -111,8 +111,9 @@ function ResellFlow() {
           src="/shots/sharechat.png"
           alt="Sharechat"
           label="sharechat logo"
-          className="mx-auto h-20 w-20"
+          className="mx-auto h-20 w-24 bg-white/90 p-2"
           rounded="rounded-2xl"
+          fit="contain"
         />
         <p className="mt-2 font-body text-[11px] uppercase tracking-wider text-moon/45">
           where the buyers were
@@ -131,8 +132,9 @@ function ResellFlow() {
           src="/shots/meesho.png"
           alt="Meesho"
           label="meesho logo"
-          className="mx-auto h-20 w-20"
+          className="mx-auto h-20 w-24 bg-white/90 p-2"
           rounded="rounded-2xl"
+          fit="contain"
         />
         <p className="mt-2 font-body text-[11px] uppercase tracking-wider text-moon/45">
           where the stock came from

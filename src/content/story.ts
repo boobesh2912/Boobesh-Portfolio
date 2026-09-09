@@ -69,7 +69,7 @@ export const storySections: StorySection[] = [
     heading: "what I am doing right now",
     paragraphs: [
       "Currently I'm doing a Backend Development Engineer internship, mainly working with Python and FastAPI. It's a virtual internship at a reputed IT company, where I'm learning how backend systems actually work in real projects. But that's only one side of what I'm doing.",
-      "At the same time, I'm deeply interested in branding and strategic thinking, and I spend time working to build YCS as a brand. In simple words, I'm learning two things in parallel. How to build systems, and how to build perception around those systems. Backend engineering on one side, brand thinking on the other, and somewhere in between I'm still figuring out how both connect.",
+      "At the same time, I'm deeply interested in branding and strategic thinking, and I spend time working to build YCS, short for Your College Senior, as a brand. In simple words, I'm learning two things in parallel. How to build systems, and how to build perception around those systems. Backend engineering on one side, brand thinking on the other, and somewhere in between I'm still figuring out how both connect.",
     ],
   },
   {
@@ -82,9 +82,65 @@ export const storySections: StorySection[] = [
   },
 ];
 
+export const storyOpener = [
+  "Hey. Yeah, you. You clicked the weird pulsing circle in the corner instead of closing the tab. Respect. Come in, sit down, this room's a bit darker than the rest of the site on purpose.",
+  "Everything you saw before this was the marketer talking. This is just me talking. No positioning, no hooks, just the honest version.",
+];
+
+export const storyLoves: StorySection = {
+  heading: "things I love that have nothing to do with work",
+  paragraphs: [
+    "I love talking. Not small talk, the other kind, the kind you do on a stage or in front of a room that didn't ask to be pitched to. Give me a mic and an event and I will find a reason to say yes. There's a whole gallery of that further up the page if you scrolled past it.",
+    "Recently I tried dancing. I am not good at it. I am doing it anyway, because apparently I need at least one hobby that has nothing to do with growth, content or money, and dancing badly in a room by myself turned out to be exactly that.",
+  ],
+};
+
+export const storySong = {
+  intro:
+    "There's a Tamil lyric that has been stuck in my head for months. I don't fully know why. Some lines just move in and don't leave.",
+  lines: [
+    "உன்னை இன்று பார்த்ததும்",
+    "என்னை நானே கேட்க்கிறேன்",
+    "வைரம் ஒன்றை கையில் வைத்து",
+    "எங்கே தேடி அலைந்தாயோ",
+  ],
+};
+
 export const storyClosing = [
-  "If you read this far, I have one question for you. Who are you, actually? Not what your bio says. Not what your college calls you. Not what people assume. Who are you when nobody is watching?",
-  "Because honestly, I'm still figuring that out too.",
+  "If you read this far, I have one question for you, and I actually mean it. Who are you, actually? Not what your bio says. Not what your college calls you. Not what people assume about you in the first five minutes.",
+  "Who are you when nobody is watching? Because honestly, I'm still figuring that out too. Message me if you ever land on an answer, I'd genuinely like to know.",
 ];
 
 export const storySignOff = "Signing off, Boobesh AG (aka) Boo";
+
+export const thankYouNames = [
+  "Ganesan A",
+  "Bhuvaneshwari G",
+  "Akshaya AG",
+  "Charan Kumar SP",
+  "Suja K",
+  "Arivu Selvan DV",
+  "Aldo Einsty",
+  "G Surendar Thina",
+  "Deepak Kumar",
+  "Musha Ahamaed RY",
+  "Abinandhan",
+  "Bharanivelan",
+  "Aparana",
+  "Jaya Shakathi Kannan",
+  "CK Kumaravel",
+  "Venkatesh",
+  "Balaji Soundarajan",
+  "Radha Krishanan",
+  "Sneha",
+  "Niranjan",
+  "Abishua",
+  "Shanshank",
+  "Sameer",
+  "Divaakar",
+  "Arunachalam",
+  "Tejavi",
+  "Sanjay",
+  "Naveen Kumar",
+  "Anil Nair",
+];

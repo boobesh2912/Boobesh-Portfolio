@@ -34,6 +34,20 @@ const entries: Entry[] = [
     note: "Started as a Canva design shop, grew into full web development after I told a client I knew WordPress before I had ever opened it. Learned it that same week.",
   },
   {
+    year: "along the way",
+    kind: "work",
+    title: "Marketing Manager, YCS",
+    place: "Your College Senior, YouTube channel",
+    note: "Owned content marketing end to end. Focused on repurposing, and it showed up as better consistency and reach.",
+  },
+  {
+    year: "along the way",
+    kind: "work",
+    title: "Marketing Lead, Tribe Fortis",
+    place: "a fitness company that gamifies fitness",
+    note: "Script writing and creative strategy across kids, adults and corporate programs. Kept the output consistent across all three.",
+  },
+  {
     year: "2025",
     kind: "work",
     title: "Start The Up",

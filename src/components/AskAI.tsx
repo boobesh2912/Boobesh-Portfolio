@@ -43,7 +43,7 @@ export default function AskAI() {
         x: (rect.left + rect.width / 2) / window.innerWidth,
         y: (rect.top + rect.height / 2) / window.innerHeight,
       },
-      colors: ["#ff7a59", "#f4c95d", "#b9a8f0", "#8fa98a"],
+      colors: ["#4f8dff", "#f5c24c", "#8b7cf6", "#2dd4bf"],
     });
   };
 

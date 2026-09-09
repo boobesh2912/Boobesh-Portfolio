@@ -2,11 +2,16 @@
 
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import Link from "next/link";
 import {
+  storyOpener,
   storyIntro,
   storySections,
+  storyLoves,
+  storySong,
   storyClosing,
   storySignOff,
+  thankYouNames,
 } from "@/content/story";
 
 const dustPositions = [
@@ -17,6 +22,49 @@ const dustPositions = [
   { left: "50%", top: "40%", delay: 1.8 },
   { left: "90%", top: "55%", delay: 0.9 },
 ];
+
+function ExpandingBrainMeme() {
+  const tiers = [
+    { emoji: "🧠", caption: "make a content calendar" },
+    { emoji: "🧠✨", caption: "abandon the content calendar" },
+    { emoji: "🧠🌌", caption: "start a completely new project instead" },
+    { emoji: "🧠🌠💫", caption: "call it a pivot" },
+  ];
+  return (
+    <div className="mt-10 rounded-3xl border border-ink/10 bg-white/5 p-6">
+      <p className="mb-4 font-body text-xs font-bold uppercase tracking-[0.2em] text-ink-soft">
+        me, explained as a meme
+      </p>
+      <div className="space-y-3">
+        {tiers.map((t, i) => (
+          <div key={i} className="flex items-center gap-4">
+            <span className="text-2xl">{t.emoji}</span>
+            <p className="font-body text-sm text-ink/80">{t.caption}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function DrakeMeme() {
+  return (
+    <div className="mt-10 grid grid-cols-[auto_1fr] gap-3 rounded-3xl border border-ink/10 bg-white/5 p-4 sm:gap-4 sm:p-6">
+      <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-coral/20 text-2xl sm:h-20 sm:w-20">
+        🙅
+      </div>
+      <div className="flex items-center rounded-2xl bg-coral/10 px-4 py-3 font-body text-sm text-ink/80">
+        finishing one of the 50 projects on my drive
+      </div>
+      <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-sage/20 text-2xl sm:h-20 sm:w-20">
+        🙆
+      </div>
+      <div className="flex items-center rounded-2xl bg-sage/10 px-4 py-3 font-body text-sm text-ink/80">
+        starting project number 51
+      </div>
+    </div>
+  );
+}
 
 export default function PersonalCorner() {
   const [open, setOpen] = useState(false);
@@ -63,7 +111,7 @@ export default function PersonalCorner() {
       <AnimatePresence>
         {open && (
           <motion.div
-            className="fixed inset-0 z-[90] overflow-y-auto bg-[#160f0d]"
+            className="fixed inset-0 z-[90] overflow-y-auto bg-[#04070f]"
             initial={{ clipPath: "circle(0% at calc(100% - 40px) calc(100% - 40px))" }}
             animate={{ clipPath: "circle(150% at calc(100% - 40px) calc(100% - 40px))" }}
             exit={{ clipPath: "circle(0% at calc(100% - 40px) calc(100% - 40px))" }}
@@ -85,7 +133,7 @@ export default function PersonalCorner() {
             <button
               onClick={() => setOpen(false)}
               aria-label="close"
-              className="fixed right-5 top-5 z-10 flex h-11 w-11 items-center justify-center rounded-full border border-cream/20 bg-black/30 text-cream backdrop-blur transition-transform hover:rotate-90"
+              className="fixed right-5 top-5 z-10 flex h-11 w-11 items-center justify-center rounded-full border border-ink/20 bg-black/30 text-ink backdrop-blur transition-transform hover:rotate-90"
             >
               ✕
             </button>
@@ -94,30 +142,69 @@ export default function PersonalCorner() {
               <p className="font-hand text-3xl text-butter rotate-[-1deg]">
                 the door marked &quot;the real me&quot;
               </p>
-              <h1 className="mt-2 font-display text-3xl font-bold text-cream sm:text-4xl">
+              <h1 className="mt-2 font-display text-3xl font-bold text-ink sm:text-4xl">
                 who is Boobesh, actually?
               </h1>
 
-              <div className="mt-8 space-y-4 font-body text-base leading-relaxed text-cream/80">
+              <div className="mt-8 space-y-4 font-body text-base leading-relaxed text-ink">
+                {storyOpener.map((p, i) => (
+                  <p key={i} className="font-semibold">
+                    {p}
+                  </p>
+                ))}
+              </div>
+
+              <div className="mt-6 space-y-4 font-body text-base leading-relaxed text-ink/80">
                 {storyIntro.map((p, i) => (
                   <p key={i}>{p}</p>
                 ))}
               </div>
 
               {storySections.map((section) => (
-                <div key={section.heading} className="mt-10">
-                  <h2 className="font-display text-xl font-bold text-butter sm:text-2xl">
-                    {section.heading}
-                  </h2>
-                  <div className="mt-3 space-y-4 font-body text-base leading-relaxed text-cream/80">
-                    {section.paragraphs.map((p, i) => (
-                      <p key={i}>{p}</p>
-                    ))}
+                <div key={section.heading}>
+                  <div className="mt-10">
+                    <h2 className="font-display text-xl font-bold text-butter sm:text-2xl">
+                      {section.heading}
+                    </h2>
+                    <div className="mt-3 space-y-4 font-body text-base leading-relaxed text-ink/80">
+                      {section.paragraphs.map((p, i) => (
+                        <p key={i}>{p}</p>
+                      ))}
+                    </div>
                   </div>
+                  {section.heading === "another experiment I tried" && <ExpandingBrainMeme />}
+                  {section.heading === "so who am I actually" && <DrakeMeme />}
                 </div>
               ))}
 
-              <div className="mt-14 space-y-4 border-t border-cream/10 pt-10 font-body text-base leading-relaxed text-cream/80">
+              <div className="mt-10">
+                <h2 className="font-display text-xl font-bold text-butter sm:text-2xl">
+                  {storyLoves.heading}
+                </h2>
+                <div className="mt-3 space-y-4 font-body text-base leading-relaxed text-ink/80">
+                  {storyLoves.paragraphs.map((p, i) => (
+                    <p key={i}>{p}</p>
+                  ))}
+                </div>
+                <Link
+                  href="/#speaking"
+                  onClick={() => setOpen(false)}
+                  className="mt-3 inline-block font-hand text-lg text-coral hover:underline"
+                >
+                  see the stages I&apos;ve stood on →
+                </Link>
+              </div>
+
+              <div className="mt-10 rounded-3xl border border-ink/10 bg-white/5 p-6">
+                <p className="font-body text-sm text-ink-soft">{storySong.intro}</p>
+                <div className="mt-4 space-y-1 border-l-2 border-coral pl-4 font-hand text-xl leading-relaxed text-ink">
+                  {storySong.lines.map((line, i) => (
+                    <p key={i}>{line}</p>
+                  ))}
+                </div>
+              </div>
+
+              <div className="mt-14 space-y-4 border-t border-ink/10 pt-10 font-body text-base leading-relaxed text-ink/80">
                 {storyClosing.map((p, i) => (
                   <p key={i}>{p}</p>
                 ))}
@@ -127,12 +214,22 @@ export default function PersonalCorner() {
                 {storySignOff}
               </p>
 
-              <button
-                onClick={() => setOpen(false)}
-                className="mt-14 rounded-full border border-cream/30 px-6 py-3 font-body text-sm font-bold text-cream transition-colors hover:bg-cream hover:text-ink"
-              >
-                close the door
-              </button>
+              <div className="mt-16 border-t border-ink/10 pt-10 text-center">
+                <p className="font-hand text-2xl text-butter">thank you</p>
+                <p className="mx-auto mt-4 max-w-lg font-body text-sm leading-loose text-ink-soft">
+                  {thankYouNames.join(" · ")}
+                  <span className="text-ink/50"> · and +10,000 more</span>
+                </p>
+              </div>
+
+              <div className="mt-14 text-center">
+                <button
+                  onClick={() => setOpen(false)}
+                  className="rounded-full border border-ink/30 px-6 py-3 font-body text-sm font-bold text-ink transition-colors hover:bg-ink hover:text-cream"
+                >
+                  close the door
+                </button>
+              </div>
             </div>
           </motion.div>
         )}

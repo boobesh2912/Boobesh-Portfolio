@@ -2,22 +2,22 @@ const toolkit = [
   {
     group: "strategy",
     accent: "bg-lavender/40",
-    items: ["brand positioning", "go to market plans", "audience research", "content strategy"],
+    items: ["content strategy", "go to market plans (learning)", "product marketing (learning)", "creative ideation"],
   },
   {
     group: "content",
     accent: "bg-pink/40",
-    items: ["copywriting", "storytelling", "social content", "email that gets opened", "video scripts"],
+    items: ["script writing", "content hooks", "content repurposing", "content distribution", "personal branding"],
   },
   {
     group: "growth",
     accent: "bg-sage/40",
-    items: ["SEO", "funnel thinking", "campaign reporting", "A/B testing", "community building"],
+    items: ["social media management", "social growth", "team handling", "leading small teams"],
   },
   {
     group: "toolbox",
     accent: "bg-butter/50",
-    items: ["Figma", "Notion", "HubSpot", "GA4", "Canva", "a very organized spreadsheet"],
+    items: ["WordPress", "Canva", "Meta business tools", "Clay", "Mailchimp", "Google Analytics"],
   },
 ];
 

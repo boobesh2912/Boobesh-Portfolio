@@ -1,7 +1,7 @@
 const stats = [
-  { value: "5+", label: "years thinking in campaigns", rotate: "-rotate-2", bg: "bg-butter/60" },
-  { value: "40+", label: "brands I have found a voice for", rotate: "rotate-2", bg: "bg-pink/50" },
-  { value: "1000s", label: "pieces of content shipped", rotate: "-rotate-1", bg: "bg-sage/40" },
+  { value: "5+", label: "years hustling since 10th grade", rotate: "-rotate-2", bg: "bg-butter/60" },
+  { value: "10+", label: "websites built before I pivoted to content", rotate: "rotate-2", bg: "bg-pink/50" },
+  { value: "₹1L+", label: "earned solo, one WordPress project at a time", rotate: "-rotate-1", bg: "bg-sage/40" },
 ];
 
 export default function AboutSection() {

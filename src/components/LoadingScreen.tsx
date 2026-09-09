@@ -69,11 +69,11 @@ export default function LoadingScreen() {
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="font-hand text-3xl sm:text-4xl text-cream mb-1 rotate-[-2deg]"
+            className="font-hand text-3xl sm:text-4xl text-ink mb-1 rotate-[-2deg]"
           >
             hi, I&apos;m
           </motion.p>
-          <div className="flex items-end font-display font-bold text-cream text-[15vw] sm:text-[9vw] leading-none tracking-tight select-none">
+          <div className="flex items-end font-display font-bold text-ink text-[15vw] sm:text-[9vw] leading-none tracking-tight select-none">
             <span>B</span>
             <motion.span
               key={oCount}
@@ -91,7 +91,7 @@ export default function LoadingScreen() {
             initial={{ opacity: 0 }}
             animate={{ opacity: phase === "done" ? 1 : 0 }}
             transition={{ duration: 0.35 }}
-            className="font-body font-semibold text-cream/90 tracking-[0.3em] uppercase text-xs sm:text-sm mt-4"
+            className="font-body font-semibold text-ink/90 tracking-[0.3em] uppercase text-xs sm:text-sm mt-4"
           >
             content marketer, loading the good stuff
           </motion.p>

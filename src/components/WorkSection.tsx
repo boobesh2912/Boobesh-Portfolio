@@ -1,26 +1,29 @@
+import GariTechLogo from "@/components/GariTechLogo";
+
 const campaigns = [
   {
     title: "GariTech: a brand and a website out of nothing",
-    tag: "branding + web",
-    result: "went from zero web experience to shipping client sites, learning WordPress the same week I promised a client I already knew it",
+    tag: "branding + content marketing agency",
+    result: "started as a Canva design shop, learned WordPress the same week I promised a client I already knew it, now runs on referrals and trials",
     accent: "bg-lavender/40",
+    logo: true,
+  },
+  {
+    title: "YCS: growing a YouTube channel's whole content engine",
+    tag: "marketing manager",
+    result: "owned content marketing end to end for Your College Senior, with a focus on repurposing content for more consistency and reach",
+    accent: "bg-pink/40",
+  },
+  {
+    title: "Tribe Fortis: marketing for a fitness company that gamifies fitness",
+    tag: "marketing lead",
+    result: "led the team on script writing and creative strategy across kids, adults and corporate programs, kept the output consistent across all three",
+    accent: "bg-butter/50",
   },
   {
     title: "Start The Up: a community built on one idea",
     tag: "community + content",
     result: "four webinars in, students actually showing up to think like founders, before the momentum needed a second wind",
-    accent: "bg-pink/40",
-  },
-  {
-    title: "the LinkedIn habit that never broke",
-    tag: "content, consistently",
-    result: "the one platform I never stopped posting on, long enough for it to become the closest thing I have to a personal brand",
-    accent: "bg-butter/50",
-  },
-  {
-    title: "backend systems, learned in public",
-    tag: "python + fastapi",
-    result: "currently interning as a backend developer while building the YCS brand on the side, systems and perception at the same time",
     accent: "bg-sage/40",
   },
 ];
@@ -46,11 +49,14 @@ export default function WorkSection() {
               key={c.title}
               className="group rounded-3xl border border-line bg-paper p-7 shadow-[0_4px_0_0_var(--line)] transition-transform hover:-translate-y-1"
             >
-              <span
-                className={`${c.accent} inline-block rounded-full px-3 py-1 font-body text-xs font-bold uppercase tracking-wide text-ink`}
-              >
-                {c.tag}
-              </span>
+              <div className="flex items-center justify-between">
+                <span
+                  className={`${c.accent} inline-block rounded-full px-3 py-1 font-body text-xs font-bold uppercase tracking-wide text-ink`}
+                >
+                  {c.tag}
+                </span>
+                {c.logo && <GariTechLogo />}
+              </div>
               <h3 className="mt-4 font-display text-2xl font-bold text-ink">
                 {c.title}
               </h3>

@@ -3,9 +3,10 @@
 import confetti from "canvas-confetti";
 
 const stamps = [
-  { label: "linkedin", href: "https://linkedin.com" },
-  { label: "twitter/x", href: "https://twitter.com" },
-  { label: "instagram", href: "https://instagram.com" },
+  { label: "linkedin", href: "https://www.linkedin.com/in/boobesh2912" },
+  { label: "x", href: "https://www.x.com/buildwithboo" },
+  { label: "instagram", href: "https://www.instagram.com/boobeshganesan" },
+  { label: "youtube", href: "https://www.youtube.com/@dreamsofboo" },
   { label: "email", href: "mailto:hello@boobesh.com" },
 ];
 
@@ -20,7 +21,7 @@ export default function Footer() {
         x: (rect.left + rect.width / 2) / window.innerWidth,
         y: (rect.top + rect.height / 2) / window.innerHeight,
       },
-      colors: ["#ff7a59", "#f4c95d", "#b9a8f0", "#8fa98a", "#f6a6b2"],
+      colors: ["#4f8dff", "#f5c24c", "#8b7cf6", "#2dd4bf", "#f472b6"],
     });
   };
 

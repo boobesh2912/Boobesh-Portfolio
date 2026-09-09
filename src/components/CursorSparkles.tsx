@@ -24,7 +24,7 @@ export default function CursorSparkles() {
       el.style.top = `${e.clientY}px`;
       el.style.pointerEvents = "none";
       el.style.fontSize = `${10 + Math.random() * 8}px`;
-      el.style.color = ["#ff7a59", "#f4c95d", "#b9a8f0", "#8fa98a"][
+      el.style.color = ["#4f8dff", "#f5c24c", "#8b7cf6", "#2dd4bf"][
         Math.floor(Math.random() * 4)
       ];
       el.style.zIndex = "9999";

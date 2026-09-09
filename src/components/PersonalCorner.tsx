@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
 import {
@@ -9,6 +9,7 @@ import {
   storySections,
   storyLoves,
   storySong,
+  storyPositioning,
   storyClosing,
   storySignOff,
   thankYouNames,
@@ -22,6 +23,13 @@ const dustPositions = [
   { left: "50%", top: "40%", delay: 1.8 },
   { left: "90%", top: "55%", delay: 0.9 },
 ];
+
+const raindrops = Array.from({ length: 28 }, (_, i) => ({
+  left: `${(i * 37) % 100}%`,
+  duration: 1.4 + ((i * 13) % 10) / 10,
+  delay: ((i * 7) % 20) / 10,
+  height: 30 + ((i * 17) % 40),
+}));
 
 function ExpandingBrainMeme() {
   const tiers = [
@@ -62,6 +70,106 @@ function DrakeMeme() {
       <div className="flex items-center rounded-2xl bg-sage/10 px-4 py-3 font-body text-sm text-ink/80">
         starting project number 51
       </div>
+    </div>
+  );
+}
+
+function RainLayer() {
+  return (
+    <div className="pointer-events-none absolute inset-0 overflow-hidden opacity-30">
+      {raindrops.map((d, i) => (
+        <span
+          key={i}
+          className="absolute top-[-10%] w-px bg-gradient-to-b from-transparent via-[#c9d6ff]/70 to-transparent"
+          style={{
+            left: d.left,
+            height: `${d.height}px`,
+            animation: `rainfall ${d.duration}s linear ${d.delay}s infinite`,
+          }}
+        />
+      ))}
+    </div>
+  );
+}
+
+function AmbientAudio({ active }: { active: boolean }) {
+  const ref = useRef<HTMLAudioElement>(null);
+  const [muted, setMuted] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    if (active && !muted) {
+      el.volume = 0.35;
+      el.play().catch(() => {
+        /* no audio file yet, or browser blocked it, silently ignore */
+      });
+    } else {
+      el.pause();
+    }
+  }, [active, muted]);
+
+  return (
+    <>
+      <audio ref={ref} loop src="/kadhaippoma-instrumental.mp3" />
+      <button
+        onClick={() => setMuted((m) => !m)}
+        className="fixed left-5 top-5 z-10 flex items-center gap-2 rounded-full border border-ink/20 bg-black/30 px-3 py-2 font-body text-xs font-bold text-ink backdrop-blur"
+      >
+        {muted ? "🔇" : "🎵"} Kadhaippoma, OMK
+      </button>
+    </>
+  );
+}
+
+function LetterWidget() {
+  const [text, setText] = useState("");
+  const [open, setOpen] = useState(false);
+
+  const send = () => {
+    const body = encodeURIComponent(text || "Hey Boo, just wanted to say hi.");
+    window.location.href = `mailto:dreamsofboo@gmail.com?subject=${encodeURIComponent(
+      "a letter for Boo"
+    )}&body=${body}`;
+  };
+
+  return (
+    <div className="fixed bottom-5 right-5 z-10">
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={{ opacity: 0, y: 12, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 12, scale: 0.95 }}
+            className="mb-3 w-72 rounded-2xl border border-ink/15 bg-[#0a0f1a]/95 p-4 shadow-2xl backdrop-blur"
+          >
+            <p className="font-hand text-lg text-butter">write me a letter</p>
+            <p className="mt-1 font-body text-xs text-ink-soft">
+              say whatever you want. I&apos;ll give you something back.
+            </p>
+            <textarea
+              value={text}
+              onChange={(e) => setText(e.target.value)}
+              rows={4}
+              placeholder="dear boo,"
+              className="mt-3 w-full rounded-xl border border-ink/15 bg-black/30 p-3 font-body text-sm text-ink placeholder:text-ink-soft/50 focus:outline-none"
+            />
+            <button
+              onClick={send}
+              className="mt-3 w-full rounded-full bg-butter px-4 py-2 font-body text-sm font-bold text-[#04070f]"
+            >
+              send it to my inbox
+            </button>
+          </motion.div>
+        )}
+      </AnimatePresence>
+      <button
+        onClick={() => setOpen((o) => !o)}
+        className="flex h-14 w-14 items-center justify-center rounded-full bg-butter text-2xl shadow-[0_4px_0_0_rgba(0,0,0,0.3)]"
+        aria-label="write me a letter"
+      >
+        ✉️
+      </button>
     </div>
   );
 }
@@ -118,9 +226,11 @@ export default function PersonalCorner() {
             transition={{ duration: 0.65, ease: [0.76, 0, 0.24, 1] }}
           >
             <div className="pointer-events-none fixed inset-0">
-              <div className="absolute -top-1/4 left-1/2 h-[70vh] w-[70vh] -translate-x-1/2 rounded-full bg-coral/25 blur-[120px]" />
-              <div className="absolute bottom-0 right-0 h-[50vh] w-[50vh] rounded-full bg-pink/10 blur-[100px]" />
+              <div className="absolute -top-10 right-10 h-24 w-24 rounded-full bg-[#c9d6ff]/20 blur-2xl" />
+              <div className="absolute -top-1/4 left-1/2 h-[70vh] w-[70vh] -translate-x-1/2 rounded-full bg-[#8a2c2c]/25 blur-[130px]" />
+              <div className="absolute bottom-0 right-0 h-[50vh] w-[50vh] rounded-full bg-[#ff7a59]/10 blur-[110px]" />
               <div className="grain absolute inset-0 opacity-20" />
+              <RainLayer />
               {dustPositions.map((d, i) => (
                 <span
                   key={i}
@@ -129,6 +239,9 @@ export default function PersonalCorner() {
                 />
               ))}
             </div>
+
+            <AmbientAudio active={open} />
+            <LetterWidget />
 
             <button
               onClick={() => setOpen(false)}
@@ -196,10 +309,34 @@ export default function PersonalCorner() {
               </div>
 
               <div className="mt-10 rounded-3xl border border-ink/10 bg-white/5 p-6">
-                <p className="font-body text-sm text-ink-soft">{storySong.intro}</p>
+                <div className="flex items-center gap-3">
+                  <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-butter/20 text-lg">
+                    🎬
+                  </span>
+                  <div>
+                    <p className="font-display text-sm font-bold text-ink">
+                      {storySong.title}
+                    </p>
+                    <p className="font-body text-xs text-ink-soft">
+                      from {storySong.movie}
+                    </p>
+                  </div>
+                </div>
+                <p className="mt-4 font-body text-sm text-ink-soft">{storySong.intro}</p>
                 <div className="mt-4 space-y-1 border-l-2 border-coral pl-4 font-hand text-xl leading-relaxed text-ink">
                   {storySong.lines.map((line, i) => (
                     <p key={i}>{line}</p>
+                  ))}
+                </div>
+              </div>
+
+              <div className="mt-10 rounded-3xl border border-butter/30 bg-butter/5 p-6">
+                <p className="font-body text-xs font-bold uppercase tracking-[0.2em] text-butter">
+                  where I stand today
+                </p>
+                <div className="mt-3 space-y-3 font-body text-base leading-relaxed text-ink/80">
+                  {storyPositioning.map((p, i) => (
+                    <p key={i}>{p}</p>
                   ))}
                 </div>
               </div>

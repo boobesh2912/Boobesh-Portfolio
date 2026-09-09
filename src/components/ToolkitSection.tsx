@@ -1,3 +1,5 @@
+import Reveal from "@/components/Reveal";
+
 const toolkit = [
   {
     group: "strategy",
@@ -25,17 +27,25 @@ export default function ToolkitSection() {
   return (
     <section id="toolkit" className="px-4 py-20 sm:px-8">
       <div className="mx-auto max-w-6xl">
-        <div className="mb-10 text-center">
+        <Reveal className="mb-10 text-center">
           <p className="font-hand text-2xl text-coral-deep">what I actually work with</p>
           <h2 className="mt-1 font-display text-3xl font-bold text-ink sm:text-4xl">
             the marketer&apos;s toolkit
           </h2>
-        </div>
+          <p className="mx-auto mt-2 max-w-md font-body text-sm text-ink-soft">
+            No 47-skill wall. Just what I actually reach for on a normal
+            Tuesday.
+          </p>
+        </Reveal>
 
         <div className="grid gap-6 sm:grid-cols-2">
-          {toolkit.map((group) => (
-            <div
+          {toolkit.map((group, gi) => (
+            <Reveal
               key={group.group}
+              delay={0.08 * gi}
+              className={gi % 3 === 0 ? "sm:rotate-[-0.4deg]" : "sm:rotate-[0.4deg]"}
+            >
+            <div
               className="rounded-3xl border border-line bg-paper p-6 shadow-[0_4px_0_0_var(--line)]"
             >
               <p className="mb-4 font-body text-xs font-bold uppercase tracking-[0.25em] text-ink-soft">
@@ -54,6 +64,7 @@ export default function ToolkitSection() {
                 ))}
               </div>
             </div>
+            </Reveal>
           ))}
         </div>
       </div>

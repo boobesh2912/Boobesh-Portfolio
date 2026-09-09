@@ -26,7 +26,17 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://boobesh.com"),
   title: "Boobesh — content marketer, corner of the internet",
   description:
-    "Boobesh's corner of the internet. Marketer first, always. Notes on campaigns, content and the work in between.",
+    "Boobesh AG is a content marketer and founder of GariTech. Marketer first, always. Notes on campaigns, content and the work in between.",
+  keywords: [
+    "Boobesh AG",
+    "Boobesh",
+    "GariTech",
+    "content marketer",
+    "YCS Your College Senior",
+    "Tribe Fortis marketing",
+  ],
+  authors: [{ name: "Boobesh AG" }],
+  alternates: { canonical: "https://boobesh.com" },
   openGraph: {
     title: "Boobesh — content marketer",
     description:
@@ -35,6 +45,33 @@ export const metadata: Metadata = {
     siteName: "boobesh.com",
     type: "website",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "Boobesh — content marketer",
+    description:
+      "Marketer first, always. Campaigns, content and dispatches from my corner of the internet.",
+  },
+};
+
+const personJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Boobesh AG",
+  alternateName: "Boo",
+  url: "https://boobesh.com",
+  jobTitle: "Content Marketer",
+  worksFor: {
+    "@type": "Organization",
+    name: "GariTech",
+  },
+  sameAs: [
+    "https://www.linkedin.com/in/boobesh2912",
+    "https://www.x.com/buildwithboo",
+    "https://www.instagram.com/boobeshganesan",
+    "https://www.youtube.com/@dreamsofboo",
+  ],
+  description:
+    "Boobesh AG is a content marketer and founder of GariTech, currently interning as a backend developer (Python, FastAPI).",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
@@ -44,6 +81,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${fredoka.variable} ${caveat.variable} ${manrope.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-cream text-ink font-body">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+        />
         <CursorSparkles />
         {children}
         <PersonalCorner />

@@ -148,6 +148,15 @@ body {
   text-decoration: underline;
 }
 
+@keyframes rainfall {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(110vh);
+  }
+}
+
 .tape {
   position: relative;
 }

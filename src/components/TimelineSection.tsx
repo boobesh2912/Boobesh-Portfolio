@@ -1,3 +1,7 @@
+"use client";
+
+import { motion } from "framer-motion";
+
 type Entry = {
   year: string;
   kind: "work" | "hustle" | "school";
@@ -67,16 +71,33 @@ export default function TimelineSection() {
   return (
     <section id="timeline" className="px-4 py-20 sm:px-8">
       <div className="mx-auto max-w-4xl">
-        <div className="mb-10 text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="mb-10 text-center"
+        >
           <p className="font-hand text-2xl text-coral-deep">how I got here</p>
           <h2 className="mt-1 font-display text-3xl font-bold text-ink sm:text-4xl">
             the timeline, roughly
           </h2>
-        </div>
+          <p className="mx-auto mt-2 max-w-md font-body text-sm text-ink-soft">
+            None of this was planned this cleanly. It just reads that way in
+            hindsight.
+          </p>
+        </motion.div>
 
         <div className="relative border-l-2 border-dashed border-line pl-8">
           {entries.map((entry, i) => (
-            <div key={entry.title} className="relative mb-10 last:mb-0">
+            <motion.div
+              key={entry.title}
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.5, delay: i * 0.06 }}
+              className="relative mb-10 last:mb-0"
+            >
               <span
                 className={`absolute -left-[2.55rem] top-1 flex h-6 w-6 items-center justify-center rounded-full border-2 border-cream ${dotColor[entry.kind]}`}
               />
@@ -96,7 +117,7 @@ export default function TimelineSection() {
                 </p>
                 <p className="mt-2 font-body text-sm text-ink-soft">{entry.note}</p>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
 

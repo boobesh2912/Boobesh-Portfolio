@@ -21,6 +21,14 @@ export async function generateMetadata({
   return {
     title: `${post.title} — Boobesh`,
     description: post.excerpt,
+    alternates: { canonical: `https://boobesh.com/blog/${slug}` },
+    openGraph: {
+      title: post.title,
+      description: post.excerpt,
+      type: "article",
+      publishedTime: post.date,
+      url: `https://boobesh.com/blog/${slug}`,
+    },
   };
 }
 
@@ -33,8 +41,22 @@ export default async function BlogPostPage({
   const post = await getPostBySlug(slug);
   if (!post) notFound();
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: post.title,
+    description: post.excerpt,
+    datePublished: post.date,
+    author: { "@type": "Person", name: "Boobesh AG" },
+    url: `https://boobesh.com/blog/${slug}`,
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <NavBar />
       <main className="flex-1 px-4 py-16 sm:px-8">
         <article className="mx-auto max-w-2xl">

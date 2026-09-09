@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Fraunces, Caveat, Manrope } from "next/font/google";
 import "./globals.css";
-import CursorSparkles from "@/components/CursorSparkles";
+import CustomCursor from "@/components/CustomCursor";
 import PersonalDoor from "@/components/PersonalDoor";
 
 const fraunces = Fraunces({
@@ -88,7 +88,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
         />
-        <CursorSparkles />
+        <CustomCursor />
         {children}
         <PersonalDoor />
       </body>

@@ -121,6 +121,49 @@ body {
   );
 }
 
+/* ---------- custom cursor ---------- */
+
+.has-custom-cursor,
+.has-custom-cursor a,
+.has-custom-cursor button,
+.has-custom-cursor [role="button"] {
+  cursor: none;
+}
+
+/* difference blending keeps it visible on bone paper and on the night page */
+.cursor-dot,
+.cursor-ring {
+  mix-blend-mode: difference;
+  transition: opacity 0.25s ease;
+  will-change: transform;
+}
+.cursor-dot {
+  background: #ffffff;
+}
+.cursor-ring {
+  border: 1px solid #ffffff;
+  transition: opacity 0.25s ease, width 0.22s ease, height 0.22s ease,
+    background-color 0.22s ease, border-color 0.22s ease;
+}
+.cursor-ring-active {
+  width: 3.25rem;
+  height: 3.25rem;
+  background: rgba(255, 255, 255, 0.14);
+}
+
+/* ---------- torch ---------- */
+
+.torch-layer {
+  background: radial-gradient(
+    circle var(--torch-r, 190px) at var(--torch-x, 50%) var(--torch-y, 50%),
+    transparent 0%,
+    transparent 42%,
+    rgba(6, 5, 3, 0.55) 72%,
+    rgba(6, 5, 3, 0.88) 100%
+  );
+  transition: opacity 0.4s ease;
+}
+
 /* ---------- motion ---------- */
 
 @keyframes blob-float {

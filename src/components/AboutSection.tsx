@@ -1,12 +1,8 @@
+import CountUp from "@/components/CountUp";
 import Reveal from "@/components/Reveal";
 import TiltCard from "@/components/TiltCard";
 
 const stats = [
-  {
-    value: "₹1 lakh",
-    label: "made my first one before I turned 21, one WordPress project at a time",
-    tone: "bg-butter/25 border-butter/40",
-  },
   {
     value: "3 teams",
     label: "marketing at Tribe Fortis, content at YCS, my own at Gari Tech",
@@ -58,6 +54,19 @@ export default function AboutSection() {
           </Reveal>
 
           <div className="grid gap-4">
+            <Reveal>
+              <TiltCard>
+                <div className="rounded-2xl border border-butter/40 bg-butter/25 p-6">
+                  <p className="font-display text-4xl font-semibold tabular-nums text-ink sm:text-5xl">
+                    <CountUp to={100000} prefix="₹" />
+                  </p>
+                  <p className="mt-2 font-body text-sm leading-relaxed text-ink-soft">
+                    my first one lakh, made before I turned 21
+                  </p>
+                </div>
+              </TiltCard>
+            </Reveal>
+
             {stats.map((s, i) => (
               <Reveal key={s.value} delay={0.1 * (i + 1)}>
                 <TiltCard>

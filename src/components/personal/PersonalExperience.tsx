@@ -4,8 +4,12 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import Marked from "@/components/Marked";
 import MusicToggle from "@/components/MusicToggle";
+import TorchLight from "@/components/TorchLight";
 import NightRoom from "@/components/personal/NightRoom";
 import LetterWidget from "@/components/personal/LetterWidget";
+import ChapterVisual from "@/components/personal/ChapterVisual";
+import ProjectGame from "@/components/personal/ProjectGame";
+import CycleEnding from "@/components/personal/CycleEnding";
 import {
   DriveStats,
   LabelCloud,
@@ -84,8 +88,9 @@ export default function PersonalExperience() {
         transition={{ duration: 0.9, ease: [0.76, 0, 0.24, 1] }}
         className="relative"
       >
-        <div className="fixed left-5 top-5 z-30">
+        <div className="fixed left-5 top-5 z-[80] flex items-center gap-2">
           <MusicToggle />
+          <TorchLight tone="dark" />
         </div>
 
         <Link
@@ -155,6 +160,7 @@ export default function PersonalExperience() {
                 heading={section.heading!}
                 paragraphs={section.paragraphs}
               />
+              <ChapterVisual heading={section.heading!} />
               {interludes[section.heading!] ?? null}
             </div>
           ))}
@@ -163,7 +169,7 @@ export default function PersonalExperience() {
         {/* the song gets its own room */}
         <SongSection />
 
-        <div className="relative mx-auto max-w-2xl px-6 pb-32 sm:px-8">
+        <div className="relative mx-auto max-w-2xl px-6 pb-10 sm:px-8">
           {/* what I love, as cards */}
           <motion.section {...fadeUp} className="mt-24">
             <h2 className="font-display text-2xl font-semibold text-moon sm:text-[1.75rem]">
@@ -220,6 +226,9 @@ export default function PersonalExperience() {
             {storySignOff}
           </motion.p>
 
+          {/* a break from reading */}
+          <ProjectGame />
+
           {/* thank you */}
           <motion.div
             {...fadeUp}
@@ -231,16 +240,9 @@ export default function PersonalExperience() {
               <span className="text-moon/30">  ·  and +10,000 more</span>
             </p>
           </motion.div>
-
-          <motion.div {...fadeUp} className="mt-20 text-center">
-            <Link
-              href="/"
-              className="inline-block rounded-full border border-moon/25 px-7 py-3 font-body text-sm font-semibold text-moon transition-colors hover:bg-moon hover:text-night"
-            >
-              close the door
-            </Link>
-          </motion.div>
         </div>
+
+        <CycleEnding />
       </motion.div>
     </>
   );

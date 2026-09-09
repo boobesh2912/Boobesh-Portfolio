@@ -35,7 +35,7 @@ const services = [
 
 export default function WhatIDoSection() {
   return (
-    <section id="services" className="border-y border-line bg-cream-deep/40 px-4 py-24 sm:px-8">
+    <section id="services" className="bg-dots border-y border-line bg-cream-deep/40 px-4 py-24 sm:px-8">
       <div className="mx-auto max-w-6xl">
         <Reveal>
           <p className="font-body text-[11px] font-semibold uppercase tracking-[0.25em] text-coral">

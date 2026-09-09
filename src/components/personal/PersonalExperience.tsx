@@ -5,11 +5,16 @@ import { motion } from "framer-motion";
 import Marked from "@/components/Marked";
 import MusicToggle from "@/components/MusicToggle";
 import TorchLight from "@/components/TorchLight";
+import ThemeToggle from "@/components/ThemeToggle";
 import NightRoom from "@/components/personal/NightRoom";
 import LetterWidget from "@/components/personal/LetterWidget";
 import ChapterVisual from "@/components/personal/ChapterVisual";
 import ProjectGame from "@/components/personal/ProjectGame";
 import CycleEnding from "@/components/personal/CycleEnding";
+import LinkedInFlank from "@/components/personal/LinkedInFlank";
+import GariTechDrop from "@/components/personal/GariTechDrop";
+import ScrollRider from "@/components/personal/ScrollRider";
+import TvSocials from "@/components/personal/TvSocials";
 import {
   DriveStats,
   LabelCloud,
@@ -82,15 +87,27 @@ export default function PersonalExperience() {
     <>
       <NightRoom />
 
+      {/*
+        The round expansion is played by the door on the way in. Repeating it
+        here as a clip-path on the story wrapper was hiding every chapter past
+        the first screen and clipping the fixed rider with it, so the arrival
+        is a curtain that lifts instead. Nothing clips the scrolling content.
+      */}
       <motion.div
-        initial={{ clipPath: "circle(0% at calc(100% - 51px) calc(100% - 51px))" }}
-        animate={{ clipPath: "circle(160% at calc(100% - 51px) calc(100% - 51px))" }}
-        transition={{ duration: 0.9, ease: [0.76, 0, 0.24, 1] }}
-        className="relative"
-      >
+        aria-hidden
+        initial={{ opacity: 1 }}
+        animate={{ opacity: 0 }}
+        transition={{ duration: 0.7, ease: [0.76, 0, 0.24, 1] }}
+        className="pointer-events-none fixed inset-0 z-[200] bg-night"
+      />
+
+      <div className="relative">
+        <ScrollRider />
+
         <div className="fixed left-5 top-5 z-[80] flex items-center gap-2">
           <MusicToggle />
           <TorchLight tone="dark" />
+          <ThemeToggle />
         </div>
 
         <Link
@@ -153,17 +170,30 @@ export default function PersonalExperience() {
 
         {/* chapters with breathers between them */}
         <div className="relative mx-auto max-w-2xl px-6 sm:px-8">
-          {storySections.map((section, i) => (
-            <div key={section.heading}>
+          {storySections.map((section, i) => {
+            const heading = section.heading!;
+            const chapter = (
               <Chapter
                 index={i + 1}
-                heading={section.heading!}
+                heading={heading}
                 paragraphs={section.paragraphs}
               />
-              <ChapterVisual heading={section.heading!} />
-              {interludes[section.heading!] ?? null}
-            </div>
-          ))}
+            );
+
+            return (
+              <div key={heading}>
+                {heading === "then linkedin entered my life" ? (
+                  <LinkedInFlank>{chapter}</LinkedInFlank>
+                ) : heading === "then gari tech happened" ? (
+                  <GariTechDrop>{chapter}</GariTechDrop>
+                ) : (
+                  chapter
+                )}
+                <ChapterVisual heading={heading} />
+                {interludes[heading] ?? null}
+              </div>
+            );
+          })}
         </div>
 
         {/* the song gets its own room */}
@@ -229,6 +259,8 @@ export default function PersonalExperience() {
           {/* a break from reading */}
           <ProjectGame />
 
+          <TvSocials />
+
           {/* thank you */}
           <motion.div
             {...fadeUp}
@@ -243,7 +275,7 @@ export default function PersonalExperience() {
         </div>
 
         <CycleEnding />
-      </motion.div>
+      </div>
     </>
   );
 }

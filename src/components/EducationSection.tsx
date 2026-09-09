@@ -4,7 +4,7 @@ import { schooling, teachers } from "@/content/education";
 
 export default function EducationSection() {
   return (
-    <section id="education" className="px-4 py-24 sm:px-8">
+    <section id="education" className="wash-sage px-4 py-24 sm:px-8">
       <div className="mx-auto max-w-5xl">
         <Reveal>
           <p className="font-body text-[11px] font-semibold uppercase tracking-[0.25em] text-coral">

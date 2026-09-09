@@ -19,11 +19,48 @@
   --paper: #fffdf7;
   --line: #ded3bf;
 
-  /* night palette, used by the personal page */
+  /* the personal page room, lit for daytime by default */
+  --night: #efe7d7;
+  --night-soft: #e4dac6;
+  --ember: #b8551f;
+  --moon: #2a2318;
+  --sky-top: #cfe0ef;
+  --sky-bottom: #f6ecd8;
+  --orb: #fff4d2;
+  --orb-glow: 250, 214, 128;
+  --room-veil: 247, 240, 226;
+  --card-skin: 23, 20, 15;
+}
+
+/*
+  Dark theme. Warm charcoal rather than blue-black, so it reads as the same
+  site at night rather than a different one.
+*/
+:root[data-theme="dark"] {
+  --cream: #14110d;
+  --cream-deep: #1b1712;
+  --ink: #f2ede2;
+  --ink-soft: #a99e8c;
+  --coral: #e07a55;
+  --coral-deep: #f0977a;
+  --sage: #93ab7a;
+  --sage-deep: #a9bd93;
+  --butter: #e8bb5c;
+  --lavender: #b494a8;
+  --pink: #d99f8c;
+  --paper: #1f1a14;
+  --line: #342c22;
+
   --night: #14100c;
   --night-soft: #1e1811;
   --ember: #e08a4a;
   --moon: #d9d3c4;
+  --sky-top: #241d16;
+  --sky-bottom: #0d0a07;
+  --orb: #fffdf6;
+  --orb-glow: 217, 211, 196;
+  --room-veil: 8, 6, 4;
+  --card-skin: 255, 255, 255;
 }
 
 @theme inline {
@@ -44,6 +81,7 @@
   --color-night-soft: var(--night-soft);
   --color-ember: var(--ember);
   --color-moon: var(--moon);
+  --color-orb: var(--orb);
 
   --font-display: var(--font-display);
   --font-hand: var(--font-hand);
@@ -61,6 +99,24 @@ html {
 body {
   background: var(--cream);
   color: var(--ink);
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+/*
+  Surfaces on the personal page are tinted from the room colour, so one set
+  of classes works in both day and night.
+*/
+.skin {
+  background: rgba(var(--card-skin), 0.04);
+}
+.skin-strong {
+  background: rgba(var(--card-skin), 0.07);
+}
+.skin-line {
+  border-color: rgba(var(--card-skin), 0.12);
+}
+.veil {
+  background: rgba(var(--room-veil), 0.35);
 }
 
 ::selection {
@@ -149,6 +205,76 @@ body {
   width: 3.25rem;
   height: 3.25rem;
   background: rgba(255, 255, 255, 0.14);
+}
+
+/* ---------- section textures ----------
+   Every one is mixed from the palette, so the page stays one family.
+*/
+
+.bg-dots {
+  background-image: radial-gradient(
+    color-mix(in srgb, var(--ink) 13%, transparent) 1px,
+    transparent 1px
+  );
+  background-size: 22px 22px;
+}
+
+.bg-grid {
+  background-image: linear-gradient(
+      color-mix(in srgb, var(--ink) 6%, transparent) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      color-mix(in srgb, var(--ink) 6%, transparent) 1px,
+      transparent 1px
+    );
+  background-size: 46px 46px;
+}
+
+.bg-rules {
+  background-image: repeating-linear-gradient(
+    to bottom,
+    color-mix(in srgb, var(--ink) 5%, transparent) 0 1px,
+    transparent 1px 34px
+  );
+}
+
+.bg-diagonal {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    color-mix(in srgb, var(--coral) 7%, transparent) 0 1px,
+    transparent 1px 13px
+  );
+}
+
+.wash-clay {
+  background-image: radial-gradient(
+    70% 60% at 12% 0%,
+    color-mix(in srgb, var(--coral) 13%, transparent),
+    transparent 70%
+  );
+}
+.wash-butter {
+  background-image: radial-gradient(
+    65% 60% at 88% 4%,
+    color-mix(in srgb, var(--butter) 20%, transparent),
+    transparent 72%
+  );
+}
+.wash-sage {
+  background-image: radial-gradient(
+    70% 65% at 50% 100%,
+    color-mix(in srgb, var(--sage) 16%, transparent),
+    transparent 72%
+  );
+}
+.wash-plum {
+  background-image: radial-gradient(
+    60% 60% at 5% 100%,
+    color-mix(in srgb, var(--lavender) 18%, transparent),
+    transparent 70%
+  );
 }
 
 /* ---------- torch ---------- */

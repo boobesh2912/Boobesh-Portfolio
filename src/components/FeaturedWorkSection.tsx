@@ -43,7 +43,7 @@ const featured = [
 
 export default function FeaturedWorkSection() {
   return (
-    <section id="work" className="px-4 py-24 sm:px-8">
+    <section id="work" className="wash-clay px-4 py-24 sm:px-8">
       <div className="mx-auto max-w-6xl">
         <Reveal>
           <p className="font-body text-[11px] font-semibold uppercase tracking-[0.25em] text-coral">

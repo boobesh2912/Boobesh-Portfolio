@@ -26,6 +26,10 @@ export default function PersonalDoor() {
     unlock();
     router.prefetch("/personal");
     setTimeout(() => router.push("/personal"), 640);
+    // This component lives in the root layout, so it never unmounts on
+    // navigation. Without clearing the flag the expand overlay is still
+    // covering the page when you come back, which looked like a dead screen.
+    setTimeout(() => setOpening(false), 1500);
   };
 
   return (

@@ -11,7 +11,7 @@ import ToolkitSection from "@/components/ToolkitSection";
 import SpeakingSection from "@/components/SpeakingSection";
 import WhatILoveSection from "@/components/WhatILoveSection";
 import BlogTeaserSection from "@/components/BlogTeaserSection";
-import ContentFeedSection from "@/components/ContentFeedSection";
+import StampSocials from "@/components/StampSocials";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -31,7 +31,7 @@ export default function Home() {
         <SpeakingSection />
         <WhatILoveSection />
         <BlogTeaserSection />
-        <ContentFeedSection />
+        <StampSocials />
       </main>
       <Footer />
     </>

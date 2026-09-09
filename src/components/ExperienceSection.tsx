@@ -23,7 +23,7 @@ export default function ExperienceSection() {
   return (
     <section
       id="experience"
-      className="border-y border-line bg-cream-deep/40 px-4 py-24 sm:px-8"
+      className="bg-rules border-y border-line bg-cream-deep/40 px-4 py-24 sm:px-8"
     >
       <div className="mx-auto max-w-4xl">
         <Reveal>

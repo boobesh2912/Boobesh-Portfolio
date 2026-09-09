@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import ThemeToggle from "@/components/ThemeToggle";
 
 const links = [
   { href: "/#about", label: "who I am" },
@@ -49,16 +50,21 @@ export default function NavBar() {
           ))}
         </nav>
 
-        <a
-          href="mailto:dreamsofboo@gmail.com"
-          className="hidden rounded-full bg-ink px-5 py-2.5 font-body text-[13px] font-semibold text-cream transition-transform hover:-translate-y-0.5 md:inline-block"
-        >
-          say hi
-        </a>
+        <div className="hidden items-center gap-3 md:flex">
+          <ThemeToggle />
+          <a
+            href="mailto:dreamsofboo@gmail.com"
+            className="rounded-full bg-ink px-5 py-2.5 font-body text-[13px] font-semibold text-cream transition-transform hover:-translate-y-0.5"
+          >
+            say hi
+          </a>
+        </div>
 
+        <div className="flex items-center gap-2 md:hidden">
+          <ThemeToggle />
         <button
           onClick={() => setOpen(!open)}
-          className="flex h-9 w-9 flex-col items-center justify-center gap-1 rounded-full border border-line md:hidden"
+          className="flex h-9 w-9 flex-col items-center justify-center gap-1 rounded-full border border-line"
           aria-label="toggle menu"
           aria-expanded={open}
         >
@@ -73,6 +79,7 @@ export default function NavBar() {
             }`}
           />
         </button>
+        </div>
       </div>
 
       {open && (

@@ -39,7 +39,7 @@ const ventures = [
 
 export default function VenturesSection() {
   return (
-    <section className="px-4 pb-24 sm:px-8">
+    <section className="bg-diagonal px-4 pb-24 sm:px-8">
       <div className="mx-auto max-w-6xl">
         <Reveal>
           <p className="font-hand text-2xl text-coral-deep">

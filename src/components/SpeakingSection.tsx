@@ -17,7 +17,7 @@ export default function SpeakingSection() {
     setFlipped((prev) => ({ ...prev, [id]: !prev[id] }));
 
   return (
-    <section id="speaking" className="px-4 py-20 sm:px-8">
+    <section id="speaking" className="wash-plum px-4 py-20 sm:px-8">
       <div className="mx-auto max-w-6xl">
         <div className="mb-10 text-center">
           <p className="font-hand text-2xl text-coral-deep">a mic makes everything better</p>

@@ -104,33 +104,33 @@ export default function CycleEnding() {
               />
               {/* arm to the bars */}
               <path d="M110 30 L128 36" stroke="#000000" strokeWidth="5" strokeLinecap="round" fill="none" />
-              {/* legs, pedalling */}
-              <motion.path
-                d="M100 62 L104 78 L104 88"
-                stroke="#000000"
-                strokeWidth="6"
-                strokeLinecap="round"
-                fill="none"
-                animate={reduced ? undefined : { d: [
-                  "M100 62 L104 78 L104 88",
-                  "M100 62 L96 78 L104 86",
-                  "M100 62 L104 78 L104 88",
-                ] }}
-                transition={{ duration: 0.6, repeat: Infinity, ease: "linear" }}
-              />
-              <motion.path
-                d="M100 62 L96 78 L104 86"
-                stroke="#000000"
-                strokeWidth="6"
-                strokeLinecap="round"
-                fill="none"
-                animate={reduced ? undefined : { d: [
-                  "M100 62 L96 78 L104 86",
-                  "M100 62 L104 78 L104 88",
-                  "M100 62 L96 78 L104 86",
-                ] }}
-                transition={{ duration: 0.6, repeat: Infinity, ease: "linear" }}
-              />
+              {/*
+                legs, pedalling. Rotated around the hip rather than morphing
+                the path: framer-motion cannot tween two d strings and ends up
+                writing d="undefined" to the DOM.
+              */}
+              <g transform="translate(100 62)">
+                <motion.path
+                  d="M0 0 L4 16 L4 26"
+                  stroke="#000000"
+                  strokeWidth="6"
+                  strokeLinecap="round"
+                  fill="none"
+                  style={{ transformOrigin: "0px 0px" }}
+                  animate={reduced ? undefined : { rotate: [-16, 16, -16] }}
+                  transition={{ duration: 0.6, repeat: Infinity, ease: "easeInOut" }}
+                />
+                <motion.path
+                  d="M0 0 L-4 16 L4 24"
+                  stroke="#000000"
+                  strokeWidth="6"
+                  strokeLinecap="round"
+                  fill="none"
+                  style={{ transformOrigin: "0px 0px" }}
+                  animate={reduced ? undefined : { rotate: [16, -16, 16] }}
+                  transition={{ duration: 0.6, repeat: Infinity, ease: "easeInOut" }}
+                />
+              </g>
             </g>
           </svg>
         </motion.div>

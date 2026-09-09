@@ -1,3 +1,7 @@
+"use client";
+
+import confetti from "canvas-confetti";
+
 const stamps = [
   { label: "linkedin", href: "https://linkedin.com" },
   { label: "twitter/x", href: "https://twitter.com" },
@@ -6,6 +10,20 @@ const stamps = [
 ];
 
 export default function Footer() {
+  const burst = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    confetti({
+      particleCount: 60,
+      spread: 70,
+      startVelocity: 32,
+      origin: {
+        x: (rect.left + rect.width / 2) / window.innerWidth,
+        y: (rect.top + rect.height / 2) / window.innerHeight,
+      },
+      colors: ["#ff7a59", "#f4c95d", "#b9a8f0", "#8fa98a", "#f6a6b2"],
+    });
+  };
+
   return (
     <footer id="contact" className="mt-24 border-t border-line bg-cream-deep">
       <div className="mx-auto max-w-6xl px-6 py-16 sm:px-8">
@@ -20,6 +38,7 @@ export default function Footer() {
             </h2>
             <a
               href="mailto:hello@boobesh.com"
+              onClick={burst}
               className="mt-6 inline-block rounded-full bg-ink px-6 py-3 font-body text-sm font-bold text-cream transition-transform hover:-translate-y-0.5"
             >
               hello@boobesh.com

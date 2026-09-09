@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Fredoka, Caveat, Manrope } from "next/font/google";
 import "./globals.css";
+import PersonalCorner from "@/components/PersonalCorner";
+import CursorSparkles from "@/components/CursorSparkles";
 
 const fredoka = Fredoka({
   variable: "--font-display",
@@ -42,7 +44,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${fredoka.variable} ${caveat.variable} ${manrope.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-cream text-ink font-body">
+        <CursorSparkles />
         {children}
+        <PersonalCorner />
       </body>
     </html>
   );

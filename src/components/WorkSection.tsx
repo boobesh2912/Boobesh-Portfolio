@@ -1,26 +1,26 @@
 const campaigns = [
   {
-    title: "the rebrand that actually got read",
-    tag: "positioning + launch",
-    result: "3x more time on page after the new messaging went live",
+    title: "GariTech: a brand and a website out of nothing",
+    tag: "branding + web",
+    result: "went from zero web experience to shipping client sites, learning WordPress the same week I promised a client I already knew it",
     accent: "bg-lavender/40",
   },
   {
-    title: "a content calendar people looked forward to",
-    tag: "content strategy",
-    result: "engagement up quarter over quarter, four quarters straight",
+    title: "Start The Up: a community built on one idea",
+    tag: "community + content",
+    result: "four webinars in, students actually showing up to think like founders, before the momentum needed a second wind",
     accent: "bg-pink/40",
   },
   {
-    title: "the email series nobody unsubscribed from",
-    tag: "lifecycle + copy",
-    result: "open rates that made the whole team ask what changed",
+    title: "the LinkedIn habit that never broke",
+    tag: "content, consistently",
+    result: "the one platform I never stopped posting on, long enough for it to become the closest thing I have to a personal brand",
     accent: "bg-butter/50",
   },
   {
-    title: "a launch built on one good hook",
-    tag: "campaign strategy",
-    result: "the kind of week where the metrics dashboard is actually fun to open",
+    title: "backend systems, learned in public",
+    tag: "python + fastapi",
+    result: "currently interning as a backend developer while building the YCS brand on the side, systems and perception at the same time",
     accent: "bg-sage/40",
   },
 ];
@@ -32,11 +32,11 @@ export default function WorkSection() {
         <div className="mb-10 flex flex-col items-center text-center">
           <p className="font-hand text-2xl text-coral-deep">receipts, not just claims</p>
           <h2 className="mt-1 font-display text-3xl font-bold text-ink sm:text-4xl">
-            selected campaigns
+            things I have actually built
           </h2>
           <p className="mt-3 max-w-md font-body text-sm text-ink-soft">
-            A few of the things I have shipped. Placeholder stories for now,
-            real case studies going up one dispatch at a time.
+            Real ventures, told the way a marketer would tell them. More
+            dispatches on each one going up over time.
           </p>
         </div>
 

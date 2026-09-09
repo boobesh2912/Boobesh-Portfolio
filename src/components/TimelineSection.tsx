@@ -1,32 +1,51 @@
 type Entry = {
   year: string;
-  kind: "work" | "school";
+  kind: "work" | "hustle" | "school";
   title: string;
   place: string;
   note: string;
+};
+
+const dotColor: Record<Entry["kind"], string> = {
+  work: "bg-coral",
+  hustle: "bg-butter",
+  school: "bg-sage",
+};
+
+const kindLabel: Record<Entry["kind"], string> = {
+  work: "on the job",
+  hustle: "the hustle",
+  school: "in school",
 };
 
 const entries: Entry[] = [
   {
     year: "now",
     kind: "work",
-    title: "Content Marketer",
-    place: "your current company",
-    note: "Owning the content engine end to end, from the first idea to the report that proves it worked.",
+    title: "Backend Development Engineer Intern",
+    place: "Python + FastAPI, virtual internship",
+    note: "Learning how backend systems actually hold up in real projects, while building the YCS brand on the side. Systems on one hand, perception on the other.",
   },
   {
-    year: "before that",
+    year: "since first year of college",
     kind: "work",
-    title: "Marketing Associate",
-    place: "previous company",
-    note: "Learned that a good campaign is one part idea, three parts follow through.",
+    title: "Founder, GariTech",
+    place: "design + web presence agency",
+    note: "Started as a Canva design shop, grew into full web development after I told a client I knew WordPress before I had ever opened it. Learned it that same week.",
   },
   {
-    year: "earlier",
-    kind: "school",
-    title: "Degree in your field",
-    place: "your college",
-    note: "Where the curiosity about why people click on some things and not others started.",
+    year: "2025",
+    kind: "work",
+    title: "Start The Up",
+    place: "a community I built, not a job I had",
+    note: "Built a community to get students thinking like founders. Ran four webinars. Engagement dropped after, and it stopped. Still counts as real work.",
+  },
+  {
+    year: "10th standard",
+    kind: "hustle",
+    title: "the Sharechat resell hustle",
+    place: "kitchen utilities, sold to housewives on Sharechat",
+    note: "Small money, first real lesson in sales. Where the curiosity for tech started mixing with an instinct for business.",
   },
 ];
 
@@ -45,9 +64,7 @@ export default function TimelineSection() {
           {entries.map((entry, i) => (
             <div key={entry.title} className="relative mb-10 last:mb-0">
               <span
-                className={`absolute -left-[2.55rem] top-1 flex h-6 w-6 items-center justify-center rounded-full border-2 border-cream text-xs ${
-                  entry.kind === "work" ? "bg-coral" : "bg-sage"
-                }`}
+                className={`absolute -left-[2.55rem] top-1 flex h-6 w-6 items-center justify-center rounded-full border-2 border-cream ${dotColor[entry.kind]}`}
               />
               <div
                 className={`rounded-2xl border border-line bg-paper p-6 shadow-[0_4px_0_0_var(--line)] ${
@@ -55,7 +72,7 @@ export default function TimelineSection() {
                 }`}
               >
                 <p className="font-body text-xs font-bold uppercase tracking-[0.2em] text-ink-soft">
-                  {entry.year} · {entry.kind === "work" ? "on the job" : "in school"}
+                  {entry.year} · {kindLabel[entry.kind]}
                 </p>
                 <h3 className="mt-1 font-display text-xl font-bold text-ink">
                   {entry.title}
@@ -68,6 +85,11 @@ export default function TimelineSection() {
             </div>
           ))}
         </div>
+
+        <p className="mt-10 text-center font-hand text-xl text-ink-soft">
+          there is a lot more behind this timeline than four boxes can hold.{" "}
+          <span className="text-coral-deep">that&apos;s what the corner is for.</span>
+        </p>
       </div>
     </section>
   );

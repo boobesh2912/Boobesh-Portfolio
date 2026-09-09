@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
-import { Fredoka, Caveat, Manrope } from "next/font/google";
+import { Fraunces, Caveat, Manrope } from "next/font/google";
 import "./globals.css";
-import PersonalCorner from "@/components/PersonalCorner";
 import CursorSparkles from "@/components/CursorSparkles";
 
-const fredoka = Fredoka({
+const fraunces = Fraunces({
   variable: "--font-display",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: "variable",
+  axes: ["SOFT", "WONK", "opsz"],
 });
 
 const caveat = Caveat({
@@ -24,32 +24,33 @@ const manrope = Manrope({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://boobesh.com"),
-  title: "Boobesh — content marketer, corner of the internet",
+  title: "Boobesh AG — content marketer",
   description:
-    "Boobesh AG is a content marketer and founder of GariTech. Marketer first, always. Notes on campaigns, content and the work in between.",
+    "Boobesh AG is a content marketer, Marketing Lead at Tribe Fortis, Marketing Manager at Your College Senior and founder of Gari Tech.",
   keywords: [
     "Boobesh AG",
     "Boobesh",
-    "GariTech",
+    "Gari Tech",
     "content marketer",
-    "YCS Your College Senior",
-    "Tribe Fortis marketing",
+    "Tribe Fortis",
+    "Your College Senior",
+    "YCS",
   ],
   authors: [{ name: "Boobesh AG" }],
   alternates: { canonical: "https://boobesh.com" },
   openGraph: {
-    title: "Boobesh — content marketer",
+    title: "Boobesh AG — content marketer",
     description:
-      "Marketer first, always. Campaigns, content and dispatches from my corner of the internet.",
+      "Marketing Lead at Tribe Fortis, Marketing Manager at Your College Senior, founder of Gari Tech.",
     url: "https://boobesh.com",
     siteName: "boobesh.com",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Boobesh — content marketer",
+    title: "Boobesh AG — content marketer",
     description:
-      "Marketer first, always. Campaigns, content and dispatches from my corner of the internet.",
+      "Marketing Lead at Tribe Fortis, Marketing Manager at Your College Senior, founder of Gari Tech.",
   },
 };
 
@@ -60,10 +61,11 @@ const personJsonLd = {
   alternateName: "Boo",
   url: "https://boobesh.com",
   jobTitle: "Content Marketer",
-  worksFor: {
-    "@type": "Organization",
-    name: "GariTech",
-  },
+  worksFor: [
+    { "@type": "Organization", name: "Tribe Fortis" },
+    { "@type": "Organization", name: "Your College Senior" },
+    { "@type": "Organization", name: "Gari Tech" },
+  ],
   sameAs: [
     "https://www.linkedin.com/in/boobesh2912",
     "https://www.x.com/buildwithboo",
@@ -71,14 +73,14 @@ const personJsonLd = {
     "https://www.youtube.com/@dreamsofboo",
   ],
   description:
-    "Boobesh AG is a content marketer and founder of GariTech, currently interning as a backend developer (Python, FastAPI).",
+    "Boobesh AG is a content marketer. Marketing Lead at Tribe Fortis, Marketing Manager at Your College Senior, and founder of Gari Tech.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${fredoka.variable} ${caveat.variable} ${manrope.variable} h-full antialiased`}
+      className={`${fraunces.variable} ${caveat.variable} ${manrope.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-cream text-ink font-body">
         <script
@@ -87,7 +89,6 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         />
         <CursorSparkles />
         {children}
-        <PersonalCorner />
       </body>
     </html>
   );

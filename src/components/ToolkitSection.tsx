@@ -3,67 +3,78 @@ import Reveal from "@/components/Reveal";
 const toolkit = [
   {
     group: "strategy",
-    accent: "bg-lavender/40",
-    items: ["content strategy", "go to market plans (learning)", "product marketing (learning)", "creative ideation"],
+    items: [
+      "content strategy",
+      "brand positioning",
+      "go to market (learning)",
+      "product marketing (learning)",
+    ],
   },
   {
-    group: "content",
-    accent: "bg-pink/40",
-    items: ["script writing", "content hooks", "content repurposing", "content distribution", "personal branding"],
+    group: "writing",
+    items: [
+      "reels scripts",
+      "linkedin posts",
+      "newsletters",
+      "hooks",
+      "repurposing",
+    ],
   },
   {
     group: "growth",
-    accent: "bg-sage/40",
-    items: ["social media management", "social growth", "team handling", "leading small teams"],
+    items: [
+      "social media management",
+      "community",
+      "campaign planning",
+      "leading small teams",
+    ],
   },
   {
-    group: "toolbox",
-    accent: "bg-butter/50",
-    items: ["WordPress", "Canva", "Meta business tools", "Clay", "Mailchimp", "Google Analytics"],
+    group: "tools",
+    items: [
+      "WordPress",
+      "Canva",
+      "Meta Business",
+      "Clay",
+      "Mailchimp",
+      "Google Analytics",
+      "Python",
+      "FastAPI",
+    ],
   },
 ];
 
 export default function ToolkitSection() {
   return (
-    <section id="toolkit" className="px-4 py-20 sm:px-8">
-      <div className="mx-auto max-w-6xl">
-        <Reveal className="mb-10 text-center">
-          <p className="font-hand text-2xl text-coral-deep">what I actually work with</p>
-          <h2 className="mt-1 font-display text-3xl font-bold text-ink sm:text-4xl">
-            the marketer&apos;s toolkit
-          </h2>
-          <p className="mx-auto mt-2 max-w-md font-body text-sm text-ink-soft">
-            No 47-skill wall. Just what I actually reach for on a normal
-            Tuesday.
+    <section id="toolkit" className="border-t border-line px-4 py-24 sm:px-8">
+      <div className="mx-auto max-w-5xl">
+        <Reveal>
+          <p className="font-body text-[11px] font-semibold uppercase tracking-[0.25em] text-coral">
+            what I work with
           </p>
+          <h2 className="mt-6 max-w-xl font-display text-3xl font-semibold leading-[1.15] text-ink sm:text-[2.6rem]">
+            No 40-skill wall. Just what I reach for on a normal Tuesday.
+          </h2>
         </Reveal>
 
-        <div className="grid gap-6 sm:grid-cols-2">
-          {toolkit.map((group, gi) => (
-            <Reveal
-              key={group.group}
-              delay={0.08 * gi}
-              className={gi % 3 === 0 ? "sm:rotate-[-0.4deg]" : "sm:rotate-[0.4deg]"}
-            >
-            <div
-              className="rounded-3xl border border-line bg-paper p-6 shadow-[0_4px_0_0_var(--line)]"
-            >
-              <p className="mb-4 font-body text-xs font-bold uppercase tracking-[0.25em] text-ink-soft">
-                {group.group}
-              </p>
-              <div className="flex flex-wrap gap-2">
-                {group.items.map((item, i) => (
-                  <span
-                    key={item}
-                    className={`${group.accent} ${
-                      i % 2 === 0 ? "rotate-[-2deg]" : "rotate-[2deg]"
-                    } rounded-full border border-ink/10 px-4 py-2 font-body text-sm font-semibold text-ink transition-transform hover:rotate-0 hover:scale-105`}
-                  >
-                    {item}
-                  </span>
-                ))}
+        <div className="mt-12 space-y-8">
+          {toolkit.map((group, i) => (
+            <Reveal key={group.group} delay={0.06 * i}>
+              <div className="grid gap-4 border-t border-line pt-6 sm:grid-cols-[130px_1fr]">
+                <p className="font-body text-[11px] font-semibold uppercase tracking-[0.2em] text-ink-soft">
+                  {group.group}
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {group.items.map((item) => (
+                    <span
+                      key={item}
+                      className="rounded-full border border-line bg-paper px-4 py-1.5 font-body text-sm text-ink transition-colors hover:border-coral hover:text-coral-deep"
+                    >
+                      {item}
+                    </span>
+                  ))}
+                </div>
               </div>
-            </div>
             </Reveal>
           ))}
         </div>

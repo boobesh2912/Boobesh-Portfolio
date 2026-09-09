@@ -1,19 +1,29 @@
 @import "tailwindcss";
 
+/*
+  Warm editorial palette. Bone paper, ink, clay, olive, ochre.
+  Token names are kept stable so components do not need rewriting.
+*/
 :root {
-  --cream: #0a1120;
-  --cream-deep: #0e1930;
-  --ink: #edf2fc;
-  --ink-soft: #93a5c4;
-  --coral: #4f8dff;
-  --coral-deep: #3468e0;
-  --sage: #2dd4bf;
-  --sage-deep: #14b8a6;
-  --butter: #f5c24c;
-  --lavender: #8b7cf6;
-  --pink: #f472b6;
-  --paper: #131f38;
-  --line: #253758;
+  --cream: #f5f1e8;
+  --cream-deep: #ebe3d4;
+  --ink: #17140f;
+  --ink-soft: #6d6455;
+  --coral: #c0563a;
+  --coral-deep: #9c422b;
+  --sage: #5e6b47;
+  --sage-deep: #47543a;
+  --butter: #d9a441;
+  --lavender: #7c5a6b;
+  --pink: #c98b7a;
+  --paper: #fffdf7;
+  --line: #ded3bf;
+
+  /* night palette, used by the personal page */
+  --night: #14100c;
+  --night-soft: #1e1811;
+  --ember: #e08a4a;
+  --moon: #d9d3c4;
 }
 
 @theme inline {
@@ -30,6 +40,10 @@
   --color-pink: var(--pink);
   --color-paper: var(--paper);
   --color-line: var(--line);
+  --color-night: var(--night);
+  --color-night-soft: var(--night-soft);
+  --color-ember: var(--ember);
+  --color-moon: var(--moon);
 
   --font-display: var(--font-display);
   --font-hand: var(--font-hand);
@@ -38,6 +52,10 @@
 
 * {
   border-color: var(--line);
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
@@ -62,7 +80,15 @@ body {
   border: 2px solid var(--cream);
 }
 
-/* soft paper grain, sits above the background gradients */
+.font-display {
+  font-family: var(--font-display);
+}
+.font-hand {
+  font-family: var(--font-hand);
+}
+
+/* ---------- texture ---------- */
+
 .grain {
   position: relative;
 }
@@ -71,50 +97,103 @@ body {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  opacity: 0.08;
-  mix-blend-mode: overlay;
+  opacity: 0.3;
+  mix-blend-mode: multiply;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E");
 }
+.grain-light::before {
+  mix-blend-mode: overlay;
+  opacity: 0.12;
+}
 
-.font-display {
-  font-family: var(--font-display);
+/* a soft hand-drawn highlight behind a word */
+.mark {
+  background-image: linear-gradient(
+    transparent 58%,
+    color-mix(in srgb, var(--butter) 55%, transparent) 58%
+  );
+  padding: 0 0.1em;
 }
-.font-hand {
-  font-family: var(--font-hand);
+.mark-clay {
+  background-image: linear-gradient(
+    transparent 58%,
+    color-mix(in srgb, var(--coral) 32%, transparent) 58%
+  );
 }
+
+/* ---------- motion ---------- */
 
 @keyframes blob-float {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  33% { transform: translate(3%, -4%) scale(1.05); }
-  66% { transform: translate(-3%, 3%) scale(0.97); }
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(3%, -4%) scale(1.05);
+  }
+  66% {
+    transform: translate(-3%, 3%) scale(0.97);
+  }
 }
 .animate-blob {
-  animation: blob-float 14s ease-in-out infinite;
+  animation: blob-float 16s ease-in-out infinite;
 }
 .animate-blob-slow {
-  animation: blob-float 20s ease-in-out infinite;
+  animation: blob-float 24s ease-in-out infinite;
 }
 
 @keyframes marquee {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
 }
 .animate-marquee {
-  animation: marquee 28s linear infinite;
+  animation: marquee 34s linear infinite;
 }
 
-@keyframes wiggle {
-  0%, 100% { transform: rotate(-2deg); }
-  50% { transform: rotate(2deg); }
+@keyframes rainfall {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(110vh);
+  }
 }
-.animate-wiggle {
-  animation: wiggle 3s ease-in-out infinite;
+
+@keyframes drift {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
 }
+.animate-drift {
+  animation: drift 6s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-blob,
+  .animate-blob-slow,
+  .animate-marquee,
+  .animate-drift {
+    animation: none;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* ---------- blog prose ---------- */
 
 .prose-post h2 {
   font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 1.5rem;
+  font-weight: 600;
+  font-size: 1.6rem;
   margin-top: 2.5rem;
   margin-bottom: 0.75rem;
   color: var(--ink);
@@ -146,28 +225,4 @@ body {
 .prose-post a {
   color: var(--coral-deep);
   text-decoration: underline;
-}
-
-@keyframes rainfall {
-  from {
-    transform: translateY(0);
-  }
-  to {
-    transform: translateY(110vh);
-  }
-}
-
-.tape {
-  position: relative;
-}
-.tape::before {
-  content: "";
-  position: absolute;
-  top: -14px;
-  left: 50%;
-  transform: translateX(-50%) rotate(-2deg);
-  width: 70px;
-  height: 22px;
-  background: rgba(244, 201, 93, 0.55);
-  border: 1px solid rgba(0,0,0,0.04);
 }

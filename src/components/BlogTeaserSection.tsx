@@ -11,7 +11,7 @@ export default function BlogTeaserSection() {
         <div className="mb-10 flex flex-wrap items-end justify-between gap-4">
           <div>
             <p className="font-hand text-2xl text-coral-deep">from the desk</p>
-            <h2 className="mt-1 font-display text-3xl font-bold text-ink sm:text-4xl">
+            <h2 className="mt-1 font-display text-3xl font-semibold text-ink sm:text-4xl">
               latest dispatches
             </h2>
           </div>
@@ -28,12 +28,12 @@ export default function BlogTeaserSection() {
             <Link
               key={post.slug}
               href={`/blog/${post.slug}`}
-              className="group flex flex-col rounded-3xl border border-line bg-paper p-6 shadow-[0_4px_0_0_var(--line)] transition-transform hover:-translate-y-1"
+              className="group flex flex-col rounded-3xl border border-line bg-paper p-6 shadow-[0_10px_30px_rgba(23,20,15,0.06)] transition-transform hover:-translate-y-1"
             >
               <p className="font-body text-xs font-bold uppercase tracking-[0.2em] text-ink-soft">
                 {format(new Date(post.date), "MMM d, yyyy")} · {post.readingTime}
               </p>
-              <h3 className="mt-3 font-display text-xl font-bold text-ink">
+              <h3 className="mt-3 font-display text-xl font-semibold text-ink">
                 {post.title}
               </h3>
               <p className="mt-2 flex-1 font-body text-sm text-ink-soft">

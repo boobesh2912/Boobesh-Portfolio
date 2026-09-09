@@ -22,7 +22,7 @@ export default function ContentFeedSection() {
         <div className="mb-10 flex flex-wrap items-end justify-between gap-4">
           <div>
             <p className="font-hand text-2xl text-coral-deep">wherever I&apos;m actually posting</p>
-            <h2 className="mt-1 font-display text-3xl font-bold text-ink sm:text-4xl">
+            <h2 className="mt-1 font-display text-3xl font-semibold text-ink sm:text-4xl">
               the content feed
             </h2>
           </div>
@@ -38,7 +38,7 @@ export default function ContentFeedSection() {
               href={p.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex flex-col justify-between rounded-3xl border border-line bg-paper p-7 shadow-[0_4px_0_0_var(--line)] transition-transform hover:-translate-y-1"
+              className="group flex flex-col justify-between rounded-3xl border border-line bg-paper p-7 shadow-[0_10px_30px_rgba(23,20,15,0.06)] transition-transform hover:-translate-y-1"
             >
               <div>
                 <span
@@ -46,7 +46,7 @@ export default function ContentFeedSection() {
                 >
                   {p.label}
                 </span>
-                <h3 className="mt-4 font-display text-2xl font-bold text-ink">
+                <h3 className="mt-4 font-display text-2xl font-semibold text-ink">
                   {p.handle}
                 </h3>
                 <p className="mt-2 font-body text-sm text-ink-soft">{p.note}</p>

@@ -3,97 +3,93 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
-const MAX_OS = 16;
+const MAX_OS = 26;
 const MIN_OS = 2;
 
 export default function LoadingScreen() {
   const [visible, setVisible] = useState(false);
-  const [showLoader, setShowLoader] = useState(true);
+  const [mounted, setMounted] = useState(true);
   const [oCount, setOCount] = useState(MIN_OS);
-  const [phase, setPhase] = useState<"grow" | "shrink" | "done">("grow");
+  const [phase, setPhase] = useState<"grow" | "hold" | "done">("grow");
 
   useEffect(() => {
-    const alreadySeen = sessionStorage.getItem("boobesh-intro-seen");
-    if (alreadySeen) {
-      // eslint-disable-next-line react-hooks/set-state-in-effect -- one-time sync from sessionStorage on mount
-      setShowLoader(false);
+    if (sessionStorage.getItem("boobesh-intro-seen")) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect -- one-time read of session state on mount
+      setMounted(false);
       return;
     }
     setVisible(true);
 
     let count = MIN_OS;
-    const growInterval = setInterval(() => {
+    const timers: ReturnType<typeof setTimeout>[] = [];
+
+    const grow = setInterval(() => {
       count += 1;
       setOCount(count);
       if (count >= MAX_OS) {
-        clearInterval(growInterval);
-        setPhase("shrink");
-        const shrinkInterval = setInterval(() => {
-          count -= 2;
-          setOCount(Math.max(count, MIN_OS));
-          if (count <= MIN_OS) {
-            clearInterval(shrinkInterval);
+        clearInterval(grow);
+        setPhase("hold");
+        timers.push(
+          setTimeout(() => {
             setPhase("done");
-            setTimeout(() => {
-              sessionStorage.setItem("boobesh-intro-seen", "1");
-              setVisible(false);
-            }, 550);
-          }
-        }, 45);
+            timers.push(
+              setTimeout(() => {
+                sessionStorage.setItem("boobesh-intro-seen", "1");
+                setVisible(false);
+                timers.push(setTimeout(() => setMounted(false), 900));
+              }, 700)
+            );
+          }, 500)
+        );
       }
-    }, 55);
+    }, 42);
 
-    return () => clearInterval(growInterval);
+    return () => {
+      clearInterval(grow);
+      timers.forEach(clearTimeout);
+    };
   }, []);
 
-  useEffect(() => {
-    if (!visible && showLoader) {
-      const t = setTimeout(() => setShowLoader(false), 700);
-      return () => clearTimeout(t);
-    }
-  }, [visible, showLoader]);
-
-  if (!showLoader) return null;
+  if (!mounted) return null;
 
   return (
     <AnimatePresence>
       {visible && (
         <motion.div
-          className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-coral overflow-hidden"
+          className="fixed inset-0 z-[100] flex flex-col items-center justify-center overflow-hidden bg-coral px-6"
           exit={{ clipPath: "circle(0% at 50% 50%)" }}
-          transition={{ duration: 0.7, ease: [0.76, 0, 0.24, 1] }}
+          transition={{ duration: 0.85, ease: [0.76, 0, 0.24, 1] }}
           style={{ clipPath: "circle(150% at 50% 50%)" }}
         >
-          <div className="absolute inset-0 grain opacity-40" />
+          <div className="grain absolute inset-0 opacity-30" />
+
           <motion.p
-            initial={{ opacity: 0, y: 12 }}
+            initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="font-hand text-3xl sm:text-4xl text-ink mb-1 rotate-[-2deg]"
+            transition={{ duration: 0.4 }}
+            className="relative mb-1 font-hand text-3xl text-cream/90 sm:text-4xl"
           >
             hi, I&apos;m
           </motion.p>
-          <div className="flex items-end font-display font-bold text-ink text-[15vw] sm:text-[9vw] leading-none tracking-tight select-none">
+
+          <div className="relative flex max-w-full items-baseline justify-center overflow-hidden font-display text-[13vw] font-semibold leading-none tracking-tight text-cream sm:text-[8vw]">
             <span>B</span>
-            <motion.span
-              key={oCount}
-              initial={{ scale: 0.85 }}
-              animate={{ scale: phase === "grow" ? [1, 1.06, 1] : 1 }}
-              transition={{ duration: 0.12 }}
-              className="inline-block"
-              style={{ letterSpacing: "-0.02em" }}
+            <span
+              className="inline-block overflow-hidden whitespace-nowrap transition-[max-width] duration-100 ease-out"
+              style={{ maxWidth: `${oCount * 0.62}em` }}
             >
               {"o".repeat(oCount)}
-            </motion.span>
+            </span>
             <span>besh</span>
           </div>
+
           <motion.p
             initial={{ opacity: 0 }}
-            animate={{ opacity: phase === "done" ? 1 : 0 }}
-            transition={{ duration: 0.35 }}
-            className="font-body font-semibold text-ink/90 tracking-[0.3em] uppercase text-xs sm:text-sm mt-4"
+            animate={{ opacity: phase === "grow" ? 0 : 1 }}
+            transition={{ duration: 0.4 }}
+            className="relative mt-5 font-body text-xs font-semibold uppercase tracking-[0.35em] text-cream/80 sm:text-sm"
           >
-            content marketer, loading the good stuff
+            content marketer
           </motion.p>
         </motion.div>
       )}

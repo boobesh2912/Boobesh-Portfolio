@@ -1,144 +1,155 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import Link from "next/link";
 import AskAI from "@/components/AskAI";
+import ImageSlot from "@/components/ImageSlot";
 
 const ticker = [
-  "MARKETER, NOT A VIBE",
+  "MARKETING LEAD AT TRIBE FORTIS",
+  "MARKETING MANAGER AT YOUR COLLEGE SENIOR",
+  "FOUNDER OF GARI TECH",
   "SOLD KITCHENWARE AT 15",
-  "CONSISTENCY BEATS TALENT",
-  "50 PROJECTS, FEW FINISHED",
-  "MOST BRANDS DON'T NEED MORE IDEAS",
+  "FIRST 1 LAKH BEFORE 21",
   "STILL FIGURING IT OUT",
 ];
 
 export default function HeroSection() {
-  return (
-    <section className="relative overflow-hidden px-4 pb-20 pt-10 sm:px-8 sm:pt-16">
-      <div className="pointer-events-none absolute -top-24 -left-24 h-72 w-72 rounded-full bg-lavender/40 blur-3xl animate-blob" />
-      <div className="pointer-events-none absolute top-10 right-0 h-80 w-80 rounded-full bg-coral/30 blur-3xl animate-blob-slow" />
-      <div className="pointer-events-none absolute bottom-0 left-1/3 h-64 w-64 rounded-full bg-butter/40 blur-3xl animate-blob" />
-      <svg
-        className="pointer-events-none absolute inset-0 h-full w-full opacity-[0.15] mix-blend-screen"
-        viewBox="0 0 800 600"
-        preserveAspectRatio="xMidYMid slice"
-      >
-        <path d="M0 420 C 150 350, 250 480, 400 400 S 650 300, 800 380" stroke="var(--sage)" strokeWidth="1.5" fill="none" />
-        <path d="M0 180 C 180 240, 320 100, 480 170 S 700 260, 800 190" stroke="var(--lavender)" strokeWidth="1.5" fill="none" />
-        <circle cx="120" cy="90" r="2.5" fill="var(--butter)" />
-        <circle cx="680" cy="480" r="2.5" fill="var(--pink)" />
-        <circle cx="420" cy="60" r="2" fill="var(--coral)" />
-      </svg>
+  const { scrollYProgress } = useScroll();
+  const artY = useTransform(scrollYProgress, [0, 0.3], [0, 80]);
+  const photoY = useTransform(scrollYProgress, [0, 0.3], [0, -50]);
 
-      <div className="relative mx-auto grid max-w-6xl gap-10 lg:grid-cols-[1fr_auto] lg:items-center">
+  return (
+    <section className="relative overflow-hidden px-4 pb-16 pt-10 sm:px-8 sm:pt-14">
+      {/* soft washes of colour, kept warm rather than neon */}
+      <motion.div style={{ y: artY }} className="pointer-events-none absolute inset-0">
+        <div className="absolute -left-32 -top-24 h-80 w-80 rounded-full bg-butter/25 blur-3xl animate-blob" />
+        <div className="absolute right-0 top-24 h-96 w-96 rounded-full bg-coral/15 blur-3xl animate-blob-slow" />
+        <div className="absolute bottom-0 left-1/3 h-72 w-72 rounded-full bg-sage/15 blur-3xl animate-blob" />
+        <svg
+          className="absolute inset-0 h-full w-full opacity-[0.28]"
+          viewBox="0 0 900 600"
+          preserveAspectRatio="xMidYMid slice"
+          aria-hidden
+        >
+          <path
+            d="M-20 430 C 180 350, 300 500, 470 405 S 760 300, 920 385"
+            stroke="var(--sage)"
+            strokeWidth="1"
+            fill="none"
+          />
+          <path
+            d="M-20 200 C 200 265, 350 110, 520 185 S 760 275, 920 205"
+            stroke="var(--coral)"
+            strokeWidth="1"
+            fill="none"
+          />
+          <circle cx="150" cy="105" r="3" fill="var(--butter)" />
+          <circle cx="760" cy="500" r="3" fill="var(--coral)" />
+        </svg>
+      </motion.div>
+
+      <div className="relative mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-[1.25fr_0.75fr]">
         <div>
           <motion.div
-            initial={{ opacity: 0, y: 16 }}
+            initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="mx-auto mb-8 flex w-fit items-center gap-2 rounded-full border border-line bg-paper px-4 py-2 rotate-[-1deg] lg:mx-0"
+            className="mb-7 flex w-fit items-center gap-2 rounded-full border border-line bg-paper/70 px-4 py-2 backdrop-blur"
           >
-            <span className="h-2 w-2 rounded-full bg-sage" />
-            <p className="font-body text-xs font-bold uppercase tracking-[0.2em] text-ink-soft">
-              boobesh.com · my corner of the internet
+            <span className="h-1.5 w-1.5 rounded-full bg-sage" />
+            <p className="font-body text-[11px] font-semibold uppercase tracking-[0.22em] text-ink-soft">
+              boobesh.com · marketer, chennai
             </p>
           </motion.div>
 
           <motion.h1
-            initial={{ opacity: 0, y: 24 }}
+            initial={{ opacity: 0, y: 22 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.1 }}
-            className="mx-auto max-w-4xl text-center font-display text-4xl font-bold leading-[1.1] text-ink sm:text-6xl md:text-7xl lg:mx-0 lg:text-left"
+            transition={{ duration: 0.75, delay: 0.08 }}
+            className="max-w-3xl font-display text-[2.6rem] font-semibold leading-[1.04] tracking-[-0.02em] text-ink sm:text-6xl lg:text-[4.2rem]"
           >
-            hi, welcome to my corner
+            I make people
             <br />
-            of the internet, where{" "}
-            <span className="relative inline-block text-coral-deep">
-              marketing
-              <svg
-                className="absolute -bottom-2 left-0 w-full"
-                viewBox="0 0 200 12"
-                fill="none"
-              >
-                <path
-                  d="M2 9C40 2 160 2 198 9"
-                  stroke="var(--butter)"
-                  strokeWidth="6"
-                  strokeLinecap="round"
-                />
-              </svg>
-            </span>{" "}
-            gets personal.
+            stop scrolling,
+            <br />
+            <span className="italic text-coral-deep">then stay.</span>
           </motion.h1>
 
           <motion.p
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.2 }}
-            className="mx-auto mt-6 max-w-xl text-center font-body text-base text-ink-soft sm:text-lg lg:mx-0 lg:text-left"
+            transition={{ duration: 0.75, delay: 0.16 }}
+            className="mt-7 max-w-xl font-body text-base leading-[1.75] text-ink-soft sm:text-[17px]"
           >
-            I&apos;m Boobesh. I sold kitchen utensils on Sharechat in 10th
-            grade before I knew what marketing was. Now I do the same thing
-            with content instead of kitchenware, just with better spelling.
-            This is where that work actually lives.
+            I am Boobesh. I sold kitchen utensils on Sharechat in 10th grade
+            before I knew the word marketing. Today I lead marketing at
+            <span className="font-semibold text-ink"> Tribe Fortis</span>, run
+            content at <span className="font-semibold text-ink">Your College Senior</span>,
+            and build <span className="font-semibold text-ink">Gari Tech</span> on
+            the side. Same instinct, better tools.
           </motion.p>
 
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.3 }}
-            className="mt-8 flex flex-wrap items-center justify-center gap-3 lg:justify-start"
+            transition={{ duration: 0.75, delay: 0.24 }}
+            className="mt-9 flex flex-wrap items-center gap-3"
           >
             <Link
-              href="/blog"
-              className="rounded-full bg-coral px-6 py-3 font-body text-sm font-bold text-cream shadow-[0_4px_0_0_var(--coral-deep)] transition-transform hover:-translate-y-0.5 active:translate-y-0 active:shadow-none"
+              href="/#work"
+              className="rounded-full bg-ink px-7 py-3.5 font-body text-sm font-semibold text-cream transition-transform hover:-translate-y-0.5"
             >
-              read the dispatches
+              see the work
             </Link>
             <Link
-              href="/#work"
-              className="rounded-full border-2 border-ink px-6 py-3 font-body text-sm font-bold text-ink transition-transform hover:-translate-y-0.5"
+              href="/blog"
+              className="rounded-full border border-ink/25 px-7 py-3.5 font-body text-sm font-semibold text-ink transition-colors hover:border-ink hover:bg-ink hover:text-cream"
             >
-              see the campaigns
+              read what I write
             </Link>
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.4 }}
-            className="flex justify-center lg:justify-start"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.75, delay: 0.34 }}
           >
             <AskAI />
           </motion.div>
         </div>
 
         <motion.div
-          initial={{ opacity: 0, scale: 0.9, rotate: -6 }}
-          animate={{ opacity: 1, scale: 1, rotate: -3 }}
-          transition={{ duration: 0.8, delay: 0.25, type: "spring" }}
-          className="mx-auto hidden w-56 shrink-0 rounded-[2rem] border-4 border-paper bg-paper p-2 shadow-[0_10px_0_0_var(--line)] sm:block"
+          style={{ y: photoY }}
+          initial={{ opacity: 0, scale: 0.94 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.9, delay: 0.2 }}
+          className="mx-auto hidden w-full max-w-[19rem] lg:block"
         >
-          <div className="relative flex h-64 w-full items-center justify-center overflow-hidden rounded-[1.5rem] bg-gradient-to-br from-coral/30 via-lavender/30 to-sage/30">
-            <span className="pointer-events-none z-10 px-4 text-center font-hand text-lg text-ink/60">
-              photo drops here, /public/boobesh-portrait.jpg
-            </span>
+          <div className="rotate-[-2deg] rounded-[1.6rem] border border-line bg-paper p-2.5 shadow-[0_18px_50px_rgba(23,20,15,0.12)]">
+            <ImageSlot
+              src="/shots/boobesh.jpg"
+              alt="Boobesh AG"
+              label="your photo goes here"
+              className="h-[22rem] w-full"
+              rounded="rounded-[1.1rem]"
+            />
+            <p className="pb-1 pt-3 text-center font-hand text-lg text-ink-soft">
+              probably mid sentence about something
+            </p>
           </div>
-          <p className="mt-2 text-center font-hand text-sm text-ink-soft">
-            probably mid-sentence about something
-          </p>
         </motion.div>
       </div>
 
-      <div className="relative mt-16 overflow-hidden border-y-2 border-dashed border-line py-3">
-        <div className="flex w-max animate-marquee gap-8 whitespace-nowrap">
+      <div className="relative mt-14 overflow-hidden border-y border-line py-4">
+        <div className="flex w-max animate-marquee gap-10 whitespace-nowrap">
           {[...ticker, ...ticker].map((t, i) => (
             <span
               key={i}
-              className="font-display text-sm font-bold uppercase tracking-widest text-ink-soft sm:text-base"
+              className="font-body text-[11px] font-semibold uppercase tracking-[0.25em] text-ink-soft"
             >
-              {t} <span className="text-coral">✦</span>
+              {t}
+              <span className="ml-10 text-coral">✦</span>
             </span>
           ))}
         </div>

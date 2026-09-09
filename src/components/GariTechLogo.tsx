@@ -1,7 +1,7 @@
 export default function GariTechLogo({ className = "" }: { className?: string }) {
   return (
     <span
-      className={`inline-flex items-center gap-2 rounded-full bg-[#0a1120] px-3 py-1.5 ${className}`}
+      className={`inline-flex items-center gap-2 rounded-full bg-ink px-3 py-1.5 ${className}`}
     >
       <svg viewBox="0 0 32 32" className="h-5 w-5" fill="none">
         <rect width="32" height="32" rx="9" fill="url(#garitech-grad)" />
@@ -10,13 +10,13 @@ export default function GariTechLogo({ className = "" }: { className?: string })
         <circle cx="16" cy="16" r="2.4" fill="white" />
         <defs>
           <linearGradient id="garitech-grad" x1="0" y1="0" x2="32" y2="32">
-            <stop stopColor="#4f8dff" />
-            <stop offset="1" stopColor="#8b7cf6" />
+            <stop stopColor="#c0563a" />
+            <stop offset="1" stopColor="#d9a441" />
           </linearGradient>
         </defs>
       </svg>
-      <span className="font-display text-sm font-bold text-ink">
-        Gari<span className="text-coral">Tech</span>
+      <span className="font-display text-sm font-semibold text-cream">
+        Gari<span className="text-butter">Tech</span>
       </span>
     </span>
   );

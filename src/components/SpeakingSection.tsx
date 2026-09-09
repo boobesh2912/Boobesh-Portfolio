@@ -21,7 +21,7 @@ export default function SpeakingSection() {
       <div className="mx-auto max-w-6xl">
         <div className="mb-10 text-center">
           <p className="font-hand text-2xl text-coral-deep">a mic makes everything better</p>
-          <h2 className="mt-1 font-display text-3xl font-bold text-ink sm:text-4xl">
+          <h2 className="mt-1 font-display text-3xl font-semibold text-ink sm:text-4xl">
             stages I have stood on
           </h2>
           <p className="mx-auto mt-3 max-w-lg font-body text-sm text-ink-soft">
@@ -41,20 +41,20 @@ export default function SpeakingSection() {
                 aria-label={`read the story behind ${m.title}`}
               >
                 <div
-                  className="relative h-full w-full rounded-3xl shadow-[0_4px_0_0_var(--line)] transition-transform duration-500 [transform-style:preserve-3d]"
+                  className="relative h-full w-full rounded-3xl shadow-[0_10px_30px_rgba(23,20,15,0.06)] transition-transform duration-500 [transform-style:preserve-3d]"
                   style={{ transform: isFlipped ? "rotateY(180deg)" : "rotateY(0deg)" }}
                 >
                   <div
                     className={`absolute inset-0 flex flex-col justify-end rounded-3xl bg-gradient-to-br ${gradients[i % gradients.length]} p-5 [backface-visibility:hidden]`}
                   >
                     <span className="mb-2 text-3xl">🎤</span>
-                    <h3 className="font-display text-lg font-bold text-[#0a1120]">
+                    <h3 className="font-display text-lg font-semibold text-[#17140f]">
                       {m.title}
                     </h3>
-                    <p className="mt-1 font-body text-xs font-bold uppercase tracking-wide text-[#0a1120]/70">
+                    <p className="mt-1 font-body text-xs font-bold uppercase tracking-wide text-[#17140f]/70">
                       {m.venue}
                     </p>
-                    <p className="mt-3 font-hand text-sm text-[#0a1120]/70">
+                    <p className="mt-3 font-hand text-sm text-[#17140f]/70">
                       tap for the story →
                     </p>
                   </div>

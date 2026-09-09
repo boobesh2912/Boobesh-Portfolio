@@ -1,0 +1,164 @@
+@import "tailwindcss";
+
+:root {
+  --cream: #fdf6ec;
+  --cream-deep: #f6ecdb;
+  --ink: #2e2a26;
+  --ink-soft: #6b6156;
+  --coral: #ff7a59;
+  --coral-deep: #e85f3c;
+  --sage: #8fa98a;
+  --sage-deep: #6f8f6a;
+  --butter: #f4c95d;
+  --lavender: #b9a8f0;
+  --pink: #f6a6b2;
+  --paper: #fffdf8;
+  --line: #e7dcc8;
+}
+
+@theme inline {
+  --color-cream: var(--cream);
+  --color-cream-deep: var(--cream-deep);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-coral: var(--coral);
+  --color-coral-deep: var(--coral-deep);
+  --color-sage: var(--sage);
+  --color-sage-deep: var(--sage-deep);
+  --color-butter: var(--butter);
+  --color-lavender: var(--lavender);
+  --color-pink: var(--pink);
+  --color-paper: var(--paper);
+  --color-line: var(--line);
+
+  --font-display: var(--font-display);
+  --font-hand: var(--font-hand);
+  --font-body: var(--font-body);
+}
+
+* {
+  border-color: var(--line);
+}
+
+body {
+  background: var(--cream);
+  color: var(--ink);
+}
+
+::selection {
+  background: var(--coral);
+  color: var(--paper);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--cream);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--coral);
+  border-radius: 999px;
+  border: 2px solid var(--cream);
+}
+
+/* soft paper grain, sits above the background gradients */
+.grain {
+  position: relative;
+}
+.grain::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.35;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E");
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+.font-hand {
+  font-family: var(--font-hand);
+}
+
+@keyframes blob-float {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(3%, -4%) scale(1.05); }
+  66% { transform: translate(-3%, 3%) scale(0.97); }
+}
+.animate-blob {
+  animation: blob-float 14s ease-in-out infinite;
+}
+.animate-blob-slow {
+  animation: blob-float 20s ease-in-out infinite;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.animate-marquee {
+  animation: marquee 28s linear infinite;
+}
+
+@keyframes wiggle {
+  0%, 100% { transform: rotate(-2deg); }
+  50% { transform: rotate(2deg); }
+}
+.animate-wiggle {
+  animation: wiggle 3s ease-in-out infinite;
+}
+
+.prose-post h2 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.5rem;
+  margin-top: 2.5rem;
+  margin-bottom: 0.75rem;
+  color: var(--ink);
+}
+.prose-post p {
+  margin-bottom: 1.25rem;
+  line-height: 1.8;
+  color: var(--ink-soft);
+}
+.prose-post ul,
+.prose-post ol {
+  margin: 0 0 1.25rem 1.25rem;
+  color: var(--ink-soft);
+}
+.prose-post li {
+  margin-bottom: 0.5rem;
+  line-height: 1.7;
+}
+.prose-post ul {
+  list-style: disc;
+}
+.prose-post ol {
+  list-style: decimal;
+}
+.prose-post strong {
+  color: var(--ink);
+  font-weight: 700;
+}
+.prose-post a {
+  color: var(--coral-deep);
+  text-decoration: underline;
+}
+
+.tape {
+  position: relative;
+}
+.tape::before {
+  content: "";
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-2deg);
+  width: 70px;
+  height: 22px;
+  background: rgba(244, 201, 93, 0.55);
+  border: 1px solid rgba(0,0,0,0.04);
+}

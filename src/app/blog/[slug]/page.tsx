@@ -4,7 +4,8 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
-import { getAllSlugs, getPostBySlug } from "@/lib/blog";
+import { getAllPosts, getAllSlugs, getPostBySlug } from "@/lib/blog";
+import { LINKEDIN } from "@/content/entity";
 
 export async function generateStaticParams() {
   return getAllSlugs().map((slug) => ({ slug }));
@@ -40,6 +41,15 @@ export default async function BlogPostPage({
   const { slug } = await params;
   const post = await getPostBySlug(slug);
   if (!post) notFound();
+
+  // Related reading: posts sharing a tag first, then the most recent, so no
+  // post is ever a dead end and every one links to three others.
+  const related = getAllPosts()
+    .filter((p) => p.slug !== slug)
+    .map((p) => ({ p, shared: p.tags.filter((t) => post.tags.includes(t)).length }))
+    .sort((a, b) => b.shared - a.shared || (a.p.date < b.p.date ? 1 : -1))
+    .slice(0, 3)
+    .map((x) => x.p);
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -79,6 +89,17 @@ export default async function BlogPostPage({
           <h1 className="mt-2 font-display text-3xl font-bold text-ink sm:text-4xl">
             {post.title}
           </h1>
+          <p className="mt-3 font-body text-sm text-ink-soft">
+            By{" "}
+            <Link href="/about" className="font-semibold text-coral-deep underline">
+              Boobesh AG
+            </Link>
+            , founder of{" "}
+            <Link href="/gari-tech" className="font-semibold text-coral-deep underline">
+              Gari Tech
+            </Link>
+            , content marketing agency in Chennai
+          </p>
 
           <div className="mt-3 flex flex-wrap gap-2">
             {post.tags.map((tag) => (
@@ -96,17 +117,45 @@ export default async function BlogPostPage({
             dangerouslySetInnerHTML={{ __html: post.html }}
           />
 
-          <div className="mt-14 rounded-3xl border border-line bg-paper p-6 text-center shadow-[0_4px_0_0_var(--line)]">
-            <p className="font-hand text-xl text-coral-deep">
-              that&apos;s the dispatch for now
+          <aside className="mt-14 rounded-3xl border border-line bg-paper p-6 shadow-[0_4px_0_0_var(--line)]">
+            <p className="font-hand text-xl text-coral-deep">who wrote this</p>
+            <p className="mt-2 font-body text-[15px] leading-[1.75] text-ink-soft">
+              I&apos;m{" "}
+              <Link href="/about" className="font-semibold text-ink underline">
+                Boobesh AG
+              </Link>
+              , a content marketer in Chennai. I founded{" "}
+              <Link href="/gari-tech" className="font-semibold text-ink underline">
+                Gari Tech
+              </Link>{" "}
+              in 2024, and I lead marketing at Tribe Fortis and Your College
+              Senior. Find me on{" "}
+              <a href={LINKEDIN} target="_blank" rel="me noopener" className="font-semibold text-ink underline">
+                LinkedIn
+              </a>
+              .
             </p>
-            <Link
-              href="/blog"
-              className="mt-3 inline-block rounded-full bg-ink px-5 py-2 font-body text-sm font-bold text-cream"
-            >
-              read another one
-            </Link>
-          </div>
+          </aside>
+
+          {related.length > 0 && (
+            <nav aria-label="keep reading" className="mt-12">
+              <p className="font-body text-[11px] font-bold uppercase tracking-[0.2em] text-ink-soft">
+                keep reading
+              </p>
+              <ul className="mt-4 divide-y divide-line border-y border-line">
+                {related.map((r) => (
+                  <li key={r.slug}>
+                    <Link
+                      href={`/blog/${r.slug}`}
+                      className="block py-4 font-display text-lg font-semibold text-ink transition-colors hover:text-coral-deep"
+                    >
+                      {r.title}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          )}
         </article>
       </main>
       <Footer />

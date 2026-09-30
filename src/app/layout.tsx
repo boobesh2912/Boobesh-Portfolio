@@ -217,14 +217,14 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body className="min-h-full flex flex-col bg-cream text-ink font-body">
         {/* Google tag. next/script loads it once per page, after hydration. */}
         <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-5F9G7NKM0P"
+          src="https://www.googletagmanager.com/gtag/js?id=G-BSLJFKDL4D"
           strategy="afterInteractive"
         />
         <Script id="gtag-init" strategy="afterInteractive">
           {`window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
-gtag('config', 'G-5F9G7NKM0P');`}
+gtag('config', 'G-BSLJFKDL4D');`}
         </Script>
         <script
           type="application/ld+json"

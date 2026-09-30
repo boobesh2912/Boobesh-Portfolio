@@ -39,7 +39,7 @@ export default function WhatIDoSection() {
       <div className="mx-auto max-w-6xl">
         <Reveal>
           <p className="font-body text-[11px] font-semibold uppercase tracking-[0.25em] text-coral">
-            S1 · E2 — what I do
+            S1 · E2 · what I do
           </p>
           <h2 className="mt-6 max-w-2xl font-display text-3xl font-semibold leading-[1.15] text-ink sm:text-[2.6rem]">
             The actual work, in plain words.

@@ -22,7 +22,7 @@ export default function AboutSection() {
       <div className="mx-auto max-w-6xl">
         <Reveal>
           <p className="font-body text-[11px] font-semibold uppercase tracking-[0.25em] text-coral">
-            S1 · E1 — who I am
+            S1 · E1 · who I am
           </p>
         </Reveal>
 

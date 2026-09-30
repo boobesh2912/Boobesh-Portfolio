@@ -6,8 +6,9 @@ import Footer from "@/components/Footer";
 import { getAllPosts } from "@/lib/blog";
 
 export const metadata: Metadata = {
-  title: "Dispatches — Boobesh",
-  description: "Notes on marketing, content and campaigns, written by a marketer, for anyone who still reads.",
+  title: "Dispatches on content marketing",
+  description: "Notes on content marketing, campaigns and the thinking behind both, by Boobesh AG, founder of Gari Tech in Chennai.",
+  alternates: { canonical: "https://boobesh.com/blog" },
 };
 
 export default function BlogIndexPage() {

@@ -71,7 +71,7 @@ export default function HeroSection() {
             >
               <span className="h-1.5 w-1.5 rounded-full bg-[#8fe3c4]" />
               <p className="font-body text-[11px] font-semibold uppercase tracking-[0.22em] text-white/80">
-                boobesh · a series · chennai
+                Boobesh AG · content marketer · Chennai
               </p>
             </motion.div>
 

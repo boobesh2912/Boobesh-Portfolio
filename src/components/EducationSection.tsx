@@ -8,7 +8,7 @@ export default function EducationSection() {
       <div className="mx-auto max-w-5xl">
         <Reveal>
           <p className="font-body text-[11px] font-semibold uppercase tracking-[0.25em] text-coral">
-            S1 · E5 — where I learned
+            S1 · E5 · where I learned
           </p>
           <h2 className="mt-6 max-w-2xl font-display text-3xl font-semibold leading-[1.15] text-ink sm:text-[2.6rem]">
             School taught me some of it. The internet taught me the rest.

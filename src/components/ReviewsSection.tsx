@@ -8,7 +8,13 @@ import { reviews } from "@/content/reviews";
   A Netflix style row: the cards scroll sideways, snap, and the one under the
   pointer lifts while its neighbours dim. Arrows for people without a trackpad.
 */
-export default function ReviewsSection() {
+export default function ReviewsSection({
+  eyebrow = "S1 · E3½ · what people said",
+  heading = "Six reviews. All five stars. I did not write any of them.",
+}: {
+  eyebrow?: string;
+  heading?: string;
+}) {
   const row = useRef<HTMLDivElement>(null);
   const nudge = (d: 1 | -1) =>
     row.current?.scrollBy({ left: d * row.current.clientWidth * 0.7, behavior: "smooth" });
@@ -18,11 +24,11 @@ export default function ReviewsSection() {
       <div className="mx-auto max-w-6xl px-4 sm:px-8">
         <Reveal>
           <p className="font-body text-[11px] font-semibold uppercase tracking-[0.25em] text-coral">
-            S1 · E3½ — what people said
+            {eyebrow}
           </p>
           <div className="mt-3 flex flex-wrap items-end justify-between gap-4">
             <h2 className="max-w-xl font-display text-3xl font-semibold leading-[1.15] text-ink sm:text-[2.6rem]">
-              Six reviews. All five stars. I did not write any of them.
+              {heading}
             </h2>
             <div className="flex gap-2">
               {(["←", "→"] as const).map((a, i) => (

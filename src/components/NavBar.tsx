@@ -6,8 +6,9 @@ import ThemeToggle from "@/components/ThemeToggle";
 import { openContact } from "@/components/ContactDialog";
 
 const links = [
-  { href: "/#about", label: "who I am" },
+  { href: "/about", label: "who I am" },
   { href: "/#work", label: "work" },
+  { href: "/gari-tech", label: "Gari Tech" },
   { href: "/#experience", label: "experience" },
   { href: "/blog", label: "writing" },
   { href: "/personal", label: "the real me" },

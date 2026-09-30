@@ -5,6 +5,7 @@ import CustomCursor from "@/components/CustomCursor";
 import ContactDialog from "@/components/ContactDialog";
 import PersonalDoor from "@/components/PersonalDoor";
 import Script from "next/script";
+import { SOCIALS } from "@/content/entity";
 import ThemeProvider, { themeInitScript } from "@/components/ThemeProvider";
 
 const fraunces = Fraunces({
@@ -27,48 +28,49 @@ const manrope = Manrope({
 });
 
 const TITLE =
-  "Boobesh AG — Founder of Gari Tech, Content Marketer in Chennai";
+  "Boobesh AG | Content Marketer in Chennai, Founder of Gari Tech";
 const DESCRIPTION =
-  "Boobesh AG (Boo) is a young entrepreneur from Chennai and the founder of Gari Tech, a content marketing agency. Marketing Lead at Tribe Fortis and Marketing Manager at Your College Senior.";
+  "Boobesh AG (Boo) is a content marketer and young entrepreneur from Chennai, and the founder of Gari Tech, a content marketing agency. Marketing Lead at Tribe Fortis, Marketing Manager at Your College Senior. LinkedIn: linkedin.com/in/boobesh2912.";
 
-const SOCIALS = [
-  "https://www.linkedin.com/in/boobesh2912",
-  "https://www.x.com/buildwithboo",
-  "https://www.instagram.com/boobeshganesan",
-  "https://www.youtube.com/@dreamsofboo",
-];
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://boobesh.com"),
   title: {
     default: TITLE,
-    template: "%s — Boobesh AG",
+    template: "%s | Boobesh AG",
   },
   description: DESCRIPTION,
   keywords: [
-    "Boobesh",
     "Boobesh AG",
+    "Boobesh",
     "Boo",
+    "buildwithboo",
+    "Boobesh LinkedIn",
+    "content marketer Boobesh",
     "Gari Tech",
-    "GariTech",
     "founder of Gari Tech",
+    "content marketing agency in Chennai",
+    "best marketing agency in Chennai",
+    "content marketer in Chennai",
     "young entrepreneur in Chennai",
-    "best entrepreneur in Chennai",
-    "entrepreneurs in Chennai",
     "founders in Chennai",
-    "student entrepreneur Chennai",
-    "content marketing agency Chennai",
-    "best content marketing agency",
-    "content marketer Chennai",
+    "Panimalar Engineering College",
     "Tribe Fortis",
     "Your College Senior",
-    "YCS",
   ],
   authors: [{ name: "Boobesh AG", url: "https://boobesh.com" }],
   creator: "Boobesh AG",
   publisher: "Gari Tech",
   category: "Marketing",
   alternates: { canonical: "https://boobesh.com" },
+  verification: {
+    ...(process.env.GOOGLE_SITE_VERIFICATION
+      ? { google: process.env.GOOGLE_SITE_VERIFICATION }
+      : {}),
+    ...(process.env.BING_SITE_VERIFICATION
+      ? { other: { "msvalidate.01": process.env.BING_SITE_VERIFICATION } }
+      : {}),
+  },
   robots: {
     index: true,
     follow: true,
@@ -81,14 +83,12 @@ export const metadata: Metadata = {
     siteName: "Boobesh AG",
     locale: "en_IN",
     type: "profile",
-    images: [{ url: "/shots/hero-bg.jpg", width: 1920, height: 1080 }],
   },
   twitter: {
     card: "summary_large_image",
     title: TITLE,
     description: DESCRIPTION,
     creator: "@buildwithboo",
-    images: ["/shots/hero-bg.jpg"],
   },
 };
 
@@ -104,9 +104,10 @@ const jsonLd = {
       "@type": "Person",
       "@id": "https://boobesh.com/#person",
       name: "Boobesh AG",
-      alternateName: ["Boo", "Boobesh", "Boobesh Ganesan"],
+      alternateName: ["Boo", "Boobesh", "Boobesh AG", "Boobesh Ganesan", "buildwithboo"],
+      mainEntityOfPage: "https://boobesh.com/about",
       url: "https://boobesh.com",
-      jobTitle: "Content Marketer and Founder",
+      jobTitle: "Content Marketer and Founder of Gari Tech",
       description: DESCRIPTION,
       nationality: "Indian",
       homeLocation: {
@@ -141,6 +142,8 @@ const jsonLd = {
       worksFor: [
         { "@type": "Organization", name: "Tribe Fortis" },
         { "@type": "Organization", name: "Your College Senior" },
+        { "@type": "Organization", name: "Proof", url: "https://proof.zeromaintenanceengineer.in" },
+        { "@type": "Organization", name: "StoryIt", url: "https://storyit.in" },
         { "@id": "https://boobesh.com/#garitech" },
       ],
       founder: { "@id": "https://boobesh.com/#garitech" },
@@ -149,29 +152,46 @@ const jsonLd = {
         "Content strategy",
         "Brand positioning",
         "Social media marketing",
-        "Script writing",
+        "Instagram Reels scripts",
+        "LinkedIn content",
+        "WordPress",
         "Entrepreneurship",
       ],
       sameAs: SOCIALS,
     },
     {
-      "@type": "Organization",
+      "@type": ["Organization", "ProfessionalService"],
       "@id": "https://boobesh.com/#garitech",
       name: "Gari Tech",
       alternateName: "GariTech",
       description:
         "Gari Tech is a content marketing agency founded in Chennai by Boobesh AG, working on content marketing, personal branding and social media growth for startups and businesses.",
       foundingDate: "2024-02",
-      url: "https://boobesh.com",
+      url: "https://boobesh.com/gari-tech",
+      email: "dreamsofboo@gmail.com",
       founder: { "@id": "https://boobesh.com/#person" },
-      areaServed: "IN",
+      areaServed: [
+        { "@type": "City", name: "Chennai" },
+        { "@type": "Country", name: "India" },
+      ],
+      makesOffer: [
+        "Content marketing",
+        "Social media management",
+        "Instagram Reels scripts and editing",
+        "Meta Ads support",
+        "Branding and design",
+        "WordPress website development",
+      ].map((n) => ({
+        "@type": "Offer",
+        itemOffered: { "@type": "Service", name: n, areaServed: "Chennai" },
+      })),
       address: {
         "@type": "PostalAddress",
         addressLocality: "Chennai",
         addressRegion: "Tamil Nadu",
         addressCountry: "IN",
       },
-      knowsAbout: ["Content marketing", "Branding", "Web development"],
+      knowsAbout: ["Content marketing", "Branding", "Web development", "Social media marketing"],
     },
     {
       "@type": "WebSite",
@@ -181,44 +201,6 @@ const jsonLd = {
       description: DESCRIPTION,
       inLanguage: "en-IN",
       publisher: { "@id": "https://boobesh.com/#person" },
-    },
-    {
-      "@type": "FAQPage",
-      "@id": "https://boobesh.com/#faq",
-      mainEntity: [
-        {
-          "@type": "Question",
-          name: "Who is Boobesh AG?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "Boobesh AG, also called Boo, is a content marketer and young entrepreneur based in Chennai. He is the founder of Gari Tech, Marketing Lead at Tribe Fortis and Marketing Manager at Your College Senior. He started earning in 10th grade by reselling products on Sharechat and made his first one lakh before turning 21.",
-          },
-        },
-        {
-          "@type": "Question",
-          name: "What is Gari Tech?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "Gari Tech is a content marketing agency founded by Boobesh AG in Chennai in February 2024. It began as a design shop and grew into content marketing, personal branding, social media growth and web development for startups and businesses.",
-          },
-        },
-        {
-          "@type": "Question",
-          name: "Who founded Gari Tech?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "Gari Tech was founded by Boobesh AG in his first year of college in Chennai, in February 2024.",
-          },
-        },
-        {
-          "@type": "Question",
-          name: "What does Boobesh AG do?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "He leads marketing at Tribe Fortis, runs content marketing at Your College Senior across LinkedIn, YouTube and newsletter, and builds Gari Tech. His work covers content strategy, Instagram Reels scripts, content repurposing, brand positioning and social media growth.",
-          },
-        },
-      ],
     },
   ],
 };

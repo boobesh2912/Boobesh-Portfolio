@@ -9,7 +9,7 @@ const ventures = [
     body: "Started as a Canva shop in first year. Now websites, branding and content for people who need to look like they mean it.",
     shot: null,
     logo: true,
-    href: null,
+    href: "/gari-tech",
   },
   {
     name: "Proof",
@@ -96,8 +96,9 @@ export default function VenturesSection() {
                 {v.href && (
                   <a
                     href={v.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    {...(v.href.startsWith("/")
+                      ? {}
+                      : { target: "_blank", rel: "noopener noreferrer" })}
                     className="mt-4 font-body text-sm font-semibold text-coral-deep hover:underline"
                   >
                     open {v.name} →

@@ -15,6 +15,9 @@ import ToolkitSection from "@/components/ToolkitSection";
 import SpeakingSection from "@/components/SpeakingSection";
 import BlogTeaserSection from "@/components/BlogTeaserSection";
 import StampSocials from "@/components/StampSocials";
+import QuickFacts from "@/components/QuickFacts";
+import FaqList from "@/components/FaqList";
+import { homeFaq } from "@/content/entity";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -24,6 +27,7 @@ export default function Home() {
       <NavBar />
       <main className="flex-1">
         <HeroSection />
+        <QuickFacts />
         <AboutSection />
         <MetricsSection />
         <WhatIDoSection />
@@ -39,6 +43,7 @@ export default function Home() {
         <SpeakingSection />
         <BlogTeaserSection />
         <StampSocials />
+        <FaqList items={homeFaq} heading="Questions people ask about Boobesh AG" />
       </main>
       <Footer />
     </>

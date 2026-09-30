@@ -65,7 +65,7 @@ export default function FeaturedWorkSection() {
       <div className="mx-auto max-w-6xl">
         <Reveal>
           <p className="font-body text-[11px] font-semibold uppercase tracking-[0.25em] text-coral">
-            S1 · E3 — where I do it
+            S1 · E3 · where I do it
           </p>
           <h2 className="mt-6 max-w-2xl font-display text-3xl font-semibold leading-[1.15] text-ink sm:text-[2.6rem]">
             Three stops take most of my week.

@@ -19,7 +19,7 @@ export async function generateMetadata({
   const post = await getPostBySlug(slug);
   if (!post) return {};
   return {
-    title: `${post.title} — Boobesh`,
+    title: post.title,
     description: post.excerpt,
     alternates: { canonical: `https://boobesh.com/blog/${slug}` },
     openGraph: {
@@ -47,7 +47,13 @@ export default async function BlogPostPage({
     headline: post.title,
     description: post.excerpt,
     datePublished: post.date,
-    author: { "@type": "Person", name: "Boobesh AG" },
+    author: { "@id": "https://boobesh.com/#person" },
+    publisher: { "@id": "https://boobesh.com/#person" },
+    mainEntityOfPage: `https://boobesh.com/blog/${slug}`,
+    inLanguage: "en-IN",
+    ...(post.thumbnail
+      ? { image: `https://boobesh.com${post.thumbnail}` }
+      : {}),
     url: `https://boobesh.com/blog/${slug}`,
   };
 

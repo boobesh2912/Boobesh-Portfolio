@@ -33,6 +33,69 @@ In my third year my friend and I decided to go in different directions. He is mo
 4. **Learn to finish.** I have more than 50 projects on my drive, and many are unfinished. Gari Tech is one I kept going with.
 5. **Stay consistent past week two.** Everything that has worked for me worked after the excitement wore off.
 
+## Practical advice for student founders in Chennai
+
+This is opinion from one person's experience, not a formula.
+
+### Balance college and a business honestly
+
+College does not stop because you started something. I run Gari Tech alongside classes, so the sensible rule for any student founder is to be clear with clients about when you can reply, and never promise something you cannot deliver. It is better to under promise and be early.
+
+### Start with what you can already do
+
+I started with Canva because it was the thing I could do that someone would pay for. You do not need to begin with your ideal service. Begin with a small, real service, then grow into the bigger one.
+
+### Get a first client from people you know
+
+The first client rarely comes from a stranger. It comes from someone who knows you and trusts you a little. Tell people plainly what you offer. A small, honest first project beats a big, vague pitch.
+
+### Show your work
+
+A student has no long portfolio, so build one quickly. Every website or design you finish becomes proof for the next client. That is why I keep the live sites and the reviews on the [Gari Tech page](/gari-tech).
+
+### Be honest about what you do not know yet
+
+I told someone I knew WordPress before I did, and I got away with it because I learned fast. I would not recommend it as a plan. A better version is: "I have not done this exact thing before, and here is how I will learn it quickly." Clients respect honesty more than confidence.
+
+### Treat referrals as your marketing
+
+Most of our clients come through referrals and trials. The best marketing a small agency has is a client who tells a friend. That means clear communication, fair pricing and finishing what you promised.
+
+### Keep learning in public
+
+I learned a lot from people I have never met, through videos and posts. If you write or post about what you are learning, you build a reputation while you build skills. I write about content and marketing on this blog and on [LinkedIn](https://www.linkedin.com/in/boobesh2912).
+
+## What I got wrong
+
+- I started too many things at once. I have more than 50 projects on my drive, and many are unfinished.
+- I told someone I knew a tool before I had opened it, which is a habit I would not repeat.
+
+## Frequently asked questions
+
+### Can a student start a business in Chennai?
+
+Yes. Many students start small service businesses, such as design, content or websites, with very little money. What matters is a real first client and the discipline to finish the work.
+
+### How did Boobesh AG start Gari Tech?
+
+He started it in February 2024, in his first year of college in Chennai, as a small design shop making things in Canva. It grew into content marketing, social media, branding and WordPress websites.
+
+### Who is the founder of Gari Tech?
+
+[Boobesh AG](/about), also known as Boo, founded Gari Tech.
+
+### What does Gari Tech do now?
+
+It is a [content marketing agency in Chennai](/gari-tech) that does content strategy, social media, Reels, Meta Ads support, branding and websites.
+
+### Where did Boobesh AG study?
+
+He studies B.Tech Computer Science and Business Systems at Panimalar Engineering College in Chennai, and went to Santhome Higher Secondary School in Mylapore.
+
+### How can I contact Boobesh AG?
+
+Through [LinkedIn](https://www.linkedin.com/in/boobesh2912) or the form on the [Gari Tech page](/gari-tech).
+
 ## What it looks like now
 
 Gari Tech does content marketing, social media, Reels, Meta Ads support, branding and WordPress websites. Clients have left six Google reviews, all five stars, and I have collected the projects in [Gari Tech case studies](/blog/gari-tech-case-studies). I also lead marketing at Tribe Fortis and Your College Senior. The fuller, less polished version of this story is in [who Boobesh is, actually](/personal).

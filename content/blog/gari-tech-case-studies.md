@@ -49,6 +49,62 @@ A client named Aldo Einsty wrote that he came to us to discuss a website launch,
 
 These are also the things to look for when you choose any agency, which I lay out in [how to choose a marketing agency in Chennai](/blog/best-marketing-agency-in-chennai).
 
+## What a website project usually looks like
+
+Every project is different, so treat this as the general shape rather than a fixed process. The reviews above describe the same rhythm from the client's side.
+
+1. **Conversation.** You explain what the website is for and who it is for. We explain what is needed, how long it takes and what it costs, before anything starts.
+2. **Structure.** Agree the pages and what each one needs to do. Most small business sites need fewer pages than people expect.
+3. **Content.** Gather the words, photos and details. This is the step that most often causes delay, so it is worth preparing early.
+4. **Build.** The site is built, usually on WordPress, with a layout you can later edit.
+5. **Revisions.** You review, ask for changes and we adjust. Several rounds are normal, and one of the clients above described exactly that.
+6. **Handover.** We show you how to make basic edits yourself, so you are not dependent on us for small changes.
+7. **After launch.** Check that the site loads well on a phone, that forms and booking work, and agree what support you want.
+
+## How to read any agency case study
+
+When you look at an agency's case studies, including ours, ask a few questions.
+
+- **Is the client named?** Anonymous case studies are hard to check.
+- **Is there a live link?** You should be able to visit the site.
+- **Are the claims specific?** "Increased engagement" is vague. A real number with a time period is better.
+- **Is the client quoted?** A named review in their own words is worth more than the agency's summary.
+- **Does the story include what did not go perfectly?** Real projects always have a rough patch.
+
+## What to ask for before you hire
+
+Ask any agency for two or three case studies close to your business, live links, and permission to speak to a client. If they will not show you anything, that tells you something. I have listed more questions in [how to choose a marketing agency in Chennai](/blog/best-marketing-agency-in-chennai).
+
+## Why no big numbers here
+
+You may notice there are no claims like "300 percent growth". That is deliberate. The reviews are real and public, and I would rather show what I can back up than fill a page with figures I cannot prove. As more projects mature, I will add measured results with the client's agreement.
+
+## Frequently asked questions
+
+### Does Gari Tech build WordPress websites?
+
+Yes. [Gari Tech](/gari-tech) builds WordPress websites, often with Elementor, and hands them over with a walkthrough so clients can make basic edits.
+
+### Which websites has Gari Tech built?
+
+Examples include Speak With Ikigai, Pranav Mahi, Essential Counselling Center and XY Digital Axis. You can also see them on the [Gari Tech page](/gari-tech).
+
+### What marketing work has Gari Tech done?
+
+Support for clients such as Zancafe in Ramapuram, covering posters, Instagram Reels editing and Meta Ads support, as described in their review.
+
+### What do clients say about Gari Tech?
+
+There are six Google reviews so far, all five stars. Clients mention clear explanations, responsiveness, fair pricing and being taught to make edits themselves.
+
+### Who is behind Gari Tech?
+
+[Boobesh AG](/about) founded Gari Tech in Chennai in February 2024. Read [how I started Gari Tech](/blog/how-i-started-gari-tech-student-entrepreneur-chennai).
+
+### How do I start a project with Gari Tech?
+
+Use the contact form on the [Gari Tech page](/gari-tech), or message Boobesh on [LinkedIn](https://www.linkedin.com/in/boobesh2912).
+
 ## Want a project like these?
 
 Read about [what Gari Tech does](/gari-tech), or [message me on LinkedIn](https://www.linkedin.com/in/boobesh2912). I am [Boobesh AG](/about), and I still read every message myself.

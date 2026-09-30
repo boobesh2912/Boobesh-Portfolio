@@ -43,7 +43,7 @@ const featured = [
   {
     name: "Gari Tech",
     role: "Founder",
-    since: "Feb 2026 → now",
+    since: "Feb 2024 → now",
     site: "the one that is mine",
     href: "https://www.linkedin.com/in/boobesh2912",
     shot: "/shots/gari-tech.png",
@@ -65,7 +65,7 @@ export default function FeaturedWorkSection() {
       <div className="mx-auto max-w-6xl">
         <Reveal>
           <p className="font-body text-[11px] font-semibold uppercase tracking-[0.25em] text-coral">
-            03 — where I do it
+            S1 · E3 — where I do it
           </p>
           <h2 className="mt-6 max-w-2xl font-display text-3xl font-semibold leading-[1.15] text-ink sm:text-[2.6rem]">
             Three stops take most of my week.

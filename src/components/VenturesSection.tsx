@@ -5,19 +5,27 @@ import Reveal from "@/components/Reveal";
 const ventures = [
   {
     name: "Gari Tech",
-    status: "running since Feb 2024",
-    body: "My agency. Websites, branding and content for startups who need a digital presence that does not look thrown together.",
+    status: "mine, since Feb 2024",
+    body: "Started as a Canva shop in first year. Now websites, branding and content for people who need to look like they mean it.",
     shot: null,
     logo: true,
     href: null,
   },
   {
     name: "Proof",
-    status: "part of the team",
-    body: "A platform I help push on LinkedIn and X. Screenshot drops in the moment you add the file.",
+    status: "I run the marketing",
+    body: "A place where engineers keep a public log instead of a résumé. My job is getting it in front of the right people on LinkedIn and X, which is harder than it sounds when the product's whole pitch is that résumés are dead.",
     shot: "/shots/proof.png",
     logo: false,
     href: "https://proof.zeromaintenanceengineer.in/",
+  },
+  {
+    name: "StoryIt",
+    status: "content side",
+    body: "I work on the content here, with a team that cares about the story being right before anything gets posted.",
+    shot: null,
+    logo: false,
+    href: "https://storyit.in",
   },
   {
     name: "Vizhva",
@@ -35,6 +43,14 @@ const ventures = [
     logo: false,
     href: null,
   },
+  {
+    name: "The next one",
+    status: "probably starts at 2am",
+    body: "There's always one. I have 50+ projects on my drive and this is the part where I admit that.",
+    shot: null,
+    logo: false,
+    href: null,
+  },
 ];
 
 export default function VenturesSection() {
@@ -43,11 +59,11 @@ export default function VenturesSection() {
       <div className="mx-auto max-w-6xl">
         <Reveal>
           <p className="font-hand text-2xl text-coral-deep">
-            and the ones I started myself
+            the rest of the cast
           </p>
         </Reveal>
 
-        <div className="mt-7 grid gap-5 sm:grid-cols-2">
+        <div className="mt-7 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {ventures.map((v, i) => (
             <Reveal key={v.name} delay={0.06 * i}>
               <div className="flex h-full flex-col rounded-2xl border border-line bg-paper p-6 transition-colors hover:border-coral/40">

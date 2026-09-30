@@ -36,7 +36,7 @@ const rounds: Round[] = [
   },
   {
     a: "I made ₹1,00,000 before I turned 21.",
-    b: "I made my first ₹1,00,000 selling kitchen utensils I did not own.",
+    b: "I made my first ₹1,00,000 reselling things I did not own.",
     winner: "b",
     why: "The number is the setup, not the hook. The strange detail is what makes someone stop.",
   },

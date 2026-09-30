@@ -6,14 +6,17 @@ import Link from "next/link";
 import AskAI from "@/components/AskAI";
 import ImageSlot from "@/components/ImageSlot";
 import TypedLine from "@/components/TypedLine";
+import Galaxy, { warp } from "@/components/Galaxy";
 
 const ticker = [
   "MARKETING LEAD AT TRIBE FORTIS",
   "MARKETING MANAGER AT YOUR COLLEGE SENIOR",
+  "MARKETING FOR PROOF",
+  "CONTENT AT STORYIT",
   "FOUNDER OF GARI TECH",
-  "SOLD KITCHENWARE AT 15",
+  "STARTED RESELLING AT 15",
   "FIRST 1,00,000 BEFORE 21",
-  "STILL FIGURING IT OUT",
+  "STILL MID EXPERIMENT",
 ];
 
 export default function HeroSection() {
@@ -56,6 +59,7 @@ export default function HeroSection() {
         <div className="pointer-events-none absolute inset-0 -z-10 bg-[linear-gradient(105deg,rgba(10,9,14,0.9)_0%,rgba(10,9,14,0.72)_42%,rgba(10,9,14,0.35)_100%)]" />
         <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_260px_at_var(--gx,70%)_var(--gy,30%),rgba(255,236,206,0.16),transparent_70%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
         <div className="grain pointer-events-none absolute inset-0 -z-10 opacity-30" />
+        <Galaxy />
 
         <div className="relative mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-[1.3fr_0.7fr]">
           <div>
@@ -67,7 +71,7 @@ export default function HeroSection() {
             >
               <span className="h-1.5 w-1.5 rounded-full bg-[#8fe3c4]" />
               <p className="font-body text-[11px] font-semibold uppercase tracking-[0.22em] text-white/80">
-                boobesh.com · marketer, chennai
+                boobesh · a series · chennai
               </p>
             </motion.div>
 
@@ -77,11 +81,11 @@ export default function HeroSection() {
               transition={{ duration: 0.75, delay: 0.08 }}
               className="max-w-3xl font-display text-[2.6rem] font-semibold leading-[1.04] tracking-[-0.02em] text-white sm:text-6xl lg:text-[4.2rem]"
             >
-              I make people
+              I started my first
               <br />
-              stop scrolling,
+              business at 15.
               <br />
-              <span className="italic text-[#ffd9a8]">then stay.</span>
+              <span className="italic text-[#ffd9a8]">I never really stopped.</span>
             </motion.h1>
 
             <motion.div
@@ -91,25 +95,26 @@ export default function HeroSection() {
               className="mt-7 max-w-xl space-y-3 font-body text-base leading-[1.75] text-white/70 sm:text-[17px]"
             >
               <p>
-                Okay so... short version. I was 15, selling kitchen utensils on
-                Sharechat, sourcing them off Meesho, keeping the difference. I
-                had no idea that was marketing. I just knew people bought
-                things when you said it the right way.
+                At 15 I started reselling online. Strangers messaged me,
+                I took the orders, I kept the margin. Nobody told me that
+                was a business. It just worked, so I kept going.
               </p>
               <p>
-                Ten years of saying it the right way later:{" "}
-                <span className="font-semibold text-white">Tribe Fortis</span>{" "}
-                for marketing,{" "}
+                I&apos;m in the middle of a lot right now. Marketing at{" "}
+                <span className="font-semibold text-white">Tribe Fortis</span>,
+                content at{" "}
                 <span className="font-semibold text-white">
                   Your College Senior
                 </span>{" "}
-                for content,{" "}
-                <span className="font-semibold text-white">Gari Tech</span>{" "}
-                because I could not sit still. Same instinct. Much better
-                tools.
+                and <span className="font-semibold text-white">StoryIt</span>,
+                marketing for{" "}
+                <span className="font-semibold text-white">Proof</span>, and{" "}
+                <span className="font-semibold text-white">Gari Tech</span>,
+                the studio I started in first year and somehow still run.
+                Also learning backend. Also dancing badly.
               </p>
               <p className="text-white/55">
-                <TypedLine text="and no, I still have not figured out the rest..." />
+                <TypedLine text="How does one person end up here? Scroll. It gets a bit embarrassing..." />
               </p>
             </motion.div>
 
@@ -131,6 +136,12 @@ export default function HeroSection() {
               >
                 read what I write
               </Link>
+              <button
+                onClick={warp}
+                className="rounded-full border border-[#ffd9a8]/50 px-6 py-3.5 font-body text-sm font-semibold text-[#ffd9a8] transition-colors hover:bg-[#ffd9a8] hover:text-[#17140f]"
+              >
+                ✦ warp
+              </button>
             </motion.div>
 
             <motion.div

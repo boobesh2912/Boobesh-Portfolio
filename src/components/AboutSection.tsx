@@ -5,8 +5,8 @@ import TiltCard from "@/components/TiltCard";
 
 const stats = [
   {
-    value: "3 teams",
-    label: "marketing at Tribe Fortis, content at YCS, my own at Gari Tech",
+    value: "5 things",
+    label: "Tribe Fortis, YCS, Proof, StoryIt and Gari Tech. Yes, at the same time.",
     tone: "bg-coral/12 border-coral/30",
   },
   {
@@ -22,7 +22,7 @@ export default function AboutSection() {
       <div className="mx-auto max-w-6xl">
         <Reveal>
           <p className="font-body text-[11px] font-semibold uppercase tracking-[0.25em] text-coral">
-            01 — who I am
+            S1 · E1 — who I am
           </p>
         </Reveal>
 
@@ -32,30 +32,31 @@ export default function AboutSection() {
               So what do you actually do?
             </h2>
             <p className="mt-3 font-hand text-2xl text-coral-deep">
-              I get asked this a lot. Usually at weddings.
+              Fair question. I ask myself on Sundays.
             </p>
 
             <div className="mt-7 space-y-5 font-body text-[17px] leading-[1.8] text-ink-soft">
               <p>
-                Short answer: I am a marketer. Not a designer who drifted here.
-                Not a writer who fell into growth. A marketer, on purpose.
+                Short answer: a lot, at once. I run marketing for a fitness
+                company, content for a career channel and a startup, marketing
+                for a platform engineers write on, and a small studio of my
+                own. I&apos;m also still in college.
               </p>
               <p>
-                Long answer... it is the lens I put on everything. One line of
-                a Reel script. A whole quarter of content. The subject line
-                nobody reads. Same lens, different zoom.
+                The one thing they share is a question I can&apos;t stop
+                asking: why did that person stop scrolling? A Reel script, a
+                LinkedIn post, a landing page, a subject line nobody opens.
+                Same question, different zoom.
               </p>
               <p className="border-l-2 border-coral pl-5 font-medium text-ink">
-                Here is the part people do not want to hear. Most brands do
-                not need more ideas. They need someone who stays consistent
-                long enough for one idea to work. That is most of the job. The
-                rest is taste.
+                Here&apos;s what I&apos;ve figured out so far. Most brands
+                don&apos;t need more ideas. They need someone who stays
+                consistent long enough for one idea to work.
               </p>
               <p>
-                I learned that the slow way, obviously. Reselling on Sharechat
-                at 15. Building client websites before I had opened WordPress
-                once. Starting a community, watching it die, starting another
-                one anyway.
+                I learned that the slow way. Reselling at 15. Building client
+                websites before I had opened WordPress once. Starting a
+                community, watching it die, starting another one anyway.
               </p>
               <p className="text-ink">
                 <TypedLine

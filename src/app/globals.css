@@ -177,70 +177,39 @@ body {
   );
 }
 
-/* ---------- custom cursor ---------- */
+/* ---------- cursors ----------
+   Native cursors drawn in the site colours, so they track the pointer with
+   no lag. Each has a dark edge and a light edge, so it reads on cream, on
+   the dark hero and in either theme. (A JavaScript cursor that trails the
+   mouse was tried and felt wrong, so it is gone.) */
 
-.has-custom-cursor,
-.has-custom-cursor a,
-.has-custom-cursor button,
-.has-custom-cursor summary,
-.has-custom-cursor label,
-.has-custom-cursor [role="button"],
-.has-custom-cursor [data-cursor] {
-  cursor: none;
-}
-/* inside a text field the native cursor is the right tool */
-.cursor-native,
-.cursor-native * {
-  cursor: auto !important;
+html {
+  cursor: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2232%22%20height%3D%2232%22%20viewBox%3D%220%200%2032%2032%22%3E%20%3Cpath%20d%3D%22M5%203.5%20L5%2024%20L10.4%2019%20L14%2027.5%20L18.2%2025.6%20L14.6%2017.4%20L22%2017.4%20Z%22%20fill%3D%22%23fffdf7%22%20stroke%3D%22%2317140f%22%20stroke-width%3D%221.8%22%20stroke-linejoin%3D%22round%22%2F%3E%20%3Ccircle%20cx%3D%225%22%20cy%3D%223.5%22%20r%3D%223.2%22%20fill%3D%22%23c0563a%22%20stroke%3D%22%23fffdf7%22%20stroke-width%3D%221.4%22%2F%3E%20%3C%2Fsvg%3E") 5 4, auto;
 }
 
-.cursor-dot {
-  background: var(--coral);
-  /* a light edge so the dot survives on the coral hero and on dark */
-  box-shadow: 0 0 0 1.5px var(--paper);
-  transition: opacity 0.2s ease;
-  will-change: transform;
+a,
+button,
+summary,
+select,
+[role="button"],
+label[for],
+[data-cursor] {
+  cursor: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2232%22%20height%3D%2232%22%20viewBox%3D%220%200%2032%2032%22%3E%20%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%2211.5%22%20fill%3D%22%23c0563a%22%20fill-opacity%3D%220.22%22%20stroke%3D%22%2317140f%22%20stroke-width%3D%221.8%22%2F%3E%20%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.4%22%20fill%3D%22none%22%20stroke%3D%22%23fffdf7%22%20stroke-width%3D%221.6%22%2F%3E%20%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%223%22%20fill%3D%22%23c0563a%22%20stroke%3D%22%23fffdf7%22%20stroke-width%3D%221.4%22%2F%3E%20%3C%2Fsvg%3E") 16 16, pointer;
 }
 
-/* dark line plus light halo: visible on any background, in either theme */
-.cursor-ring {
-  width: 34px;
-  height: 34px;
-  border: 1.5px solid var(--ink);
-  box-shadow: 0 0 0 1.5px var(--paper), inset 0 0 0 1.5px var(--paper);
-  background: transparent;
-  transition: opacity 0.2s ease, width 0.25s cubic-bezier(0.22, 1, 0.36, 1),
-    height 0.25s cubic-bezier(0.22, 1, 0.36, 1), background-color 0.2s ease,
-    border-color 0.2s ease, scale 0.15s ease;
-  will-change: transform;
+/* things you can drag */
+[data-cursor="pick"] {
+  cursor: grab;
 }
-.cursor-ring[data-state="link"] {
-  width: 56px;
-  height: 56px;
-  background: color-mix(in srgb, var(--coral) 22%, transparent);
-  border-color: var(--coral);
+[data-cursor="pick"]:active {
+  cursor: grabbing;
 }
-.cursor-ring[data-state="label"] {
-  width: 76px;
-  height: 76px;
-  background: var(--coral);
-  border-color: var(--coral);
-}
-.cursor-ring.is-pressed {
-  scale: 0.78;
-}
-.cursor-label {
-  font-family: var(--font-body);
-  font-size: 10px;
-  font-weight: 800;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: #fffdf7;
-  opacity: 0;
-  transition: opacity 0.15s ease;
-}
-.cursor-ring[data-state="label"] .cursor-label {
-  opacity: 1;
+
+/* inside a field, the ordinary text cursor is the right tool */
+input,
+textarea,
+[contenteditable="true"] {
+  cursor: text;
 }
 
 /* ---------- section textures ----------

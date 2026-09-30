@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Fraunces, Caveat, Manrope } from "next/font/google";
 import "./globals.css";
-import CustomCursor from "@/components/CustomCursor";
 import ContactDialog from "@/components/ContactDialog";
 import PersonalDoor from "@/components/PersonalDoor";
 import Script from "next/script";
@@ -231,7 +230,6 @@ gtag('config', 'G-BSLJFKDL4D');`}
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
         <ThemeProvider>
-          <CustomCursor />
           {children}
           <PersonalDoor />
           <ContactDialog />

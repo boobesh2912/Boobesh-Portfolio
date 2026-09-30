@@ -4,6 +4,7 @@ import "./globals.css";
 import CustomCursor from "@/components/CustomCursor";
 import ContactDialog from "@/components/ContactDialog";
 import PersonalDoor from "@/components/PersonalDoor";
+import Script from "next/script";
 import ThemeProvider, { themeInitScript } from "@/components/ThemeProvider";
 
 const fraunces = Fraunces({
@@ -232,6 +233,17 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
       </head>
       <body className="min-h-full flex flex-col bg-cream text-ink font-body">
+        {/* Google tag. next/script loads it once per page, after hydration. */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-5F9G7NKM0P"
+          strategy="afterInteractive"
+        />
+        <Script id="gtag-init" strategy="afterInteractive">
+          {`window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-5F9G7NKM0P');`}
+        </Script>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

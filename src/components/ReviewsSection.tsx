@@ -60,8 +60,7 @@ export default function ReviewsSection() {
             <div className="mt-6 border-t border-line pt-4">
               <p className="font-display text-base font-semibold text-ink">{r.name}</p>
               <p className="font-body text-[11px] font-semibold uppercase tracking-wider text-ink-soft">
-                {r.about}
-                {r.when ? ` · ${r.when}` : ""} · Google
+                {r.about} · Google
               </p>
             </div>
           </article>

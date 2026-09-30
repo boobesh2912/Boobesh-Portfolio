@@ -6,6 +6,7 @@ import Link from "next/link";
 import AskAI from "@/components/AskAI";
 import ImageSlot from "@/components/ImageSlot";
 import TypedLine from "@/components/TypedLine";
+import Magnetic from "@/components/Magnetic";
 import Galaxy, { warp } from "@/components/Galaxy";
 
 const ticker = [
@@ -35,7 +36,7 @@ export default function HeroSection() {
   };
 
   return (
-    <section className="px-3 pt-3 sm:px-5">
+    <section className="hero px-3 pt-3 sm:px-5">
       <div
         ref={panel}
         onMouseMove={glow}
@@ -124,24 +125,30 @@ export default function HeroSection() {
               transition={{ duration: 0.75, delay: 0.24 }}
               className="mt-9 flex flex-wrap items-center gap-3"
             >
-              <Link
-                href="/#work"
-                className="rounded-full bg-white px-7 py-3.5 font-body text-sm font-semibold text-[#17140f] transition-transform hover:-translate-y-0.5"
-              >
-                see the work
-              </Link>
+              <Magnetic>
+                <Link
+                  href="/#work"
+                  className="block rounded-full bg-white px-7 py-3.5 font-body text-sm font-semibold text-[#17140f]"
+                >
+                  see the work
+                </Link>
+              </Magnetic>
+              <Magnetic>
               <Link
                 href="/blog"
-                className="rounded-full border border-white/35 px-7 py-3.5 font-body text-sm font-semibold text-white transition-colors hover:bg-white hover:text-[#17140f]"
+                className="block rounded-full border border-white/35 px-7 py-3.5 font-body text-sm font-semibold text-white transition-colors hover:bg-white hover:text-[#17140f]"
               >
                 read what I write
               </Link>
+              </Magnetic>
+              <Magnetic>
               <button
                 onClick={warp}
-                className="rounded-full border border-[#ffd9a8]/50 px-6 py-3.5 font-body text-sm font-semibold text-[#ffd9a8] transition-colors hover:bg-[#ffd9a8] hover:text-[#17140f]"
+                className="block rounded-full border border-[#ffd9a8]/50 px-6 py-3.5 font-body text-sm font-semibold text-[#ffd9a8] transition-colors hover:bg-[#ffd9a8] hover:text-[#17140f]"
               >
                 ✦ warp
               </button>
+              </Magnetic>
             </motion.div>
 
             <motion.div

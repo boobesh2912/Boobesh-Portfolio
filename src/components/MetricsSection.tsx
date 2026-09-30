@@ -1,22 +1,31 @@
+"use client";
+
 import CountUp from "@/components/CountUp";
 import Reveal from "@/components/Reveal";
+import Assemble, { type Side } from "@/components/Assemble";
 
 /*
   Two years of building, counted. Deliberately not padded with vanity numbers
   like impressions, which nobody can verify and everybody inflates.
+
+  Each box arrives from a different side as you scroll and locks into the
+  grid, like pieces being put together.
 */
-const metrics = [
-  { to: 20, suffix: "+", label: "clients served", note: "mostly by referral" },
-  { to: 10, suffix: "+", label: "websites shipped", note: "WordPress, mostly" },
-  { to: 20, suffix: "+", label: "speaking events", note: "give me a mic" },
-  { to: 100, suffix: "+", label: "students taught", note: "some still text me" },
-  { to: 3, suffix: "", label: "ventures and communities founded", note: "one is still alive" },
-  { to: 2, suffix: "", label: "published eBooks", note: "yes, actually published" },
+const metrics: { to: number; suffix: string; label: string; note: string; from: Side }[] = [
+  { to: 20, suffix: "+", label: "clients served", note: "mostly by referral", from: "tl" },
+  { to: 10, suffix: "+", label: "websites shipped", note: "WordPress, mostly", from: "top" },
+  { to: 20, suffix: "+", label: "speaking events", note: "give me a mic", from: "tr" },
+  { to: 100, suffix: "+", label: "students taught", note: "some still text me", from: "bl" },
+  { to: 3, suffix: "", label: "ventures and communities founded", note: "one is still alive", from: "bottom" },
+  { to: 2, suffix: "", label: "published eBooks", note: "yes, actually published", from: "br" },
 ];
 
 export default function MetricsSection() {
   return (
-    <section id="numbers" className="bg-grid border-y border-line px-4 py-24 sm:px-8">
+    <section
+      id="numbers"
+      className="bg-grid overflow-x-clip border-y border-line px-4 py-24 sm:px-8"
+    >
       <div className="mx-auto max-w-6xl">
         <Reveal>
           <p className="font-body text-[11px] font-semibold uppercase tracking-[0.25em] text-coral">
@@ -31,10 +40,10 @@ export default function MetricsSection() {
           </p>
         </Reveal>
 
-        <div className="mt-14 grid gap-px overflow-hidden rounded-2xl border border-line bg-line sm:grid-cols-2 lg:grid-cols-3">
-          {metrics.map((m, i) => (
-            <Reveal key={m.label} delay={0.06 * i}>
-              <div className="group h-full bg-paper p-8 transition-colors hover:bg-cream-deep">
+        <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {metrics.map((m) => (
+            <Assemble key={m.label} from={m.from} className="h-full">
+              <div className="group h-full rounded-2xl border border-line bg-paper p-8 shadow-[0_8px_24px_rgba(23,20,15,0.05)] transition-colors hover:border-coral/50 hover:bg-cream-deep">
                 <p className="font-display text-5xl font-semibold tabular-nums text-ink sm:text-6xl">
                   <CountUp to={m.to} suffix={m.suffix} />
                 </p>
@@ -45,7 +54,7 @@ export default function MetricsSection() {
                   {m.note}
                 </p>
               </div>
-            </Reveal>
+            </Assemble>
           ))}
         </div>
       </div>

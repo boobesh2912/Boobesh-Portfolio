@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Magnetic from "@/components/Magnetic";
 import { openContact } from "@/components/ContactDialog";
 
 const stamps = [
@@ -22,13 +23,15 @@ export default function Footer() {
             <h2 className="mt-2 max-w-md font-display text-4xl font-semibold leading-[1.1] text-ink sm:text-5xl">
               Let&apos;s make something people actually read.
             </h2>
-            <button
-              onClick={openContact}
-              className="mt-8 inline-flex items-center gap-2 rounded-full bg-ink px-7 py-3.5 font-body text-sm font-semibold text-cream transition-transform hover:-translate-y-0.5"
-            >
-              start a conversation
-              <span aria-hidden>→</span>
-            </button>
+            <Magnetic className="mt-8">
+              <button
+                onClick={openContact}
+                className="inline-flex items-center gap-2 rounded-full bg-ink px-7 py-3.5 font-body text-sm font-semibold text-cream"
+              >
+                start a conversation
+                <span aria-hidden>→</span>
+              </button>
+            </Magnetic>
             <p className="mt-3 font-hand text-lg text-ink-soft">
               it opens a form, not your mail app
             </p>

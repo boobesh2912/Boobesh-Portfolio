@@ -1,4 +1,9 @@
+"use client";
+
 import Reveal from "@/components/Reveal";
+import Assemble, { type Side } from "@/components/Assemble";
+
+const sides: Side[] = ["left", "bottom", "right", "left", "top", "right"];
 
 const services = [
   {
@@ -35,7 +40,7 @@ const services = [
 
 export default function WhatIDoSection() {
   return (
-    <section id="services" className="bg-dots border-y border-line bg-cream-deep/40 px-4 py-24 sm:px-8">
+    <section id="services" className="bg-dots overflow-x-clip border-y border-line bg-cream-deep/40 px-4 py-24 sm:px-8">
       <div className="mx-auto max-w-6xl">
         <Reveal>
           <p className="font-body text-[11px] font-semibold uppercase tracking-[0.25em] text-coral">
@@ -48,7 +53,7 @@ export default function WhatIDoSection() {
 
         <div className="mt-12 grid gap-x-10 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((s, i) => (
-            <Reveal key={s.n} delay={0.06 * i}>
+            <Assemble key={s.n} from={sides[i % sides.length]} distance={150}>
               <div className="group border-t border-line pt-5 transition-colors hover:border-coral">
                 <span className="font-body text-[11px] font-semibold tracking-[0.2em] text-coral/70">
                   {s.n}
@@ -60,7 +65,7 @@ export default function WhatIDoSection() {
                   {s.body}
                 </p>
               </div>
-            </Reveal>
+            </Assemble>
           ))}
         </div>
       </div>

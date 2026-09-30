@@ -37,6 +37,7 @@ export default function BlogIndexPage() {
               <Link
                 key={post.slug}
                 href={`/blog/${post.slug}`}
+                data-cursor="read"
                 className={`group flex gap-6 rounded-3xl border border-line bg-paper p-7 shadow-[0_4px_0_0_var(--line)] transition-transform hover:-translate-y-1 ${
                   i % 2 === 0 ? "sm:rotate-[-0.4deg]" : "sm:rotate-[0.4deg]"
                 }`}

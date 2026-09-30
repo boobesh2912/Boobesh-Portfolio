@@ -182,29 +182,65 @@ body {
 .has-custom-cursor,
 .has-custom-cursor a,
 .has-custom-cursor button,
-.has-custom-cursor [role="button"] {
+.has-custom-cursor summary,
+.has-custom-cursor label,
+.has-custom-cursor [role="button"],
+.has-custom-cursor [data-cursor] {
   cursor: none;
 }
+/* inside a text field the native cursor is the right tool */
+.cursor-native,
+.cursor-native * {
+  cursor: auto !important;
+}
 
-/* difference blending keeps it visible on bone paper and on the night page */
-.cursor-dot,
-.cursor-ring {
-  mix-blend-mode: difference;
-  transition: opacity 0.25s ease;
+.cursor-dot {
+  background: var(--coral);
+  /* a light edge so the dot survives on the coral hero and on dark */
+  box-shadow: 0 0 0 1.5px var(--paper);
+  transition: opacity 0.2s ease;
   will-change: transform;
 }
-.cursor-dot {
-  background: #ffffff;
-}
+
+/* dark line plus light halo: visible on any background, in either theme */
 .cursor-ring {
-  border: 1px solid #ffffff;
-  transition: opacity 0.25s ease, width 0.22s ease, height 0.22s ease,
-    background-color 0.22s ease, border-color 0.22s ease;
+  width: 34px;
+  height: 34px;
+  border: 1.5px solid var(--ink);
+  box-shadow: 0 0 0 1.5px var(--paper), inset 0 0 0 1.5px var(--paper);
+  background: transparent;
+  transition: opacity 0.2s ease, width 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+    height 0.25s cubic-bezier(0.22, 1, 0.36, 1), background-color 0.2s ease,
+    border-color 0.2s ease, scale 0.15s ease;
+  will-change: transform;
 }
-.cursor-ring-active {
-  width: 3.25rem;
-  height: 3.25rem;
-  background: rgba(255, 255, 255, 0.14);
+.cursor-ring[data-state="link"] {
+  width: 56px;
+  height: 56px;
+  background: color-mix(in srgb, var(--coral) 22%, transparent);
+  border-color: var(--coral);
+}
+.cursor-ring[data-state="label"] {
+  width: 76px;
+  height: 76px;
+  background: var(--coral);
+  border-color: var(--coral);
+}
+.cursor-ring.is-pressed {
+  scale: 0.78;
+}
+.cursor-label {
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #fffdf7;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+.cursor-ring[data-state="label"] .cursor-label {
+  opacity: 1;
 }
 
 /* ---------- section textures ----------
@@ -396,4 +432,36 @@ body {
 }
 .animate-caret {
   animation: caret-blink 1.1s steps(1) infinite;
+}
+
+
+/* ---------- text that arrives as you scroll ----------
+   Body text rises from faint to full as it enters the viewport, tied to the
+   scroll position rather than fired once. Browsers without scroll driven
+   animations simply show the text at full strength. Skipped in the hero,
+   inside long reading (blog posts), and for anyone who prefers less motion. */
+
+@keyframes scroll-text-in {
+  from {
+    opacity: 0.1;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    main
+      :is(p, h2, h3, h4, li, dt, dd, blockquote):not(
+        .hero *,
+        .prose-post *,
+        .no-scroll-fade,
+        .no-scroll-fade *
+      ) {
+      animation: scroll-text-in linear both;
+      animation-timeline: view();
+      /* from the moment it peeks in until it is a quarter of the way up */
+      animation-range: entry 0% cover 28%;
+    }
+  }
 }

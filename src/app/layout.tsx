@@ -6,6 +6,7 @@ import PersonalDoor from "@/components/PersonalDoor";
 import Script from "next/script";
 import { SOCIALS } from "@/content/entity";
 import ThemeProvider, { themeInitScript } from "@/components/ThemeProvider";
+import { Analytics } from "@vercel/analytics/next";
 
 const fraunces = Fraunces({
   variable: "--font-display",
@@ -234,6 +235,7 @@ gtag('config', 'G-BSLJFKDL4D');`}
           <PersonalDoor />
           <ContactDialog />
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   );

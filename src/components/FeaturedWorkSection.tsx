@@ -48,7 +48,7 @@ const featured = [
     site: "tribefortis.com",
     href: "https://tribefortis.com",
     more: { href: "/blog/tribe-fortis-marketing-case-study", label: "read the honest case study" },
-    shot: "/shots/tribe-fortis.png",
+    shot: "/shots/tribe-fortis.webp",
     blurb:
       "A fitness company that turns training into a game, with corporate, adult and kids programs. I led marketing here for four months: the team, the Reels scripts, the LinkedIn content and the calendar. It ended on 30 September, and I wrote up what worked, what did not, and what I would change.",
     points: [

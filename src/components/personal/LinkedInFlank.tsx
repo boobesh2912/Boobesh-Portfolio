@@ -68,7 +68,7 @@ export default function LinkedInFlank({
       >
         <div className="skin skin-line rounded-2xl border p-2.5 shadow-[0_20px_50px_rgba(0,0,0,0.35)] backdrop-blur">
           <ImageSlot
-            src="/shots/linkedin-profile.png"
+            src="/shots/linkedin-profile.webp"
             alt="my LinkedIn profile"
             label="my profile page"
             className="h-[15rem] w-full"
@@ -93,7 +93,7 @@ export default function LinkedInFlank({
         </div>
         <div className="skin skin-line rotate-[4deg] rounded-2xl border p-2">
           <ImageSlot
-            src="/shots/linkedin-profile.png"
+            src="/shots/linkedin-profile.webp"
             alt="my LinkedIn profile"
             label="my profile page"
             className="h-40 w-full"

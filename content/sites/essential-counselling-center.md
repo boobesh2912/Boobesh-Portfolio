@@ -1,8 +1,8 @@
 ---
 title: "Essential Counselling Center"
 url: "https://essentialcounselling.in/"
-image: "/uploads/screenshot-2026-09-10-232815-1789063161442.png"
-alt: "goof"
+image: "/uploads/essential-counselling-center-website.webp"
+alt: "Screenshot of the Essential Counselling Center website, built by Gari Tech"
 blurb: ""
 stack: ["WordPress", "Booking"]
 year: "2025"

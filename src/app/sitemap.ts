@@ -16,6 +16,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: BASE_URL, lastModified: UPDATED, changeFrequency: "weekly", priority: 1 },
     { url: `${BASE_URL}/gari-tech`, lastModified: UPDATED, changeFrequency: "monthly", priority: 0.9 },
     { url: `${BASE_URL}/content-marketer-in-chennai`, lastModified: UPDATED, changeFrequency: "monthly", priority: 0.9 },
+    { url: `${BASE_URL}/press`, lastModified: UPDATED, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE_URL}/about`, lastModified: UPDATED, changeFrequency: "monthly", priority: 0.9 },
     { url: `${BASE_URL}/blog`, lastModified: UPDATED, changeFrequency: "weekly", priority: 0.8 },
     { url: `${BASE_URL}/personal`, lastModified: UPDATED, changeFrequency: "monthly", priority: 0.7 },

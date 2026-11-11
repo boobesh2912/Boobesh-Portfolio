@@ -106,6 +106,12 @@ const jsonLd = {
       alternateName: ["Boo", "Boobesh", "Boobesh AG", "Boobesh Ganesan", "buildwithboo"],
       mainEntityOfPage: "https://boobesh.com/about",
       url: "https://boobesh.com",
+      image: "https://boobesh.com/shots/boobesh.jpg",
+      hasOccupation: {
+        "@type": "Occupation",
+        name: "Content marketer",
+        occupationLocation: { "@type": "City", name: "Chennai" },
+      },
       jobTitle: "Entrepreneur, Content Marketer and Founder of Gari Tech",
       description: DESCRIPTION,
       nationality: "Indian",

@@ -10,7 +10,7 @@ import Magnetic from "@/components/Magnetic";
 import Galaxy, { warp } from "@/components/Galaxy";
 
 const ticker = [
-  "MARKETING LEAD AT TRIBE FORTIS",
+  "LED MARKETING AT TRIBE FORTIS, JUN TO SEP 2026",
   "MARKETING MANAGER AT YOUR COLLEGE SENIOR",
   "MARKETING FOR PROOF",
   "CONTENT AT STORYIT",
@@ -104,9 +104,7 @@ export default function HeroSection() {
                 of them are dead. We don&apos;t talk about those.
               </p>
               <p>
-                Right now I run marketing at{" "}
-                <span className="font-semibold text-white">Tribe Fortis</span>,
-                content at{" "}
+                Right now I run content at{" "}
                 <span className="font-semibold text-white">
                   Your College Senior
                 </span>{" "}
@@ -115,7 +113,15 @@ export default function HeroSection() {
                 <span className="font-semibold text-white">Proof</span>, my own
                 studio{" "}
                 <span className="font-semibold text-white">Gari Tech</span>, and
-                a student community called Start The Up. I also built a Chrome
+                a student community called Start The Up. Until September I also
+                led marketing at Tribe Fortis, and yes,{" "}
+                <Link
+                  href="/blog/tribe-fortis-marketing-case-study"
+                  className="font-semibold text-white underline decoration-white/40 underline-offset-4 hover:decoration-white"
+                >
+                  I wrote up how that went
+                </Link>
+                . I built a Chrome
                 extension called Focus Flow, which is funny, because focus is
                 the one thing I don&apos;t have.
               </p>

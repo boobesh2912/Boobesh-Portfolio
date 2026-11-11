@@ -21,11 +21,11 @@ export type Faq = { q: string; a: string };
 export const aboutFaq: Faq[] = [
   {
     q: "Who is Boobesh AG?",
-    a: "Boobesh AG, also called Boo, is a content marketer and young entrepreneur from Chennai, India. He founded the content marketing agency Gari Tech in February 2024, is Marketing Lead at Tribe Fortis, Marketing Manager at Your College Senior, and works on marketing for Proof and content for StoryIt. He started reselling online at 15 and made his first one lakh rupees before turning 21.",
+    a: "Boobesh AG, also called Boo, is a content marketer and young entrepreneur from Chennai, India. He founded the content marketing agency Gari Tech in February 2024, is Marketing Manager at Your College Senior, works on marketing for Proof and content for StoryIt, and led marketing at Tribe Fortis from June to September 2026. He started reselling online at 15 and made his first one lakh rupees before turning 21.",
   },
   {
     q: "Is Boobesh AG a content marketer?",
-    a: "Yes. Content marketing is the centre of his work: content strategy, Instagram Reels scripts, LinkedIn posts, newsletters, and turning one long video into a week of content. He does it at Tribe Fortis, Your College Senior, StoryIt and Proof, and for clients through Gari Tech.",
+    a: "Yes. Content marketing is the centre of his work: content strategy, Instagram Reels scripts, LinkedIn posts, newsletters, and turning one long video into a week of content. He does it at Your College Senior, StoryIt and Proof, did it as Marketing Lead at Tribe Fortis until September 2026, and does it for clients through Gari Tech.",
   },
   {
     q: "What is Gari Tech and who founded it?",
@@ -60,7 +60,7 @@ export const agencyFaq: Faq[] = [
   },
   {
     q: "Who is the founder of Gari Tech?",
-    a: "Boobesh AG (Boo) founded Gari Tech in Chennai in his first year of college, in February 2024. He still runs it alongside his marketing roles at Tribe Fortis and Your College Senior.",
+    a: "Boobesh AG (Boo) founded Gari Tech in Chennai in his first year of college, in February 2024. He still runs it alongside his marketing roles at Your College Senior, Proof and StoryIt.",
   },
   {
     q: "Where is Gari Tech based?",

@@ -1,28 +1,12 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
 import ImageSlot from "@/components/ImageSlot";
 import Reveal from "@/components/Reveal";
 import PathSpine from "@/components/PathSpine";
 
 const featured = [
-  {
-    name: "Tribe Fortis",
-    role: "Marketing Lead",
-    since: "Jun 2026 → now",
-    site: "tribefortis.com",
-    href: "https://tribefortis.com",
-    shot: "/shots/tribe-fortis.png",
-    blurb:
-      "A fitness company that turns training into a game. I run marketing here, which means the team, the calendar, the Reels scripts and the campaigns all sit with me.",
-    points: [
-      "Lead the marketing team and keep projects shipping on time",
-      "Write Instagram Reels scripts and plan the content calendar",
-      "Run campaigns for brand awareness and community growth",
-      "Work with the founders on positioning and messaging",
-    ],
-    tint: "from-coral/18 to-butter/12",
-  },
   {
     name: "Your College Senior",
     role: "Marketing Manager",
@@ -57,6 +41,24 @@ const featured = [
     ],
     tint: "from-butter/20 to-coral/12",
   },
+  {
+    name: "Tribe Fortis",
+    role: "Marketing Lead",
+    since: "Jun to Sep 2026, ended",
+    site: "tribefortis.com",
+    href: "https://tribefortis.com",
+    more: { href: "/blog/tribe-fortis-marketing-case-study", label: "read the honest case study" },
+    shot: "/shots/tribe-fortis.png",
+    blurb:
+      "A fitness company that turns training into a game, with corporate, adult and kids programs. I led marketing here for four months: the team, the Reels scripts, the LinkedIn content and the calendar. It ended on 30 September, and I wrote up what worked, what did not, and what I would change.",
+    points: [
+      "Led a five person team of a videographer, editors and designers",
+      "Wrote Reels scripts for three audiences: corporate, adults and kids",
+      "Moved the content mix toward 80% value and 20% selling",
+      "Set up no KPI tracker, which is the main thing I would do differently",
+    ],
+    tint: "from-coral/18 to-butter/12",
+  },
 ];
 
 export default function FeaturedWorkSection() {
@@ -68,11 +70,12 @@ export default function FeaturedWorkSection() {
             S1 · E3 · where I do it
           </p>
           <h2 className="mt-6 max-w-2xl font-display text-3xl font-semibold leading-[1.15] text-ink sm:text-[2.6rem]">
-            Three stops take most of my week.
+            Three stops on the route so far.
           </h2>
           <p className="mt-4 max-w-xl font-body text-[17px] leading-[1.8] text-ink-soft">
             Follow the line. It is not a tidy career path, it is the route I
-            actually walked, and each stop paid for the next one.
+            actually walked. One of these stops has already ended, and I wrote
+            up how that went instead of pretending it did not.
           </p>
         </Reveal>
 
@@ -142,14 +145,24 @@ export default function FeaturedWorkSection() {
                       </li>
                     ))}
                   </ul>
-                  <a
-                    href={f.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mt-7 inline-flex items-center gap-2 font-body text-sm font-semibold text-coral-deep hover:underline"
-                  >
-                    visit {f.name} <span aria-hidden>→</span>
-                  </a>
+                  <div className="mt-7 flex flex-wrap items-center gap-x-6 gap-y-2">
+                    <a
+                      href={f.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 font-body text-sm font-semibold text-coral-deep hover:underline"
+                    >
+                      visit {f.name} <span aria-hidden>→</span>
+                    </a>
+                    {"more" in f && f.more && (
+                      <Link
+                        href={f.more.href}
+                        className="inline-flex items-center gap-2 font-body text-sm font-semibold text-ink underline decoration-coral/50 underline-offset-4 hover:text-coral"
+                      >
+                        {f.more.label} <span aria-hidden>→</span>
+                      </Link>
+                    )}
+                  </div>
                 </div>
               </motion.article>
             </Reveal>

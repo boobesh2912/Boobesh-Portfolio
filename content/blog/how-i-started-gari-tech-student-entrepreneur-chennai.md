@@ -98,6 +98,6 @@ Through [LinkedIn](https://www.linkedin.com/in/boobesh2912) or the form on the [
 
 ## What it looks like now
 
-Gari Tech does content marketing, social media, Reels, Meta Ads support, branding and WordPress websites. Clients have left six Google reviews, all five stars, and I have collected the projects in [Gari Tech case studies](/blog/gari-tech-case-studies). I also lead marketing at Tribe Fortis and Your College Senior. The fuller, less polished version of this story is in [who Boobesh is, actually](/personal).
+Gari Tech does content marketing, social media, Reels, Meta Ads support, branding and WordPress websites. Clients have left six Google reviews, all five stars, and I have collected the projects in [Gari Tech case studies](/blog/gari-tech-case-studies). I also run content at Your College Senior, and I led marketing at Tribe Fortis until September 2026. The fuller, less polished version of this story is in [who Boobesh is, actually](/personal).
 
 I am [Boobesh AG](/about), a young entrepreneur in Chennai. If you are a student thinking about starting something, [message me on LinkedIn](https://www.linkedin.com/in/boobesh2912).

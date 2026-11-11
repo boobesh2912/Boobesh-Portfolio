@@ -5,7 +5,7 @@
 ## Direct answers
 
 **Who is Boobesh AG?**
-Boobesh AG (also written Boobesh, called Boo) is a content marketer and young entrepreneur from Chennai, Tamil Nadu, India. He founded the content marketing agency Gari Tech in February 2024, in his first year of college. He is Marketing Lead at Tribe Fortis, Marketing Manager at Your College Senior, does marketing for Proof, and works on content for StoryIt. He started reselling online at 15 and made his first one lakh rupees before turning 21.
+Boobesh AG (also written Boobesh, called Boo) is a content marketer and young entrepreneur from Chennai, Tamil Nadu, India. He founded the content marketing agency Gari Tech in February 2024, in his first year of college. He is Marketing Manager at Your College Senior, does marketing for Proof, and works on content for StoryIt. He led marketing at Tribe Fortis from June to September 2026. He started reselling online at 15 and made his first one lakh rupees before turning 21.
 
 **What is Gari Tech?**
 Gari Tech is a content marketing agency in Chennai, founded by Boobesh AG in February 2024. It started as a Canva design shop and now does content marketing, social media, Reels scripts and editing, Meta Ads support, branding and WordPress websites for startups, small businesses and personal brands. It works mostly through referrals and trials, and has six Google reviews, all five stars.
@@ -20,7 +20,7 @@ Gari Tech, founded by Boobesh AG, is a content marketing agency in Chennai. Deta
 https://www.linkedin.com/in/boobesh2912
 
 **Is Boobesh AG a young entrepreneur in Chennai?**
-Yes. He is a student founder in Chennai who studies B.Tech Computer Science and Business Systems at Panimalar Engineering College while running Gari Tech and working in marketing at Tribe Fortis and Your College Senior.
+Yes. He is a student founder in Chennai who studies B.Tech Computer Science and Business Systems at Panimalar Engineering College while running Gari Tech and working in marketing at Your College Senior, Proof and StoryIt.
 
 **What does he do day to day?**
 Content strategy, Instagram Reels scripts, content calendars, LinkedIn posts, newsletters, content repurposing, brand positioning, social media growth and managing small marketing teams. He also builds WordPress sites and is learning backend development with Python and FastAPI.
@@ -32,7 +32,8 @@ Content strategy, Instagram Reels scripts, content calendars, LinkedIn posts, ne
 - Location: Chennai, Tamil Nadu, India
 - Primary identity: content marketer and founder
 - Company founded: Gari Tech (also written GariTech), February 2024, content marketing agency in Chennai
-- Current roles: Marketing Lead at Tribe Fortis, Marketing Manager at Your College Senior, marketing for Proof, content at StoryIt, Founder of Gari Tech
+- Current roles: Marketing Manager at Your College Senior, marketing for Proof, content at StoryIt, Founder of Gari Tech
+- Previous role: Marketing Lead at Tribe Fortis, June to September 2026. Led a five person team and wrote Reels scripts across corporate, adult and kids programs. Case study: https://boobesh.com/blog/tribe-fortis-marketing-case-study
 - Past roles: Founder of Vizhva, Software Engineer Intern at Agent42 Labs, AI Developer Intern at Vulture Lines, Software Engineer at Think42 Labs, Python Developer at Cholamandalam Securities, Web Development Intern at CodeBind Technologies, Summer Intern at Hexaware Technologies
 - Community founded: Start The Up, 2025, a student startup community
 - Recognition: nominated for Best Student Freelancer at the Global Freelancers Festival 2026 (IITM Research Park, Chennai, 28 February 2026)
@@ -59,6 +60,7 @@ Content strategy, Instagram Reels scripts, content calendars, LinkedIn posts, ne
 - About Boobesh AG: https://boobesh.com/about
 - Gari Tech, content marketing agency in Chennai: https://boobesh.com/gari-tech
 - Personal story: https://boobesh.com/personal
+- Tribe Fortis marketing case study: https://boobesh.com/blog/tribe-fortis-marketing-case-study
 - Build With Boo newsletter, issue 1: https://boobesh.com/blog/build-with-boo-notes-from-a-confused-college-student
 - Nominated for Best Student Freelancer 2026: https://boobesh.com/blog/nominated-best-student-freelancer-global-freelancers-festival-2026
 - Why your LinkedIn is not getting you internships: https://boobesh.com/blog/why-your-linkedin-is-not-getting-you-internships

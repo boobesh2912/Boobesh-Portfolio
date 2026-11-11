@@ -17,8 +17,7 @@ export default function QuickFacts() {
           <Link href="/gari-tech" className="font-semibold text-coral-deep underline">
             Gari Tech
           </Link>
-          , is Marketing Lead at Tribe Fortis and Marketing Manager at Your
-          College Senior, and studies at Panimalar Engineering College.
+          , is Marketing Manager at Your College Senior, led marketing at Tribe Fortis until September 2026, and studies at Panimalar Engineering College.
         </p>
         <p className="mt-3 flex flex-wrap gap-x-5 gap-y-1 font-body text-sm text-ink-soft">
           <Link href="/about" className="underline hover:text-coral">

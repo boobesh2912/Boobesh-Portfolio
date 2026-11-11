@@ -20,6 +20,7 @@ export type PostMeta = {
 
 export type Post = PostMeta & {
   html: string;
+  video?: { src: string; poster: string; label: string };
 };
 
 function readSlugs(): string[] {
@@ -69,6 +70,15 @@ export async function getPostBySlug(slug: string): Promise<Post | null> {
     thumbnail: (data.thumbnail as string) ?? "",
     thumbnailAlt: (data.thumbnailAlt as string) ?? (data.title as string),
     html: processed.toString(),
+    ...(data.video
+      ? {
+          video: {
+            src: data.video as string,
+            poster: (data.videoPoster as string) ?? "",
+            label: (data.videoLabel as string) ?? "Video",
+          },
+        }
+      : {}),
   };
 }
 

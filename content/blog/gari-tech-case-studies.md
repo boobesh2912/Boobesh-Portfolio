@@ -3,6 +3,9 @@ title: "Gari Tech case studies: websites and marketing for real clients"
 excerpt: "Five real Gari Tech projects, the websites for Speak With Ikigai, Pranav Mahi, Essential Counselling Center and XY Digital Axis, plus marketing for Zancafe, with client quotes."
 date: "2026-09-30"
 tags: ["case study", "gari tech", "websites"]
+video: "/videos/tejasvi-speak-with-ikigai-review.mp4"
+videoPoster: "/videos/tejasvi-speak-with-ikigai-review.jpg"
+videoLabel: "Video review from Tejasvi R.A., Founder of Speak With Ikigai"
 ---
 
 **The short version:** these are real projects from [Gari Tech](/gari-tech), my content marketing agency in Chennai. I have kept to what I can back up, which is what we built, what we used and what the clients said in their own words. I have left out traffic and revenue numbers because I would rather publish none than invent any.
@@ -12,6 +15,8 @@ tags: ["case study", "gari tech", "websites"]
 **What we built:** the official website for Speak With Ikigai at [speakwithikigai.com](https://speakwithikigai.com/), built in 2026 on WordPress with Elementor.
 
 **How the work went:** the client, Tejasvi R.A., described the process in a Google review. It started with the whole process, requirements and investment explained upfront. There were many rounds of changes along the way, with advice from us. At the end we taught her how to make basic edits herself so she would not need to call us for every small change.
+
+**Watch it:** Tejasvi also recorded a video review, which is at the top of this page. Her headline line is "Everything was handled by them."
 
 **In the client's words:** "Trusted Boobesh with the official website for Speak With Ikigai and couldn't be happier. From explaining the entire process, requirements and investment upfront, to making numerous changes and offering advice, and lastly, teaching me how to make basic edits for future changes, a service I would choose again and again!"
 

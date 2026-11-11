@@ -6,6 +6,7 @@ import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 import { getAllPosts, getAllSlugs, getPostBySlug } from "@/lib/blog";
 import { LINKEDIN } from "@/content/entity";
+import VideoReview from "@/components/VideoReview";
 
 export async function generateStaticParams() {
   return getAllSlugs().map((slug) => ({ slug }));
@@ -112,6 +113,15 @@ export default async function BlogPostPage({
             ))}
           </div>
 
+          {post.video && (
+            <VideoReview
+              src={post.video.src}
+              poster={post.video.poster}
+              label={post.video.label}
+              className="mx-auto mt-10 max-w-[300px]"
+            />
+          )}
+
           <div
             className="prose prose-post mt-10 max-w-none font-body text-ink"
             dangerouslySetInnerHTML={{ __html: post.html }}
@@ -128,8 +138,8 @@ export default async function BlogPostPage({
               <Link href="/gari-tech" className="font-semibold text-ink underline">
                 Gari Tech
               </Link>{" "}
-              in 2024, and I lead marketing at Tribe Fortis and Your College
-              Senior. Find me on{" "}
+              in 2024, and I run content at Your College Senior and StoryIt.
+              Find me on{" "}
               <a href={LINKEDIN} target="_blank" rel="me noopener" className="font-semibold text-ink underline">
                 LinkedIn
               </a>

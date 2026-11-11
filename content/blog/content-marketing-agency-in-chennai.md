@@ -140,4 +140,4 @@ I wrote a full checklist in [how to choose a marketing agency in Chennai](/blog/
 
 ## Why I do this
 
-I started reselling online when I was 15, long before I knew the word marketing, and I have since led marketing at Tribe Fortis and content at Your College Senior. Content marketing is the part of the job where being patient beats being clever. If you want to see what [Gari Tech](/gari-tech) does, that page lists the services, the websites built and what clients have said. More about me is at [Boobesh AG](/about).
+I started reselling online when I was 15, long before I knew the word marketing, and I have since led marketing at Tribe Fortis for four months and run content at Your College Senior. Content marketing is the part of the job where being patient beats being clever. If you want to see what [Gari Tech](/gari-tech) does, that page lists the services, the websites built and what clients have said. More about me is at [Boobesh AG](/about).

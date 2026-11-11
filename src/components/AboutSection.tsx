@@ -6,7 +6,7 @@ import TiltCard from "@/components/TiltCard";
 const stats = [
   {
     value: "5 things",
-    label: "Tribe Fortis, YCS, Proof, StoryIt and Gari Tech. Yes, at the same time.",
+    label: "YCS, StoryIt, Proof, Gari Tech and Start The Up. Yes, at the same time.",
     tone: "bg-coral/12 border-coral/30",
   },
   {
@@ -37,9 +37,8 @@ export default function AboutSection() {
 
             <div className="mt-7 space-y-5 font-body text-[17px] leading-[1.8] text-ink-soft">
               <p>
-                Short answer: a lot, at once. I run marketing for a fitness
-                company, content for a career channel and a startup, marketing
-                for a platform engineers write on, and a small studio of my
+                Short answer: a lot, at once. I run content for a career channel
+                and a startup, marketing for a platform engineers write on, and a small studio of my
                 own. I&apos;m also still in college.
               </p>
               <p>

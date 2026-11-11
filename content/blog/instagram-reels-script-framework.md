@@ -7,7 +7,7 @@ tags: ["instagram", "reels", "content marketing"]
 
 **The short answer:** a good Reels script has four parts. A hook in the first second, a setup that keeps the promise, a payoff that delivers it, and one next step. Everything you cut makes it better.
 
-I write Reels scripts and plan content calendars as part of my work at Tribe Fortis, and for clients through [Gari Tech](/gari-tech). This is the framework I keep coming back to.
+I wrote Reels scripts and planned content calendars as Marketing Lead at Tribe Fortis, across corporate wellness, adult fitness and kids, and I write them for clients through [Gari Tech](/gari-tech). I wrote up that job in the [Tribe Fortis case study](/blog/tribe-fortis-marketing-case-study). This is the framework I keep coming back to.
 
 ## The four parts
 
@@ -135,7 +135,7 @@ One or two a week is a realistic start. Keep the rhythm before increasing.
 
 ### Can an agency write and edit my Reels?
 
-Yes. [Gari Tech](/gari-tech) offers Reels scripts and editing, and [Boobesh AG](/about) writes Reels scripts as part of his work at Tribe Fortis.
+Yes. [Gari Tech](/gari-tech) offers Reels scripts and editing, and [Boobesh AG](/about) has written Reels scripts for a fitness brand across three audiences, and writes them for Gari Tech clients.
 
 ### Do I need a professional camera for Reels?
 

@@ -9,26 +9,11 @@ export type Role = {
   bullets: string[];
   skills?: string[];
   featured?: boolean;
+  video?: { src: string; poster: string; label: string };
+  link?: { href: string; label: string };
 };
 
 export const roles: Role[] = [
-  {
-    title: "Marketing Lead",
-    org: "Tribe Fortis",
-    type: "Full-time",
-    period: "Jun 2026 - Present",
-    length: "4 mos",
-    location: "Chennai, Tamil Nadu · Remote",
-    kind: "marketing",
-    featured: true,
-    bullets: [
-      "Leading day to day marketing operations and making sure projects actually ship on time.",
-      "Managing the marketing team, coordinating tasks and driving execution across content and campaigns.",
-      "Creating content strategies, writing Instagram Reels scripts and planning content calendars.",
-      "Planning and running campaigns that grow brand awareness and community engagement.",
-      "Working closely with the founders on brand positioning, messaging and growth.",
-    ],
-  },
   {
     title: "Marketing Manager",
     org: "Your College Senior",
@@ -63,6 +48,31 @@ export const roles: Role[] = [
       "Experimenting with startup ideas, automation systems and scalable digital products.",
     ],
     skills: ["SaaS", "WordPress", "Branding", "Team Management"],
+    video: {
+      src: "/videos/tejasvi-speak-with-ikigai-review.mp4",
+      poster: "/videos/tejasvi-speak-with-ikigai-review.jpg",
+      label: "Video review from Tejasvi R.A., Founder of Speak With Ikigai",
+    },
+  },
+  {
+    title: "Marketing Lead",
+    org: "Tribe Fortis",
+    type: "Full-time",
+    period: "Jun 2026 - Sep 2026",
+    length: "4 mos",
+    location: "Chennai, Tamil Nadu · Remote",
+    kind: "marketing",
+    bullets: [
+      "Led a five person marketing team: a videographer, editors, and designers who made the carousels.",
+      "Wrote Instagram Reels scripts for three audiences: corporate wellness, adult fitness and kids.",
+      "Wrote the brand's LinkedIn content, and moved the content mix from promotional heavy toward 80% value and 20% selling.",
+      "Helped plan and scope brand events, including a networking collaboration with a founders' community.",
+      "No KPI system was set up, so there is no data to prove what the work did. I wrote up what I learned.",
+    ],
+    link: {
+      href: "/blog/tribe-fortis-marketing-case-study",
+      label: "read the honest case study",
+    },
   },
   {
     title: "Summer Intern",

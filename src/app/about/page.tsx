@@ -9,7 +9,7 @@ import { roles } from "@/content/experience";
 
 const TITLE = "Boobesh AG (Boo): Content Marketer and Founder of Gari Tech, Chennai";
 const DESCRIPTION =
-  "Boobesh AG, known as Boo, is a content marketer and young entrepreneur from Chennai. Founder of Gari Tech, Marketing Lead at Tribe Fortis, Marketing Manager at Your College Senior. Panimalar Engineering College, B.Tech CSBS.";
+  "Boobesh AG, known as Boo, is a content marketer and young entrepreneur from Chennai. Founder of Gari Tech, Marketing Manager at Your College Senior. Panimalar Engineering College, B.Tech CSBS.";
 
 export const metadata: Metadata = {
   title: { absolute: TITLE },
@@ -29,7 +29,8 @@ const facts: [string, React.ReactNode][] = [
       Gari Tech
     </Link>,
   ],
-  ["Currently", "Marketing Lead at Tribe Fortis, Marketing Manager at Your College Senior, marketing for Proof, content at StoryIt"],
+  ["Currently", "Marketing Manager at Your College Senior, marketing for Proof, content at StoryIt, Founder of Gari Tech"],
+  ["Previously", "Marketing Lead at Tribe Fortis, June to September 2026"],
   ["Recognition", "Nominated for Best Student Freelancer, Global Freelancers Festival 2026, IITM Research Park, Chennai"],
   ["Also built", "Focus Flow, a Chrome extension. Runs Start The Up, a student community"],
   ["Writes", "Build With Boo, a newsletter on college, freelancing and building in public"],
@@ -80,9 +81,9 @@ export default function AboutPage() {
               <Link href="/gari-tech" className="text-coral-deep underline">
                 Gari Tech
               </Link>{" "}
-              in February 2024, and he is Marketing Lead at Tribe Fortis and
-              Marketing Manager at Your College Senior. He also does marketing
-              for Proof and content for StoryIt. He started reselling online at
+              in February 2024, and he is Marketing Manager at Your College
+              Senior. He also does marketing for Proof and content for StoryIt,
+              and led marketing at Tribe Fortis from June to September 2026. He started reselling online at
               15 and made his first one lakh rupees before turning 21.
             </p>
 

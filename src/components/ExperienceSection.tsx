@@ -4,6 +4,8 @@ import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import Reveal from "@/components/Reveal";
 import { roles, type Role } from "@/content/experience";
+import VideoReview from "@/components/VideoReview";
+import Link from "next/link";
 
 const dot: Record<Role["kind"], string> = {
   marketing: "bg-coral",
@@ -114,6 +116,25 @@ export default function ExperienceSection() {
                               </li>
                             ))}
                           </ul>
+
+                          {role.link && (
+                            <Link
+                              href={role.link.href}
+                              className="mt-4 inline-flex items-center gap-2 font-body text-sm font-semibold text-coral-deep hover:underline"
+                            >
+                              {role.link.label} <span aria-hidden>→</span>
+                            </Link>
+                          )}
+
+                          {role.video && (
+                            <div className="mt-6 max-w-[240px]">
+                              <VideoReview
+                                src={role.video.src}
+                                poster={role.video.poster}
+                                label={role.video.label}
+                              />
+                            </div>
+                          )}
 
                           {role.skills && (
                             <div className="mt-4 flex flex-wrap gap-2">

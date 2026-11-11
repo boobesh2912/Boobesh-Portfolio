@@ -35,7 +35,7 @@ export const lifeStrip = [
   { when: "10th std", what: "sold kitchenware on Sharechat" },
   { when: "1st year", what: "started Gari Tech" },
   { when: "2025", what: "Start The Up, then Vizhva" },
-  { when: "now", what: "marketing at Tribe Fortis and YCS" },
+  { when: "now", what: "content at YCS and StoryIt, marketing for Proof" },
 ];
 
 export const driveStats = [
@@ -116,7 +116,7 @@ export const storySections: StorySection[] = [
   {
     heading: "what I am doing right now",
     paragraphs: [
-      "Right now I lead marketing at Tribe Fortis and run content marketing at Your College Senior, while Gari Tech keeps going in the background. I am also interning as a backend developer, mostly Python and FastAPI, learning how systems hold up in real projects.",
+      "Right now I run content marketing at Your College Senior and StoryIt, do marketing for Proof, and keep Gari Tech going. Until the end of September I also led marketing at Tribe Fortis, which did not go as well as I wanted, and I wrote about it honestly on the blog. I am also interning as a backend developer, mostly Python and FastAPI, learning how systems hold up in real projects.",
       "So I am learning two things at once. **How to build systems, and how to build the story around them.** Engineering on one side, brand on the other. Somewhere in the middle, I am still working out how the two connect.",
     ],
   },

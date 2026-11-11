@@ -29,7 +29,7 @@ const manrope = Manrope({
 const TITLE =
   "Boobesh AG | Content Marketer in Chennai, Founder of Gari Tech";
 const DESCRIPTION =
-  "Boobesh AG (Boo) is a content marketer and young entrepreneur from Chennai, and the founder of Gari Tech, a content marketing agency. Marketing Lead at Tribe Fortis, Marketing Manager at Your College Senior. LinkedIn: linkedin.com/in/boobesh2912.";
+  "Boobesh AG (Boo) is a content marketer and young entrepreneur from Chennai, and the founder of Gari Tech, a content marketing agency. Marketing Manager at Your College Senior. LinkedIn: linkedin.com/in/boobesh2912.";
 
 
 export const metadata: Metadata = {
@@ -139,7 +139,6 @@ const jsonLd = {
         },
       ],
       worksFor: [
-        { "@type": "Organization", name: "Tribe Fortis" },
         { "@type": "Organization", name: "Your College Senior" },
         { "@type": "Organization", name: "Proof", url: "https://proof.zeromaintenanceengineer.in" },
         { "@type": "Organization", name: "StoryIt", url: "https://storyit.in" },

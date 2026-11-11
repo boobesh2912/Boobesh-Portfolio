@@ -3,6 +3,8 @@
 import { useRef } from "react";
 import Reveal from "@/components/Reveal";
 import { reviews } from "@/content/reviews";
+import VideoReview from "@/components/VideoReview";
+import { tejasviVideo } from "@/content/videos";
 
 /*
   A Netflix style row: the cards scroll sideways, snap, and the one under the
@@ -46,11 +48,37 @@ export default function ReviewsSection({
         </Reveal>
       </div>
 
+      {/* the one review that is a video gets room to breathe */}
+      <div className="mx-auto mt-12 max-w-6xl px-4 sm:px-8">
+        <div className="grid items-center gap-10 rounded-3xl border border-line bg-paper p-6 sm:p-10 md:grid-cols-[minmax(0,300px)_1fr]">
+          <VideoReview
+            src={tejasviVideo.src}
+            poster={tejasviVideo.poster}
+            label={tejasviVideo.label}
+          />
+          <div>
+            <p className="font-body text-[11px] font-semibold uppercase tracking-[0.25em] text-coral">
+              watch, with sound
+            </p>
+            <blockquote className="mt-4 font-display text-3xl font-semibold leading-[1.15] text-ink sm:text-[2.6rem]">
+              She liked the website enough to record a video about it.
+            </blockquote>
+            <p className="mt-5 font-body text-[15px] font-semibold text-ink">
+              Tejasvi R.A.
+            </p>
+            <p className="font-body text-sm text-ink-soft">
+              Founder, Speak With Ikigai. We built her official website. Her
+              written review is in the row below.
+            </p>
+          </div>
+        </div>
+      </div>
+
       <div
         ref={row}
         /* lines the first card up with the heading, then scrolls to the edge */
         style={{ paddingInline: "max(1rem, calc((100vw - 72rem) / 2 + 2rem))", scrollPaddingInline: "max(1rem, calc((100vw - 72rem) / 2 + 2rem))" }}
-        className="group/row mt-12 flex snap-x snap-mandatory gap-5 overflow-x-auto pb-6 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+        className="group/row mt-10 flex snap-x snap-mandatory gap-5 overflow-x-auto pb-6 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
       >
         {reviews.map((r) => (
           <article

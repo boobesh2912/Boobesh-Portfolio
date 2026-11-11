@@ -30,6 +30,9 @@ const facts: [string, React.ReactNode][] = [
     </Link>,
   ],
   ["Currently", "Marketing Lead at Tribe Fortis, Marketing Manager at Your College Senior, marketing for Proof, content at StoryIt"],
+  ["Recognition", "Nominated for Best Student Freelancer, Global Freelancers Festival 2026, IITM Research Park, Chennai"],
+  ["Also built", "Focus Flow, a Chrome extension. Runs Start The Up, a student community"],
+  ["Writes", "Build With Boo, a newsletter on college, freelancing and building in public"],
   ["Studying", "B.Tech Computer Science and Business Systems, Panimalar Engineering College, Chennai"],
   ["School", "Santhome Higher Secondary School, Mylapore, Chennai"],
   [

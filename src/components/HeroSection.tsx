@@ -15,9 +15,11 @@ const ticker = [
   "MARKETING FOR PROOF",
   "CONTENT AT STORYIT",
   "FOUNDER OF GARI TECH",
+  "NOMINATED: BEST STUDENT FREELANCER 2026",
+  "BUILT A FOCUS APP. CANNOT FOCUS.",
   "STARTED RESELLING AT 15",
   "FIRST 1,00,000 BEFORE 21",
-  "STILL MID EXPERIMENT",
+  "F*CK IT, WE BALL",
 ];
 
 export default function HeroSection() {
@@ -82,11 +84,11 @@ export default function HeroSection() {
               transition={{ duration: 0.75, delay: 0.08 }}
               className="max-w-3xl font-display text-[2.6rem] font-semibold leading-[1.04] tracking-[-0.02em] text-white sm:text-6xl lg:text-[4.2rem]"
             >
-              I started my first
+              Jack of all trades.
               <br />
-              business at 15.
+              Master of none.
               <br />
-              <span className="italic text-[#ffd9a8]">I never really stopped.</span>
+              <span className="italic text-[#ffd9a8]">F*ck it, we ball.</span>
             </motion.h1>
 
             <motion.div
@@ -96,12 +98,13 @@ export default function HeroSection() {
               className="mt-7 max-w-xl space-y-3 font-body text-base leading-[1.75] text-white/70 sm:text-[17px]"
             >
               <p>
-                At 15 I started reselling online. Strangers messaged me,
-                I took the orders, I kept the margin. Nobody told me that
-                was a business. It just worked, so I kept going.
+                Hey hi, I&apos;m Boobesh, aka Boo. College student, Chennai. At
+                15 I started reselling stuff online and honestly never stopped
+                starting things. I have 50+ projects on my laptop and like half
+                of them are dead. We don&apos;t talk about those.
               </p>
               <p>
-                I&apos;m in the middle of a lot right now. Marketing at{" "}
+                Right now I run marketing at{" "}
                 <span className="font-semibold text-white">Tribe Fortis</span>,
                 content at{" "}
                 <span className="font-semibold text-white">
@@ -109,13 +112,19 @@ export default function HeroSection() {
                 </span>{" "}
                 and <span className="font-semibold text-white">StoryIt</span>,
                 marketing for{" "}
-                <span className="font-semibold text-white">Proof</span>, and{" "}
-                <span className="font-semibold text-white">Gari Tech</span>,
-                the studio I started in first year and somehow still run.
-                Also learning backend. Also dancing badly.
+                <span className="font-semibold text-white">Proof</span>, my own
+                studio{" "}
+                <span className="font-semibold text-white">Gari Tech</span>, and
+                a student community called Start The Up. I also built a Chrome
+                extension called Focus Flow, which is funny, because focus is
+                the one thing I don&apos;t have.
+              </p>
+              <p>
+                Oh, and I got nominated for Best Student Freelancer at the
+                Global Freelancers Festival 2026. Still processing that one.
               </p>
               <p className="text-white/55">
-                <TypedLine text="How does one person end up here? Scroll. It gets a bit embarrassing..." />
+                <TypedLine text="Is there a plan? Absolutely not. Scroll down, it only gets weirder..." />
               </p>
             </motion.div>
 

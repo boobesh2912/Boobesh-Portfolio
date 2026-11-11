@@ -32,6 +32,23 @@ export default function BlogIndexPage() {
             </p>
           </div>
 
+          <div className="mb-10 rounded-2xl border border-line bg-paper p-6">
+            <p className="font-hand text-2xl text-coral-deep">Build With Boo</p>
+            <p className="mt-1 font-body text-[15px] leading-relaxed text-ink-soft">
+              My newsletter, for college students who are trying to build
+              something. The issues are in the list below. The newer ones live
+              on{" "}
+              <a href="https://boo2912.substack.com" target="_blank" rel="noopener" className="font-semibold text-ink underline hover:text-coral">
+                Substack
+              </a>
+              , and the older archive is on{" "}
+              <a href="https://starttheup.beehiiv.com" target="_blank" rel="noopener" className="font-semibold text-ink underline hover:text-coral">
+                Beehiiv
+              </a>
+              .
+            </p>
+          </div>
+
           <div className="flex flex-col gap-6">
             {posts.map((post, i) => (
               <Link

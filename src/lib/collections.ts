@@ -14,9 +14,12 @@ export type EventItem = {
   slug: string;
   title: string;
   organizer: string;
+  venue: string;
   date: string;
   image: string;
   alt: string;
+  /* every photo, cover first. Falls back to the single image. */
+  images: { src: string; alt: string }[];
   description: string;
 };
 
@@ -51,15 +54,30 @@ function readDir(dir: string): { slug: string; data: Record<string, unknown> }[]
 const str = (v: unknown, fallback = "") =>
   typeof v === "string" ? v : fallback;
 
+/** The photo list from frontmatter, or the single cover image as a one item list. */
+function photos(data: Record<string, unknown>): { src: string; alt: string }[] {
+  const list = Array.isArray(data.images)
+    ? (data.images as Record<string, unknown>[])
+        .map((i) => ({ src: str(i?.src), alt: str(i?.alt, str(data.title)) }))
+        .filter((i) => i.src)
+    : [];
+  if (list.length) return list;
+  return data.image
+    ? [{ src: str(data.image), alt: str(data.alt, str(data.title)) }]
+    : [];
+}
+
 export function getEvents(): EventItem[] {
   return readDir("events")
     .map(({ slug, data }) => ({
       slug,
       title: str(data.title),
       organizer: str(data.organizer),
+      venue: str(data.venue),
       date: str(data.date),
       image: str(data.image),
       alt: str(data.alt, str(data.title)),
+      images: photos(data),
       description: str(data.description).slice(0, EVENT_DESCRIPTION_LIMIT),
     }))
     .filter((e) => e.title)

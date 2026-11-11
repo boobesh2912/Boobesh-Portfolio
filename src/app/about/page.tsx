@@ -32,6 +32,7 @@ const facts: [string, React.ReactNode][] = [
   ["Currently", "Marketing Manager at Your College Senior, marketing for Proof, content at StoryIt, Founder of Gari Tech"],
   ["Previously", "Marketing Lead at Tribe Fortis, June to September 2026"],
   ["Recognition", "Nominated for Best Student Freelancer, Global Freelancers Festival 2026, IITM Research Park, Chennai"],
+  ["Speaking", "Product Building and Entrepreneurship, CodeSapiens x Tamilpreneur meetup, M2P Fintech, Guindy, 11 April 2026. Hackathon pitch, D3 Community Meetup, Yuniq, Taramani, 24 January 2026"],
   ["Also built", "Focus Flow, a Chrome extension. Runs Start The Up, a student community"],
   ["Writes", "Build With Boo, a newsletter on college, freelancing and building in public"],
   ["Studying", "B.Tech Computer Science and Business Systems, Panimalar Engineering College, Chennai"],

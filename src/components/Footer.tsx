@@ -58,6 +58,7 @@ export default function Footer() {
               <Link href="/about" className="hover:text-coral">about Boobesh AG</Link>
               <Link href="/gari-tech" className="hover:text-coral">Gari Tech, content marketing in Chennai</Link>
               <a href="https://garitech.co.in" target="_blank" rel="noopener" className="hover:text-coral">garitech.co.in</a>
+              <Link href="/content-marketer-in-chennai" className="hover:text-coral">Content marketer in Chennai</Link>
             </nav>
             <Link
               href="/personal"

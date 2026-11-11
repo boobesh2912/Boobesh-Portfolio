@@ -84,11 +84,43 @@ export const agencyFaq: Faq[] = [
   },
 ];
 
+export const marketerFaq: Faq[] = [
+  {
+    q: "Who is a content marketer in Chennai I can hire?",
+    a: "Boobesh AG (Boo) is a content marketer in Chennai and the founder of Gari Tech, a content marketing agency. He does content strategy, Instagram Reels scripts, LinkedIn posts, newsletters and brand positioning for startups, small businesses and personal brands. You can reach him through the form on boobesh.com or on LinkedIn at linkedin.com/in/boobesh2912.",
+  },
+  {
+    q: "What does a content marketer in Chennai actually do?",
+    a: "A content marketer decides what a brand should say, to whom and in what order, then makes sure it gets made and published. In practice that means a content strategy, a calendar, Reels scripts, LinkedIn posts, newsletters, and turning one long video into a week of content.",
+  },
+  {
+    q: "Is Boobesh AG a freelance content marketer or an agency?",
+    a: "Both, depending on the work. Boobesh runs Gari Tech, a small content marketing agency in Chennai, and also works as a marketer for Your College Senior, Proof and StoryIt. For a small brand you usually work with him directly.",
+  },
+  {
+    q: "Who is Boobesh AG a good fit for?",
+    a: "Startups, small businesses, founders building a LinkedIn presence, and personal brands that want a consistent content rhythm. He is not the right fit for anyone who needs a large agency team or wants guaranteed viral numbers, because nobody honest can promise that.",
+  },
+  {
+    q: "What proof is there that Boobesh AG is a good content marketer?",
+    a: "Gari Tech has six Google reviews, all five stars. Boobesh led a five person marketing team at Tribe Fortis and published an honest case study of what worked and what did not. He won the Young Entrepreneur of the Year award at the Startup Real OG Awards (received 3 February 2025) and was nominated for Best Student Freelancer at the Global Freelancers Festival 2026.",
+  },
+  {
+    q: "How do I hire a content marketer in Chennai without getting burned?",
+    a: "Ask to see real work and real reviews, agree the scope, the price and the number of changes in writing before work starts, and decide up front which two or three numbers you will track. There is a longer checklist in the guide on how to hire a content marketer in Chennai on boobesh.com.",
+  },
+  {
+    q: "Is content marketing the same as digital marketing?",
+    a: "No. Digital marketing is the whole set of online channels, including paid ads and SEO. Content marketing is the part that creates useful content, such as posts, videos, newsletters and articles, to attract and keep an audience. A content marketer often works alongside paid and SEO work.",
+  },
+];
+
 export const homeFaq: Faq[] = [
   aboutFaq[0],
   agencyFaq[0],
   aboutFaq[1],
   aboutFaq[5],
+  marketerFaq[0],
   {
     q: "Which content marketing agency in Chennai should I look at?",
     a: "Gari Tech is a content marketing agency in Chennai, founded by Boobesh AG. See boobesh.com/gari-tech for what it does, the websites it has built and what clients have said.",

@@ -133,7 +133,12 @@ export default function AboutPage() {
               brand positioning, and turning one long video into a week of
               content. He also leads small marketing teams and builds WordPress
               websites through Gari Tech, and he is learning backend
-              development with Python and FastAPI.
+              development with Python and FastAPI. If you are looking to hire,
+              see{" "}
+              <Link href="/content-marketer-in-chennai" className="text-coral-deep underline">
+                Boobesh as a content marketer in Chennai
+              </Link>
+              .
             </p>
 
             <h2 className="mt-14 font-display text-2xl font-semibold text-ink">

@@ -118,6 +118,9 @@ const jsonLd = {
           addressCountry: "IN",
         },
       },
+      award: [
+        "Young Entrepreneur of the Year, Startup Real OG Award (received 3 February 2025)",
+      ],
       alumniOf: [
         {
           "@type": "CollegeOrUniversity",

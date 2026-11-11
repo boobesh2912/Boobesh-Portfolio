@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import type { EventItem } from "@/lib/collections";
 
@@ -11,46 +11,136 @@ import type { EventItem } from "@/lib/collections";
 */
 export default function EventsCarousel({ events }: { events: EventItem[] }) {
   const strip = useRef<HTMLDivElement>(null);
+  const drag = useRef({ on: false, moved: false, x: 0, left: 0 });
   const [open, setOpen] = useState<string | null>(null);
+  const [dragging, setDragging] = useState(false);
+  const [pos, setPos] = useState({ p: 0, start: true, end: false });
+
+  const measure = useCallback(() => {
+    const el = strip.current;
+    if (!el) return;
+    const max = el.scrollWidth - el.clientWidth;
+    const p = max > 0 ? el.scrollLeft / max : 0;
+    setPos({ p, start: el.scrollLeft < 8, end: max - el.scrollLeft < 8 });
+  }, []);
+
+  useEffect(() => {
+    measure();
+    window.addEventListener("resize", measure);
+    return () => window.removeEventListener("resize", measure);
+  }, [measure, events.length]);
 
   const nudge = (dir: 1 | -1) => {
     const el = strip.current;
     if (!el) return;
-    el.scrollBy({ left: dir * (el.clientWidth * 0.8), behavior: "smooth" });
+    const card = el.querySelector("article");
+    const step = card ? card.getBoundingClientRect().width + 20 : el.clientWidth * 0.8;
+    el.scrollBy({ left: dir * step, behavior: "smooth" });
   };
+
+  /* mouse drag on desktop. Touch already scrolls natively. */
+  const down = (ev: React.PointerEvent<HTMLDivElement>) => {
+    if (ev.pointerType !== "mouse" || ev.button !== 0) return;
+    if ((ev.target as HTMLElement).closest("button")) return;
+    const el = strip.current;
+    if (!el) return;
+    drag.current = { on: true, moved: false, x: ev.clientX, left: el.scrollLeft };
+  };
+  const move = (ev: React.PointerEvent<HTMLDivElement>) => {
+    const d = drag.current;
+    const el = strip.current;
+    if (!d.on || !el) return;
+    const dx = ev.clientX - d.x;
+    if (!d.moved && Math.abs(dx) > 6) {
+      d.moved = true;
+      /* switch snapping off at once, not after a re-render */
+      el.style.scrollSnapType = "none";
+      el.style.scrollBehavior = "auto";
+      setDragging(true);
+    }
+    if (d.moved) el.scrollTo({ left: d.left - dx, behavior: "instant" });
+  };
+  const up = () => {
+    drag.current.on = false;
+    const el = strip.current;
+    if (drag.current.moved && el) {
+      el.style.scrollSnapType = "";
+      el.style.scrollBehavior = "";
+      setDragging(false);
+    }
+  };
+
+  const arrow =
+    "h-10 w-10 rounded-full border border-line font-body text-ink-soft transition-colors hover:border-coral hover:text-coral disabled:pointer-events-none disabled:opacity-30";
 
   return (
     <>
-      <div className="mb-5 flex items-center justify-end gap-2">
-        <button
-          onClick={() => nudge(-1)}
-          aria-label="previous events"
-          className="h-10 w-10 rounded-full border border-line font-body text-ink-soft transition-colors hover:border-coral hover:text-coral"
-        >
-          ←
-        </button>
-        <button
-          onClick={() => nudge(1)}
-          aria-label="more events"
-          className="h-10 w-10 rounded-full border border-line font-body text-ink-soft transition-colors hover:border-coral hover:text-coral"
-        >
-          →
-        </button>
+      <div className="mb-5 flex items-center justify-between gap-4">
+        <p className="font-body text-[12px] font-semibold uppercase tracking-[0.18em] text-ink-soft">
+          {events.length} talks and counting
+        </p>
+        <div className="flex items-center gap-2">
+          <button onClick={() => nudge(-1)} disabled={pos.start} aria-label="previous events" className={arrow}>
+            ←
+          </button>
+          <button onClick={() => nudge(1)} disabled={pos.end} aria-label="more events" className={arrow}>
+            →
+          </button>
+        </div>
       </div>
 
-      <div
-        ref={strip}
-        className="flex snap-x snap-mandatory gap-5 overflow-x-auto pb-6 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
-      >
-        {events.map((e, i) => (
-          <EventCard
-            key={e.slug}
-            e={e}
-            i={i}
-            expanded={open === e.slug}
-            toggle={() => setOpen(open === e.slug ? null : e.slug)}
-          />
-        ))}
+      <div className="relative">
+        <div
+          ref={strip}
+          onScroll={measure}
+          onPointerDown={down}
+          onPointerMove={move}
+          onPointerUp={up}
+          onPointerLeave={up}
+          onClickCapture={(ev) => {
+            if (drag.current.moved) {
+              ev.preventDefault();
+              ev.stopPropagation();
+              drag.current.moved = false;
+            }
+          }}
+          tabIndex={0}
+          aria-label="speaking events, scroll sideways"
+          className={`flex gap-5 overflow-x-auto scroll-smooth px-1 pb-6 outline-none [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden ${
+            dragging
+              ? "cursor-grabbing select-none snap-none scroll-auto"
+              : "cursor-grab snap-x snap-mandatory"
+          }`}
+        >
+          {events.map((e, i) => (
+            <EventCard
+              key={e.slug}
+              e={e}
+              i={i}
+              expanded={open === e.slug}
+              toggle={() => setOpen(open === e.slug ? null : e.slug)}
+            />
+          ))}
+        </div>
+
+        {/* soft edges that tell you there is more either side */}
+        <div
+          className={`pointer-events-none absolute inset-y-0 left-0 w-10 bg-gradient-to-r from-cream to-transparent transition-opacity ${
+            pos.start ? "opacity-0" : "opacity-100"
+          }`}
+        />
+        <div
+          className={`pointer-events-none absolute inset-y-0 right-0 w-10 bg-gradient-to-l from-cream to-transparent transition-opacity ${
+            pos.end ? "opacity-0" : "opacity-100"
+          }`}
+        />
+      </div>
+
+      <div className="mx-1 mt-1 h-1 overflow-hidden rounded-full bg-line">
+        <div
+          className="h-full rounded-full bg-coral transition-[width] duration-150"
+          style={{ width: `${Math.max(12, pos.p * 100)}%` }}
+        />
       </div>
     </>
   );
@@ -89,19 +179,36 @@ function EventCard({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-60px" }}
       transition={{ duration: 0.5, delay: 0.05 * (i % 4) }}
-      className="w-[21rem] shrink-0 snap-center overflow-hidden rounded-3xl border border-line bg-paper shadow-[0_10px_30px_rgba(23,20,15,0.06)]"
+      className="w-[min(21rem,82vw)] shrink-0 snap-start scroll-ml-1 overflow-hidden rounded-3xl border border-line bg-paper shadow-[0_10px_30px_rgba(23,20,15,0.06)]"
     >
-      <div className="relative h-56 w-full overflow-hidden bg-cream-deep">
+      <div className="relative h-[24rem] w-full overflow-hidden bg-cream-deep">
         {cur ? (
-          /* eslint-disable-next-line @next/next/no-img-element --
-             paths are written by the admin desk at runtime */
-          <img
-            key={cur.src}
-            src={cur.src}
-            alt={cur.alt}
-            loading="lazy"
-            className="h-full w-full object-cover"
-          />
+          <>
+            {e.fit === "contain" && (
+              /* eslint-disable-next-line @next/next/no-img-element --
+                 blurred copy that fills the frame behind a whole picture */
+              <img
+                src={cur.src}
+                alt=""
+                aria-hidden
+                loading="lazy"
+                draggable={false}
+                className="absolute inset-0 h-full w-full scale-125 object-cover opacity-70 blur-2xl"
+              />
+            )}
+            {/* eslint-disable-next-line @next/next/no-img-element --
+                paths are written by the admin desk at runtime */}
+            <img
+              key={cur.src}
+              src={cur.src}
+              alt={cur.alt}
+              loading="lazy"
+              draggable={false}
+              className={`relative h-full w-full ${
+                e.fit === "cover" ? "object-cover object-[50%_30%]" : "object-contain"
+              }`}
+            />
+          </>
         ) : (
           <div className="flex h-full items-center justify-center font-hand text-xl text-ink-soft">
             no photo yet

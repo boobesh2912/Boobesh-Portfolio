@@ -20,6 +20,8 @@ export type EventItem = {
   alt: string;
   /* every photo, cover first. Falls back to the single image. */
   images: { src: string; alt: string }[];
+  /* "contain" shows the whole picture (posters, slides); "cover" fills the frame */
+  fit: "cover" | "contain";
   description: string;
 };
 
@@ -78,6 +80,7 @@ export function getEvents(): EventItem[] {
       image: str(data.image),
       alt: str(data.alt, str(data.title)),
       images: photos(data),
+      fit: (data.fit === "cover" ? "cover" : "contain") as EventItem["fit"],
       description: str(data.description).slice(0, EVENT_DESCRIPTION_LIMIT),
     }))
     .filter((e) => e.title)

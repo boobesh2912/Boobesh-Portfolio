@@ -104,9 +104,9 @@ export const storySections: StorySection[] = [
   {
     heading: "then I got an award, and forgot to smile",
     paragraphs: [
-      "In February 2025 I got my first ever award. **Young Entrepreneur of the Year**, at the Startup Real OG Awards. The certificate says 2024, I collected it in 2025. And I will be honest about how it started: I applied for it myself. I saw it, thought why not, and applied.",
-      "I was deep into manifesting back then. Every night after applying, I would lie there and rehearse it. How I would walk when they call my name. What I would say. How I would receive it. How I would smile. Every single night, till their team replied.",
-      "Then the message came. I was selected in the first round, I sent them my details, and the day before the event I heard I was a finalist. I was so excited. **It was my first award, and my first award for my business too**, and I take my business way too personally. I told my parents and took them with me.",
+      "In February 2025 I got my first ever award. **Young Entrepreneur of the Year**, at the Startup Real OG Awards. The certificate says 2024, I collected it in 2025.",
+      "I was deep into manifesting back then. Every night I would lie there and rehearse it. How I would walk when they call my name. What I would say. How I would receive it. How I would smile. Every single night, till their team got back to me.",
+      "Then the message came. I was selected in the first round, they asked for more about me, I sent my details, and the day before the event I heard I was a finalist. I was so excited. **It was my first award, and my first award for my business too**, and I take my business way too personally. I told my parents and took them with me.",
       "Even after all that manifesting, when they announced the category I was sitting there thinking, is this real, or am I imagining it? Then they called Boobesh AG and played the kind of award music I had only ever seen on TV. I cannot explain that feeling. On stage my hands were shaking, even while shaking hands with the guests. And if you look at the photo on my LinkedIn, **I did not even smile**, because I was still processing whether it was true. A little smile would have been nicer.",
       "It still has its own place in my heart, and I am very, very happy it happened. The photos and the video are on the home page.",
     ],

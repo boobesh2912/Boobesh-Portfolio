@@ -12,6 +12,7 @@ import ExperienceSection from "@/components/ExperienceSection";
 import EducationSection from "@/components/EducationSection";
 import ToolkitSection from "@/components/ToolkitSection";
 import SpeakingSection from "@/components/SpeakingSection";
+import AwardSection from "@/components/AwardSection";
 import BlogTeaserSection from "@/components/BlogTeaserSection";
 import StampSocials from "@/components/StampSocials";
 import QuickFacts from "@/components/QuickFacts";
@@ -38,6 +39,7 @@ export default function Home() {
         <EducationSection />
         <ToolkitSection />
         <SpeakingSection />
+        <AwardSection />
         <BlogTeaserSection />
         <StampSocials />
         <FaqList items={homeFaq} heading="Questions people ask about Boobesh AG" />

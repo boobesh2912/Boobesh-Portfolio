@@ -44,7 +44,7 @@ videoLabel: "Video review from Tejasvi R.A., Founder of Speak With Ikigai"
 
 ## A note on Aldo Einsty and others
 
-A client named Aldo Einsty wrote that he came to us to discuss a website launch, that we gave suggestions while leaving the choices to him, and that the result was "an outstanding website at a very reasonable price". Another client, Guru, wrote that he has worked with us for a while and that we are very responsive. You can read all six reviews on the [Gari Tech page](/gari-tech).
+A client named Aldo Einsty wrote that she came to us to discuss a website launch, that we gave suggestions while leaving the choices to him, and that the result was "an outstanding website at a very reasonable price". Another client, Guru, wrote that he has worked with us for a while and that we are very responsive. You can read all six reviews on the [Gari Tech page](/gari-tech).
 
 ## What these projects have in common
 

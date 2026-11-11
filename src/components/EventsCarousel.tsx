@@ -1,15 +1,153 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
-import { motion } from "framer-motion";
+import {
+  motion,
+  useMotionValue,
+  useMotionValueEvent,
+  useScroll,
+  useSpring,
+  useTransform,
+  type MotionValue,
+} from "framer-motion";
+import { usePrefersReducedMotion } from "@/lib/usePrefersReducedMotion";
 import type { EventItem } from "@/lib/collections";
 
 /*
   The live speaking gallery. Entries come from the admin desk, so adding a new
-  one is a form rather than a code change. Arrows and a drag both work, and
-  the strip snaps so a card is never left half off the edge.
+  one is a form rather than a code change.
+
+  The cards sit in one long row and the page scrolls them sideways for you:
+  the row is pinned while you scroll down, and each card swells as it reaches
+  the middle of the screen and eases back as it leaves. Anyone who prefers
+  less motion gets a plain swipeable row with arrows and drag instead.
 */
+const EDGE = "max(1rem, calc((100vw - 72rem) / 2 + 2rem))";
+
 export default function EventsCarousel({ events }: { events: EventItem[] }) {
+  const reduced = usePrefersReducedMotion();
+  return reduced ? <SwipeRail events={events} /> : <PinnedRail events={events} />;
+}
+
+function PinnedRail({ events }: { events: EventItem[] }) {
+  const track = useRef<HTMLDivElement>(null);
+  const row = useRef<HTMLDivElement>(null);
+  const [dist, setDist] = useState(0);
+  const [pos, setPos] = useState({ start: true, end: false });
+  const tick = useMotionValue(0);
+
+  // how far the row has to travel: its full width minus one screen
+  useEffect(() => {
+    const el = row.current;
+    if (!el) return;
+    const measure = () => {
+      setDist(Math.max(0, el.scrollWidth - window.innerWidth));
+      tick.set(tick.get() + 1); // lets every card re-measure its own position
+    };
+    measure();
+    const ro = new ResizeObserver(measure);
+    ro.observe(el);
+    window.addEventListener("resize", measure);
+    return () => {
+      ro.disconnect();
+      window.removeEventListener("resize", measure);
+    };
+  }, [tick, events.length]);
+
+  const { scrollYProgress } = useScroll({
+    target: track,
+    offset: ["start start", "end end"],
+  });
+  const eased = useSpring(scrollYProgress, { stiffness: 120, damping: 28, restDelta: 0.0005 });
+  const x = useTransform(eased, [0, 1], [0, -dist]);
+  const bar = useTransform(eased, [0, 1], ["0%", "100%"]);
+
+  useMotionValueEvent(scrollYProgress, "change", (v) =>
+    setPos({ start: v < 0.02, end: v > 0.98 })
+  );
+
+  /* scroll distance and row distance are 1:1, so one card is one step */
+  const step = (dir: 1 | -1) => {
+    const card = row.current?.querySelector("article");
+    const by = card ? card.getBoundingClientRect().width + 20 : 360;
+    window.scrollBy({ top: dir * by, behavior: "smooth" });
+  };
+
+  const arrow =
+    "h-10 w-10 rounded-full border border-line font-body text-ink-soft transition-colors hover:border-coral hover:text-coral disabled:pointer-events-none disabled:opacity-30";
+
+  return (
+    <div
+      ref={track}
+      style={{ height: `calc(100vh + ${dist}px)` }}
+      className="no-scroll-fade relative"
+    >
+      <div className="sticky top-0 flex h-screen flex-col justify-center overflow-hidden pb-4 pt-24">
+        <div className="mx-auto mb-4 flex w-full max-w-6xl items-center justify-between gap-4 px-4 sm:px-8">
+          <p className="font-body text-[12px] font-semibold uppercase tracking-[0.18em] text-ink-soft">
+            {events.length} stages and counting
+          </p>
+          <div className="flex items-center gap-2">
+            <button onClick={() => step(-1)} disabled={pos.start} aria-label="previous events" className={arrow}>
+              ←
+            </button>
+            <button onClick={() => step(1)} disabled={pos.end} aria-label="more events" className={arrow}>
+              →
+            </button>
+          </div>
+        </div>
+
+        <motion.div
+          ref={row}
+          style={{ paddingInline: EDGE, x }}
+          className="relative flex w-max items-center gap-5 py-3"
+        >
+          {events.map((e, i) => (
+            <ZoomCard key={e.slug} x={x} tick={tick}>
+              <EventCard e={e} i={i} expanded compact toggle={() => {}} />
+            </ZoomCard>
+          ))}
+        </motion.div>
+
+        <div className="mx-auto mt-4 w-full max-w-6xl px-4 sm:px-8" aria-hidden>
+          <div className="h-px w-full bg-line">
+            <motion.div style={{ width: bar }} className="h-px bg-coral" />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* Grows as the card nears the middle of the screen, shrinks and dims as it leaves. */
+function ZoomCard({
+  x,
+  tick,
+  children,
+}: {
+  x: MotionValue<number>;
+  tick: MotionValue<number>;
+  children: React.ReactNode;
+}) {
+  const ref = useRef<HTMLDivElement>(null);
+  const away = useTransform([x, tick], ([xv]: number[]) => {
+    const el = ref.current;
+    if (!el || typeof window === "undefined") return 0;
+    const centre = el.offsetLeft + el.offsetWidth / 2 + xv;
+    const half = window.innerWidth / 2;
+    return Math.min(1, Math.abs(centre - half) / (half * 1.1));
+  });
+  const scale = useTransform(away, (d) => 1.05 - 0.17 * d);
+  const opacity = useTransform(away, (d) => 1 - 0.5 * d * d);
+
+  return (
+    <motion.div ref={ref} style={{ scale, opacity }} className="shrink-0 will-change-transform">
+      {children}
+    </motion.div>
+  );
+}
+
+function SwipeRail({ events }: { events: EventItem[] }) {
   const strip = useRef<HTMLDivElement>(null);
   const drag = useRef({ on: false, moved: false, x: 0, left: 0 });
   const [open, setOpen] = useState<string | null>(null);
@@ -161,11 +299,14 @@ function EventCard({
   i,
   expanded,
   toggle,
+  compact = false,
 }: {
   e: EventItem;
   i: number;
   expanded: boolean;
   toggle: () => void;
+  /** pinned rail: shorter picture so the card fits one screen, full text, no toggle */
+  compact?: boolean;
 }) {
   const [shot, setShot] = useState(0);
   const many = e.images.length > 1;
@@ -181,7 +322,11 @@ function EventCard({
       transition={{ duration: 0.5, delay: 0.05 * (i % 4) }}
       className="w-[min(21rem,82vw)] shrink-0 snap-start scroll-ml-1 overflow-hidden rounded-3xl border border-line bg-paper shadow-[0_10px_30px_rgba(23,20,15,0.06)]"
     >
-      <div className="relative h-[24rem] w-full overflow-hidden bg-cream-deep">
+      <div
+        className={`relative w-full overflow-hidden bg-cream-deep ${
+          compact ? "h-[clamp(10.5rem,28vh,20rem)]" : "h-[24rem]"
+        }`}
+      >
         {cur?.video ? (
           <video
             key={cur.video}
@@ -281,7 +426,7 @@ function EventCard({
         >
           {e.description}
         </p>
-        {e.description.length > 110 && (
+        {!compact && e.description.length > 110 && (
           <button
             onClick={toggle}
             className="mt-3 font-hand text-lg text-coral-deep hover:underline"

@@ -19,7 +19,11 @@ What college gives you is time to be bad at it cheaply. Nobody is depending on y
 
 I started with Canva, in my first year, because it was the one thing I could do that someone would pay for. Then I added websites. The full story, including the part where I said I knew WordPress before I had ever opened it, is in [how I started Gari Tech](/blog/how-i-started-gari-tech-student-entrepreneur-chennai).
 
-You do not need to start with your dream service. Start with the thing you can already do, then grow.
+Pick something you enjoy so much that you would still do it tired, at 1am or 2am. For me that was web development and design. If a skill drains you, you will not stay with it long enough to get good.
+
+Then check two things: is there demand, and does someone actually need it? Freelancing is simple at the core. You take a bit of someone's time off their plate and put your time into it.
+
+You do not need to start with your dream service. Start with the thing you can already do, then grow. You can improve a skill slowly. That is not the hard part.
 
 ## How I got my first client with zero portfolio
 
@@ -45,11 +49,13 @@ Please do not copy the 1,500 rupees. I undercharged. Copy the part where we agre
 
 Your first client becomes your first portfolio piece, which is why finishing matters more than starting. Every site or design you complete is proof for the next person. That is why I keep my live work and the client reviews on the [Gari Tech page](/gari-tech).
 
+No client yet? Open Google Maps, pick a local business, and build a sample of what you would do for them, like a small website. Pitch it: "I made this for you, if you like it we can refine it." If they say yes, you have a client. If they say no, you still have a finished piece of work.
+
 If you offer content work, here is a tip I give people: write three evergreen pieces and post them. Evergreen means useful next year as much as today. Three real pieces on your own page say more than any "I am passionate about content" line.
 
 ## Where to find your first client
 
-I will only tell you what I know. My first client came from a WhatsApp community of Chennai freelancers. Since then, most of my clients have come through referrals and trials.
+I will only tell you what I know. My first client came from a WhatsApp community of Chennai freelancers, and I am part of a few such communities. I also do cold calling and cold emails. Since then, most of my clients have come through referrals and trials.
 
 Platforms like Upwork, Fiverr and Internshala are often listed in guides for students. I did not start there, so I cannot give you a first hand review of them. Try them if they suit you, but also tell the people around you, join communities of people who hire freelancers, and make a small offer.
 
@@ -57,13 +63,15 @@ Platforms like Upwork, Fiverr and Internshala are often listed in guides for stu
 
 I will not say who, and I will not say what industry. She does not deserve to be a lesson on the internet.
 
-I took the project because I had no other client. The price was low again. And then came the pressure: every tiny alignment, every minute change, again and again. It made me anxious about work I should have been proud of.
+I took the project because I had no other client. The price was low again. The deal was for four pages at one price. She paid the advance, and the project kept growing until it was closer to nine pages. I still only took the remaining amount we had agreed, because that is what we agreed.
+
+And then came the pressure: every tiny alignment, every minute change, again and again. It made me anxious about work I should have been proud of.
 
 I do not regret it, because I learned a lot. I learned how to choose a client, and how small things at the start lead to a whole path later. If you only have one client, it is tempting to say yes to everything. Do not say yes to everything.
 
 What I do now:
 
-- **Agree the price, the scope and the number of changes before you start.** Not after.
+- **Agree the price, the scope and the number of changes before you start.** Not after. Four pages that quietly become nine is how it goes wrong.
 - **Notice the first week.** The way a client behaves in the first week is usually the way they will behave all project.
 - **Having no other client is not a reason to give up your peace.** There will be another one.
 

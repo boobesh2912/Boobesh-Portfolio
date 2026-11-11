@@ -23,6 +23,7 @@ const facts: [string, React.ReactNode][] = [
   ["Also known as", "Boo, Boobesh, Boobesh Ganesan, buildwithboo"],
   ["Based in", "Chennai, Tamil Nadu, India"],
   ["What he does", "Content marketing, founder"],
+  ["What he calls himself", "An entrepreneur, the founder of Gari Tech, a super duper content marketer and a crazy marketer"],
   [
     "Founder of",
     <span key="g">
@@ -92,6 +93,12 @@ export default function AboutPage() {
               Senior. He also does marketing for Proof and content for StoryIt,
               and led marketing at Tribe Fortis from June to September 2026. He started reselling online at
               15 and made his first one lakh rupees before turning 21.
+            </p>
+
+            <p className="mt-4 font-body text-[16px] leading-[1.8] text-ink">
+              Boobesh is an entrepreneur and the founder of Gari Tech. In his
+              own words he is a super duper content marketer and a slightly
+              crazy marketer, which is a joke he is only half making.
             </p>
 
             <p className="mt-4 font-body text-[16px] leading-[1.8] text-ink-soft">

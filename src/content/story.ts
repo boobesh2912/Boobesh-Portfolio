@@ -34,6 +34,7 @@ export const lifeStrip = [
   { when: "5th std", what: "computer institute, then a dead PC" },
   { when: "10th std", what: "sold kitchenware on Sharechat" },
   { when: "1st year", what: "started Gari Tech" },
+  { when: "Feb 2025", what: "my first ever award" },
   { when: "2025", what: "Start The Up, then Vizhva" },
   { when: "now", what: "content at YCS and StoryIt, marketing for Proof" },
 ];
@@ -94,6 +95,31 @@ export const storySections: StorySection[] = [
     ],
   },
   {
+    heading: "the different one in the family",
+    paragraphs: [
+      "Everyone in my family is on the arts side. So one reason I picked engineering is simple: **I did not want to be the same.** Same story with business. Everyone around me works a job, so I wanted to try building something instead.",
+      "Before college I thought I had to be a topper. Then I got in, saw the reality, and changed the plan. College became a pathway to a degree, a decent pass with a decent grade. The rest of my energy went into building. A lot of what I watched on YouTube back then changed how I saw business, and slowly freelancing turned into a company.",
+    ],
+  },
+  {
+    heading: "then I got an award, and forgot to smile",
+    paragraphs: [
+      "In February 2025 I got my first ever award. **Young Entrepreneur of the Year**, at the Startup Real OG Awards. The certificate says 2024, I collected it in 2025. And I will be honest about how it started: I applied for it myself. I saw it, thought why not, and applied.",
+      "I was deep into manifesting back then. Every night after applying, I would lie there and rehearse it. How I would walk when they call my name. What I would say. How I would receive it. How I would smile. Every single night, till their team replied.",
+      "Then the message came. I was selected in the first round, I sent them my details, and the day before the event I heard I was a finalist. I was so excited. **It was my first award, and my first award for my business too**, and I take my business way too personally. I told my parents and took them with me.",
+      "Even after all that manifesting, when they announced the category I was sitting there thinking, is this real, or am I imagining it? Then they called Boobesh AG and played the kind of award music I had only ever seen on TV. I cannot explain that feeling. On stage my hands were shaking, even while shaking hands with the guests. And if you look at the photo on my LinkedIn, **I did not even smile**, because I was still processing whether it was true. A little smile would have been nicer.",
+      "It still has its own place in my heart, and I am very, very happy it happened. The photos and the video are on the home page.",
+    ],
+  },
+  {
+    heading: "then a community made me talk",
+    paragraphs: [
+      "The same day as the award, I also joined a student community called Think Digital. That one was an accident. I was searching for student communities, filled in a form I honestly do not remember filling, and one day got a link to join a group. They welcomed me by name, knew I was from Panimalar, even knew I wanted an internship. My first reaction was, who are you and why are you inviting me? I did not even join the first onboarding meeting.",
+      "I was an introvert who only spoke to a small group I was comfortable with. Then came the casual English meets where the only rule was to talk in English, rant, whatever. A weekly showcase where you show what you built, which meant I built something every week, even when I had nothing, just to have something to show. And the offline meetups. **Nobody judged my grammar.**",
+      "Now I go to events almost every week, startup events, engineering events, whatever is on, and I talk to random people. That community gave me four things I later put on a slide in my own talks: identity, network, exposure and awareness. One mentor there never gives straight answers. The questions do the work until you answer yourself.",
+    ],
+  },
+  {
     heading: "things changed later",
     paragraphs: [
       "In my third year, my friend and I decided to go in different directions. He is more into marketing, so he started his own thing, and honestly I am happy for him. It let me go deeper into Gari Tech. Right now most of our clients come through referrals and trials.",
@@ -111,6 +137,13 @@ export const storySections: StorySection[] = [
     paragraphs: [
       "Maybe you also have folders full of ideas. Projects you started with full excitement, told your friends about, genuinely believed in. And then slowly, you stopped. Not because you are lazy. Because something new caught your eye. A new idea, a new chance, a new direction. Suddenly the old thing feels boring. So you move again.",
       "If that sounds like you, you are not alone. I am still working out **how to turn curiosity into consistency.**",
+    ],
+  },
+  {
+    heading: "and yes, I still care about my grades",
+    paragraphs: [
+      "I keep a decent score on purpose. First, because of the people around me. Second, because I want my family stable before I go all in on my own thing. And third, because for on campus placements the first filter is CGPA. Off campus, companies mostly look at skills, experience and what you have built.",
+      "So I will not tell you grades are useless, and I will not tell you a startup is the only way. Some people do better with a 9 to 5 and a salary every month. Business gave me freedom, but some months I earn good money and some months I earn almost nothing. **Both paths are fine. It depends on your passion and your mindset.**",
     ],
   },
   {

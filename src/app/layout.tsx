@@ -106,7 +106,7 @@ const jsonLd = {
       alternateName: ["Boo", "Boobesh", "Boobesh AG", "Boobesh Ganesan", "buildwithboo"],
       mainEntityOfPage: "https://boobesh.com/about",
       url: "https://boobesh.com",
-      jobTitle: "Content Marketer and Founder of Gari Tech",
+      jobTitle: "Entrepreneur, Content Marketer and Founder of Gari Tech",
       description: DESCRIPTION,
       nationality: "Indian",
       homeLocation: {

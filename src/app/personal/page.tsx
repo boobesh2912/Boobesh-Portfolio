@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import PersonalExperience from "@/components/personal/PersonalExperience";
 
 export const metadata: Metadata = {
-  title: "the real me — Boobesh AG",
+  title: "the real me | Boobesh AG",
   description:
     "The unfiltered version. How Boobesh went from reselling kitchen utensils in 10th grade to leading marketing, and everything he is still figuring out.",
   alternates: { canonical: "https://boobesh.com/personal" },

@@ -153,6 +153,18 @@ const visuals: Record<string, { node: React.ReactNode; caption: string }> = {
     node: <DeadPC />,
     caption: "4GB of RAM, and far too many downloads",
   },
+  "then I got an award, and forgot to smile": {
+    node: (
+      // eslint-disable-next-line @next/next/no-img-element -- static file in /public
+      <img
+        src="/uploads/startup-real-og-award-handover.jpg"
+        alt="Boobesh receiving the framed Young Entrepreneur of the Year award on stage from a guest in a blue waistcoat, not smiling yet"
+        loading="lazy"
+        className="max-h-72 w-full rounded-xl object-cover object-[35%_50%]"
+      />
+    ),
+    caption: "the photo where I forgot to smile",
+  },
   "then money entered the picture": {
     node: <ResellFlow />,
     caption: "post on Sharechat, source from Meesho, keep the difference",

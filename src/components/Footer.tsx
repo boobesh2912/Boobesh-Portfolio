@@ -69,8 +69,7 @@ export default function Footer() {
 
         <div className="mt-16 flex flex-col gap-2 border-t border-line pt-7 font-body text-xs text-ink-soft sm:flex-row sm:items-center sm:justify-between">
           <p>
-            &copy; {new Date().getFullYear()} boobesh.com. still a marketer,
-            still shipping.
+            &copy; {new Date().getFullYear()} boobesh.com. Still shipping. F*ck it, we ball.
           </p>
           <p className="font-hand text-base text-coral-deep">
             written, edited and overthought by me.

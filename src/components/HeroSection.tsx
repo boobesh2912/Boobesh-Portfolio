@@ -5,7 +5,6 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import Link from "next/link";
 import AskAI from "@/components/AskAI";
 import ImageSlot from "@/components/ImageSlot";
-import TypedLine from "@/components/TypedLine";
 import Magnetic from "@/components/Magnetic";
 import Galaxy, { warp } from "@/components/Galaxy";
 
@@ -19,7 +18,6 @@ const ticker = [
   "BUILT A FOCUS APP. CANNOT FOCUS.",
   "STARTED RESELLING AT 15",
   "FIRST 1,00,000 BEFORE 21",
-  "F*CK IT, WE BALL",
 ];
 
 export default function HeroSection() {
@@ -88,7 +86,7 @@ export default function HeroSection() {
               <br />
               Master of none.
               <br />
-              <span className="italic text-[#ffd9a8]">F*ck it, we ball.</span>
+              <span className="italic text-[#ffd9a8]">Building anyway.</span>
             </motion.h1>
 
             <motion.div
@@ -98,39 +96,25 @@ export default function HeroSection() {
               className="mt-7 max-w-xl space-y-3 font-body text-base leading-[1.75] text-white/70 sm:text-[17px]"
             >
               <p>
-                Hey hi, I&apos;m Boobesh, aka Boo. College student, Chennai. At
-                15 I started reselling stuff online and honestly never stopped
-                starting things. I have 50+ projects on my laptop and like half
-                of them are dead. We don&apos;t talk about those.
+                I&apos;m Boobesh, aka Boo. A college student in Chennai who
+                started reselling online at 15 and has been starting things
+                ever since.
               </p>
               <p>
-                Right now I run content at{" "}
-                <span className="font-semibold text-white">
-                  Your College Senior
-                </span>{" "}
+                Right now: content at{" "}
+                <span className="font-semibold text-white">Your College Senior</span>{" "}
                 and <span className="font-semibold text-white">StoryIt</span>,
-                marketing for{" "}
-                <span className="font-semibold text-white">Proof</span>, my own
-                studio{" "}
-                <span className="font-semibold text-white">Gari Tech</span>, and
-                a student community called Start The Up. Until September I also
-                led marketing at Tribe Fortis, and yes,{" "}
+                marketing for <span className="font-semibold text-white">Proof</span>,
+                my studio <span className="font-semibold text-white">Gari Tech</span>,
+                and the Start The Up community. I led marketing at Tribe Fortis
+                until September, and{" "}
                 <Link
                   href="/blog/tribe-fortis-marketing-case-study"
                   className="font-semibold text-white underline decoration-white/40 underline-offset-4 hover:decoration-white"
                 >
-                  I wrote up how that went
+                  wrote up how that went
                 </Link>
-                . I built a Chrome
-                extension called Focus Flow, which is funny, because focus is
-                the one thing I don&apos;t have.
-              </p>
-              <p>
-                Oh, and I got nominated for Best Student Freelancer at the
-                Global Freelancers Festival 2026. Still processing that one.
-              </p>
-              <p className="text-white/55">
-                <TypedLine text="Is there a plan? Absolutely not. Scroll down, it only gets weirder..." />
+                .
               </p>
             </motion.div>
 

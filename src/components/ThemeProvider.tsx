@@ -4,8 +4,7 @@ import {
   createContext,
   useCallback,
   useContext,
-  useEffect,
-  useState,
+  useSyncExternalStore,
   type ReactNode,
 } from "react";
 
@@ -20,30 +19,30 @@ export const useTheme = () => useContext(ThemeContext);
 
 export const THEME_KEY = "boobesh-theme";
 
-export default function ThemeProvider({ children }: { children: ReactNode }) {
-  // Light is the default. The inline script in the document head has already
-  // applied the stored choice before paint, so we only read it back here.
-  const [theme, setTheme] = useState<Theme>("light");
+const CHANGE = "boobesh:theme-change";
 
-  useEffect(() => {
-    const applied = document.documentElement.getAttribute("data-theme");
-    if (applied === "dark") {
-      // eslint-disable-next-line react-hooks/set-state-in-effect -- syncing once with what the pre-paint script already set
-      setTheme("dark");
-    }
-  }, []);
+/* The page itself is the source of truth: the data-theme attribute that the
+   pre-paint script (and the toggle) write. Reading it back directly means the
+   theme is right on the very first client render, with no light to dark flip. */
+const read = (): Theme =>
+  document.documentElement.getAttribute("data-theme") === "dark" ? "dark" : "light";
+const subscribe = (cb: () => void) => {
+  window.addEventListener(CHANGE, cb);
+  return () => window.removeEventListener(CHANGE, cb);
+};
+
+export default function ThemeProvider({ children }: { children: ReactNode }) {
+  const theme = useSyncExternalStore<Theme>(subscribe, read, () => "light");
 
   const toggle = useCallback(() => {
-    setTheme((prev) => {
-      const next: Theme = prev === "light" ? "dark" : "light";
-      document.documentElement.setAttribute("data-theme", next);
-      try {
-        localStorage.setItem(THEME_KEY, next);
-      } catch {
-        // private mode, not worth failing over
-      }
-      return next;
-    });
+    const next: Theme = read() === "dark" ? "light" : "dark";
+    document.documentElement.setAttribute("data-theme", next);
+    try {
+      localStorage.setItem(THEME_KEY, next);
+    } catch {
+      // private mode, not worth failing over
+    }
+    window.dispatchEvent(new Event(CHANGE));
   }, []);
 
   return (

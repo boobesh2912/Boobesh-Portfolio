@@ -7,7 +7,6 @@ import WhatIDoSection from "@/components/WhatIDoSection";
 import FeaturedWorkSection from "@/components/FeaturedWorkSection";
 import SitesSection from "@/components/SitesSection";
 import ReviewsSection from "@/components/ReviewsSection";
-import HookGame from "@/components/HookGame";
 import VenturesSection from "@/components/VenturesSection";
 import ExperienceSection from "@/components/ExperienceSection";
 import EducationSection from "@/components/EducationSection";
@@ -34,8 +33,6 @@ export default function Home() {
         <FeaturedWorkSection />
         <SitesSection />
         <ReviewsSection />
-        {/* the game sits in the middle, where attention usually dips */}
-        <HookGame />
         <VenturesSection />
         <ExperienceSection />
         <EducationSection />

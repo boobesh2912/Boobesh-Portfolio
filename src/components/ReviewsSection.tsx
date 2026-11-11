@@ -1,15 +1,22 @@
 "use client";
 
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 import Reveal from "@/components/Reveal";
 import { reviews } from "@/content/reviews";
 import VideoReview from "@/components/VideoReview";
 import { tejasviVideo } from "@/content/videos";
+import { usePrefersReducedMotion } from "@/lib/usePrefersReducedMotion";
 
 /*
-  A Netflix style row: the cards scroll sideways, snap, and the one under the
-  pointer lifts while its neighbours dim. Arrows for people without a trackpad.
+  The reviews are laid out in one long row, and the page scrolls them sideways
+  for you. The row is pinned to the screen while you scroll down, so the
+  vertical scroll is spent moving the cards across, and when the last card has
+  arrived the page carries on as normal. Anyone who prefers less motion gets
+  an ordinary swipeable row instead.
 */
+const EDGE = "max(1rem, calc((100vw - 72rem) / 2 + 2rem))";
+
 export default function ReviewsSection({
   eyebrow = "S1 · E3½ · what people said",
   heading = "Six reviews. All five stars. I did not write any of them.",
@@ -17,34 +24,43 @@ export default function ReviewsSection({
   eyebrow?: string;
   heading?: string;
 }) {
+  const reduced = usePrefersReducedMotion();
+  const track = useRef<HTMLDivElement>(null);
   const row = useRef<HTMLDivElement>(null);
-  const nudge = (d: 1 | -1) =>
-    row.current?.scrollBy({ left: d * row.current.clientWidth * 0.7, behavior: "smooth" });
+  const [dist, setDist] = useState(0);
+
+  // how far the row has to travel: its full width minus one screen
+  useEffect(() => {
+    const el = row.current;
+    if (!el) return;
+    const measure = () => setDist(Math.max(0, el.scrollWidth - window.innerWidth));
+    const ro = new ResizeObserver(measure);
+    ro.observe(el);
+    window.addEventListener("resize", measure);
+    return () => {
+      ro.disconnect();
+      window.removeEventListener("resize", measure);
+    };
+  }, []);
+
+  const { scrollYProgress } = useScroll({
+    target: track,
+    offset: ["start start", "end end"],
+  });
+  const eased = useSpring(scrollYProgress, { stiffness: 120, damping: 28, restDelta: 0.0005 });
+  const x = useTransform(eased, [0, 1], [0, -dist]);
+  const bar = useTransform(eased, [0, 1], ["0%", "100%"]);
 
   return (
-    <section id="reviews" className="bg-rules border-y border-line py-24">
+    <section id="reviews" className="bg-rules border-y border-line pt-24">
       <div className="mx-auto max-w-6xl px-4 sm:px-8">
         <Reveal>
           <p className="font-body text-[11px] font-semibold uppercase tracking-[0.25em] text-coral">
             {eyebrow}
           </p>
-          <div className="mt-3 flex flex-wrap items-end justify-between gap-4">
-            <h2 className="max-w-xl font-display text-3xl font-semibold leading-[1.15] text-ink sm:text-[2.6rem]">
-              {heading}
-            </h2>
-            <div className="flex gap-2">
-              {(["←", "→"] as const).map((a, i) => (
-                <button
-                  key={a}
-                  onClick={() => nudge(i ? 1 : -1)}
-                  aria-label={i ? "next reviews" : "previous reviews"}
-                  className="h-10 w-10 rounded-full border border-line text-ink-soft transition-colors hover:border-coral hover:text-coral"
-                >
-                  {a}
-                </button>
-              ))}
-            </div>
-          </div>
+          <h2 className="mt-3 max-w-xl font-display text-3xl font-semibold leading-[1.15] text-ink sm:text-[2.6rem]">
+            {heading}
+          </h2>
         </Reveal>
       </div>
 
@@ -74,31 +90,60 @@ export default function ReviewsSection({
         </div>
       </div>
 
+      {/*
+        The track is as tall as the sideways journey. Inside it, the stage is
+        pinned to the screen and the row slides along as the page scrolls.
+      */}
       <div
-        ref={row}
-        /* lines the first card up with the heading, then scrolls to the edge */
-        style={{ paddingInline: "max(1rem, calc((100vw - 72rem) / 2 + 2rem))", scrollPaddingInline: "max(1rem, calc((100vw - 72rem) / 2 + 2rem))" }}
-        className="group/row mt-10 flex snap-x snap-mandatory gap-5 overflow-x-auto pb-6 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+        ref={track}
+        style={reduced ? undefined : { height: `calc(100vh + ${dist}px)` }}
+        className="no-scroll-fade relative mt-10"
       >
-        {reviews.map((r) => (
-          <article
-            key={r.name}
-            className="flex w-[21rem] shrink-0 snap-start flex-col rounded-3xl border border-line bg-paper p-7 shadow-[0_10px_30px_rgba(23,20,15,0.06)] transition-all duration-300 group-hover/row:opacity-60 hover:!opacity-100 hover:-translate-y-2 hover:scale-[1.02]"
+        <div
+          className={
+            reduced
+              ? "overflow-x-auto pb-6"
+              : "sticky top-0 flex h-screen flex-col justify-center overflow-hidden"
+          }
+        >
+          <motion.div
+            ref={row}
+            style={{ paddingInline: EDGE, ...(reduced ? {} : { x }) }}
+            className="group/row flex w-max gap-5"
           >
-            <p className="text-lg tracking-widest text-butter" aria-label="5 out of 5 stars">
-              ★★★★★
-            </p>
-            <p className="mt-4 flex-1 font-body text-[15px] leading-[1.75] text-ink">
-              &ldquo;{r.text}&rdquo;
-            </p>
-            <div className="mt-6 border-t border-line pt-4">
-              <p className="font-display text-base font-semibold text-ink">{r.name}</p>
-              <p className="font-body text-[11px] font-semibold uppercase tracking-wider text-ink-soft">
-                {r.about} · Google
-              </p>
+            {reviews.map((r) => (
+              <article
+                key={r.name}
+                className="flex w-[21rem] shrink-0 flex-col rounded-3xl border border-line bg-paper p-7 shadow-[0_10px_30px_rgba(23,20,15,0.06)] transition-[opacity,translate,scale] duration-300 group-hover/row:opacity-60 hover:!opacity-100 hover:-translate-y-2 hover:scale-[1.02]"
+              >
+                <p className="text-lg tracking-widest text-butter" aria-label="5 out of 5 stars">
+                  ★★★★★
+                </p>
+                <p className="mt-4 flex-1 font-body text-[15px] leading-[1.75] text-ink">
+                  &ldquo;{r.text}&rdquo;
+                </p>
+                <div className="mt-6 border-t border-line pt-4">
+                  <p className="font-display text-base font-semibold text-ink">{r.name}</p>
+                  <p className="font-body text-[11px] font-semibold uppercase tracking-wider text-ink-soft">
+                    {r.about} · Google
+                  </p>
+                </div>
+              </article>
+            ))}
+          </motion.div>
+
+          {!reduced && (
+            <div
+              className="mx-auto mt-10 w-full max-w-6xl px-4 sm:px-8"
+              aria-hidden
+            >
+              <div className="h-px w-full bg-line">
+                <motion.div style={{ width: bar }} className="h-px bg-coral" />
+              </div>
+              <p className="mt-3 font-hand text-lg text-ink-soft">keep scrolling, they get better</p>
             </div>
-          </article>
-        ))}
+          )}
+        </div>
       </div>
     </section>
   );

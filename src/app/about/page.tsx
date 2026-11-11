@@ -59,7 +59,7 @@ export default function AboutPage() {
     url: `${SITE}/about`,
     name: TITLE,
     about: { "@id": PERSON_ID },
-    dateModified: "2026-09-30",
+    dateModified: "2026-11-11",
     sameAs: SOCIALS,
   };
 

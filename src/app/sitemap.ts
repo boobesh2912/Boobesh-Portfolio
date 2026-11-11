@@ -7,7 +7,7 @@ const BASE_URL = "https://boobesh.com";
   Fixed dates, bumped by hand when a page really changes. A lastModified of
   "now" on every build tells crawlers nothing and teaches them to ignore it.
 */
-const UPDATED = new Date("2026-09-30");
+const UPDATED = new Date("2026-11-11");
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const posts = getAllPosts();

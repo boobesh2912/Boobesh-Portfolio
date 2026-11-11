@@ -1,7 +1,7 @@
 ---
 title: "Young Entrepreneur of the Year, Startup Real OG Award"
 organizer: "Zero2Billion with Sathak Innovation & Incubation Foundation"
-venue: ""
+venue: "Mohamed Sathak A.J. College of Engineering"
 date: "2025-02-03"
 image: "/uploads/startup-real-og-award-certificate.jpg"
 alt: "The Startup Real OG Award 2024 certificate in a frame, presented to Boobesh AG as Young Entrepreneur of the Year"

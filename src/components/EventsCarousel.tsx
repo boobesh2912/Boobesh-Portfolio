@@ -77,7 +77,7 @@ export default function EventsCarousel({ events }: { events: EventItem[] }) {
     <>
       <div className="mb-5 flex items-center justify-between gap-4">
         <p className="font-body text-[12px] font-semibold uppercase tracking-[0.18em] text-ink-soft">
-          {events.length} talks and counting
+          {events.length} stages and counting
         </p>
         <div className="flex items-center gap-2">
           <button onClick={() => nudge(-1)} disabled={pos.start} aria-label="previous events" className={arrow}>
@@ -182,7 +182,18 @@ function EventCard({
       className="w-[min(21rem,82vw)] shrink-0 snap-start scroll-ml-1 overflow-hidden rounded-3xl border border-line bg-paper shadow-[0_10px_30px_rgba(23,20,15,0.06)]"
     >
       <div className="relative h-[24rem] w-full overflow-hidden bg-cream-deep">
-        {cur ? (
+        {cur?.video ? (
+          <video
+            key={cur.video}
+            src={cur.video}
+            poster={cur.src}
+            controls
+            playsInline
+            preload="metadata"
+            aria-label={cur.alt}
+            className="relative h-full w-full bg-black object-contain"
+          />
+        ) : cur ? (
           <>
             {e.fit === "contain" && (
               /* eslint-disable-next-line @next/next/no-img-element --
@@ -226,18 +237,18 @@ function EventCard({
             <button
               onClick={() => step(-1)}
               aria-label="previous photo"
-              className="absolute left-2 top-1/2 h-8 w-8 -translate-y-1/2 rounded-full bg-paper/85 text-ink backdrop-blur transition-colors hover:bg-paper"
+              className="absolute left-2 top-[40%] h-8 w-8 -translate-y-1/2 rounded-full bg-paper/85 text-ink backdrop-blur transition-colors hover:bg-paper"
             >
               ←
             </button>
             <button
               onClick={() => step(1)}
               aria-label="next photo"
-              className="absolute right-2 top-1/2 h-8 w-8 -translate-y-1/2 rounded-full bg-paper/85 text-ink backdrop-blur transition-colors hover:bg-paper"
+              className="absolute right-2 top-[40%] h-8 w-8 -translate-y-1/2 rounded-full bg-paper/85 text-ink backdrop-blur transition-colors hover:bg-paper"
             >
               →
             </button>
-            <div className="absolute inset-x-0 bottom-3 flex justify-center gap-1.5">
+            <div className="absolute inset-x-0 top-14 flex justify-center gap-1.5">
               {e.images.map((im, n) => (
                 <button
                   key={im.src}

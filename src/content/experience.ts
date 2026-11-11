@@ -47,6 +47,7 @@ export const roles: Role[] = [
       "Managing a team while balancing academics and running the business.",
       "Experimenting with startup ideas, automation systems and scalable digital products.",
     ],
+    link: { href: "https://garitech.co.in", label: "garitech.co.in" },
     skills: ["SaaS", "WordPress", "Branding", "Team Management"],
     video: {
       src: "/videos/tejasvi-speak-with-ikigai-review.mp4",

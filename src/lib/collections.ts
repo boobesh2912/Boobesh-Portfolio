@@ -10,6 +10,9 @@ import matter from "gray-matter";
 
 const CONTENT = path.join(process.cwd(), "content");
 
+/* a slide is a picture, or a video whose poster frame is the src */
+export type Photo = { src: string; alt: string; video?: string };
+
 export type EventItem = {
   slug: string;
   title: string;
@@ -19,7 +22,7 @@ export type EventItem = {
   image: string;
   alt: string;
   /* every photo, cover first. Falls back to the single image. */
-  images: { src: string; alt: string }[];
+  images: Photo[];
   /* "contain" shows the whole picture (posters, slides); "cover" fills the frame */
   fit: "cover" | "contain";
   description: string;
@@ -57,10 +60,14 @@ const str = (v: unknown, fallback = "") =>
   typeof v === "string" ? v : fallback;
 
 /** The photo list from frontmatter, or the single cover image as a one item list. */
-function photos(data: Record<string, unknown>): { src: string; alt: string }[] {
+function photos(data: Record<string, unknown>): Photo[] {
   const list = Array.isArray(data.images)
     ? (data.images as Record<string, unknown>[])
-        .map((i) => ({ src: str(i?.src), alt: str(i?.alt, str(data.title)) }))
+        .map((i) => ({
+          src: str(i?.src),
+          alt: str(i?.alt, str(data.title)),
+          ...(str(i?.video) ? { video: str(i?.video) } : {}),
+        }))
         .filter((i) => i.src)
     : [];
   if (list.length) return list;

@@ -57,6 +57,7 @@ export default function Footer() {
             <nav aria-label="more about Boobesh" className="flex flex-wrap gap-x-5 gap-y-1 font-body text-sm text-ink-soft sm:justify-end">
               <Link href="/about" className="hover:text-coral">about Boobesh AG</Link>
               <Link href="/gari-tech" className="hover:text-coral">Gari Tech, content marketing in Chennai</Link>
+              <a href="https://garitech.co.in" target="_blank" rel="noopener" className="hover:text-coral">garitech.co.in</a>
             </nav>
             <Link
               href="/personal"

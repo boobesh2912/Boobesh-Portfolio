@@ -78,6 +78,14 @@ export default function GariTechPage() {
                 start a conversation
               </ContactButton>
               <a
+                href="https://garitech.co.in"
+                target="_blank"
+                rel="noopener"
+                className="rounded-full border border-line px-7 py-3.5 font-body text-sm font-semibold text-ink transition-colors hover:border-coral hover:text-coral"
+              >
+                garitech.co.in
+              </a>
+              <a
                 href={LINKEDIN}
                 target="_blank"
                 rel="noopener"

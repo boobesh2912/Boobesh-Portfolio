@@ -165,7 +165,8 @@ const jsonLd = {
       description:
         "Gari Tech is a content marketing agency founded in Chennai by Boobesh AG, working on content marketing, personal branding and social media growth for startups and businesses.",
       foundingDate: "2024-02",
-      url: "https://boobesh.com/gari-tech",
+      url: "https://garitech.co.in",
+      sameAs: ["https://boobesh.com/gari-tech"],
       email: "dreamsofboo@gmail.com",
       founder: { "@id": "https://boobesh.com/#person" },
       areaServed: [

@@ -30,6 +30,7 @@ import {
   storySections,
   storyLoves,
   storyDance,
+  storyDanceVideos,
   storyPositioning,
   storyClosing,
   storySignOff,
@@ -283,6 +284,25 @@ export default function PersonalExperience() {
                   loading="lazy"
                   className="col-span-2 aspect-[21/9] w-full rounded-xl border border-moon/10 object-cover"
                 />
+              ))}
+            </div>
+
+            <div className="mt-10 flex flex-wrap justify-center gap-6">
+              {storyDanceVideos.map((v) => (
+                <figure key={v.src} className="w-full max-w-[16rem]">
+                  <video
+                    src={v.src}
+                    poster={v.poster}
+                    controls
+                    playsInline
+                    preload="none"
+                    aria-label={v.alt}
+                    className="aspect-[9/16] w-full rounded-xl border border-moon/10 bg-black object-cover"
+                  />
+                  <figcaption className="mt-2 text-center font-hand text-lg text-moon/60">
+                    {v.caption}
+                  </figcaption>
+                </figure>
               ))}
             </div>
           </motion.section>

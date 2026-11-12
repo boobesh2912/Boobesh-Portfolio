@@ -189,6 +189,16 @@ export const storyDance = {
   ],
 };
 
+/* Added as they arrive. Each is a portrait clip with a poster frame. */
+export const storyDanceVideos = [
+  {
+    src: "/uploads/revel-dance-academy-class.mp4",
+    poster: "/uploads/revel-dance-academy-class-poster.jpg",
+    caption: "in class at Revel Dance Academy",
+    alt: "Boobesh dancing in a Revel Dance Academy class while classmates stand behind him and clap",
+  },
+];
+
 export const storySong = {
   movie: "Oh My Kadavule",
   title: "Kadhaippoma",

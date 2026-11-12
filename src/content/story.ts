@@ -159,8 +159,31 @@ export const storyLoves: StorySection = {
   heading: "things I love that are not work",
   paragraphs: [
     "I love talking. Not small talk, the other kind. The kind you do with a mic in your hand in front of a room that did not ask to be pitched to. Give me a stage and I will find a reason to say yes.",
-    "Recently I started dancing. **I am bad at it.** I am doing it anyway, because I needed one thing in my life that has nothing to do with growth, content or money. Dancing badly in a room alone turned out to be exactly that.",
     "And music. Mostly one song on repeat, for months, which is the one playing right now if you have not muted me yet.",
+  ],
+};
+
+/* The one time on a stage. Photos from the PACE cultural festival. */
+export const storyDance = {
+  heading: "and the one time I danced on a stage",
+  paragraphs: [
+    "**I am bad at dancing.** The only dancing I had ever done was at marriage functions with my friends, and it was bad there too.",
+    "On 13 September 2025 I danced on the PACE stage, the annual cultural festival at Panimalar Engineering College, in front of 3000+ students. First time ever on a stage.",
+    "I was in third year and I knew college was ending. Fourth year would be busy, and in two years I had done nothing like this in college. So I thought, let me just try it. Somehow I danced, I guess. It was funny. **I have never tried it again.**",
+  ],
+  photos: [
+    {
+      src: "/uploads/pace-cultural-fest-dance-1.webp",
+      alt: "Boobesh dancing on the PACE stage at Panimalar Engineering College, smiling, with stage smoke around him",
+    },
+    {
+      src: "/uploads/pace-cultural-fest-dance-2.webp",
+      alt: "Boobesh dancing on stage in a pose under purple lights at the PACE cultural festival",
+    },
+    {
+      src: "/uploads/pace-cultural-fest-dance-3.webp",
+      alt: "Three dancers on the PACE stage under purple and pink lights at Panimalar's annual cultural festival",
+    },
   ],
 };
 

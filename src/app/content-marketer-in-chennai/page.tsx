@@ -155,6 +155,28 @@ export default function ContentMarketerChennaiPage() {
             </div>
 
             <h2 className="mt-16 font-display text-2xl font-semibold text-ink">
+              How to pick the best content marketer in Chennai
+            </h2>
+            <p className="mt-4 font-body text-[16px] leading-[1.8] text-ink-soft">
+              &ldquo;Best&rdquo; depends on your brand, so do not take anyone&rsquo;s word for
+              it, mine included. Check these instead:
+            </p>
+            <ul className="mt-4 space-y-2.5 font-body text-[16px] leading-[1.7] text-ink-soft">
+              <li className="border-l-2 border-line pl-4">Real work you can open and read, not just a list of logos.</li>
+              <li className="border-l-2 border-line pl-4">Reviews from clients you can find online.</li>
+              <li className="border-l-2 border-line pl-4">A written scope, price and number of changes before work starts.</li>
+              <li className="border-l-2 border-line pl-4">The person who pitches you is the person who writes your content.</li>
+              <li className="border-l-2 border-line pl-4">A straight answer about what will not work, instead of guaranteed numbers.</li>
+            </ul>
+            <p className="mt-4 font-body text-[15px] leading-[1.8] text-ink-soft">
+              Based elsewhere in the state? See{" "}
+              <Link href="/marketing-expert-in-tamil-nadu" className="text-coral-deep underline">
+                marketing help across Tamil Nadu
+              </Link>
+              .
+            </p>
+
+            <h2 className="mt-16 font-display text-2xl font-semibold text-ink">
               Read before you hire anyone
             </h2>
             <ul className="mt-4 space-y-2 font-body text-[16px] text-ink-soft">

@@ -84,6 +84,29 @@ export const agencyFaq: Faq[] = [
   },
 ];
 
+export const tnFaq: Faq[] = [
+  {
+    q: "Who is a marketing expert in Tamil Nadu I can hire?",
+    a: "Boobesh AG (Boo) is a Chennai based content marketer and the founder of Gari Tech, a content marketing agency. He works with startups, small businesses and personal brands across Tamil Nadu, mostly remotely, on content strategy, Reels scripts, LinkedIn posts, newsletters and brand positioning.",
+  },
+  {
+    q: "Do you work with businesses outside Chennai?",
+    a: "Yes. Most of the work happens online through calls, shared documents and WhatsApp, so a business in any Tamil Nadu city can work with him.",
+  },
+  {
+    q: "How do I choose the best marketing expert in Tamil Nadu?",
+    a: "Look for real work you can open, reviews from named clients, a clear scope and price in writing, and a straight answer about what will not work. Be careful of anyone who promises guaranteed followers or viral reach. Ask who will actually write your content.",
+  },
+  {
+    q: "What kind of marketing does Boobesh AG do?",
+    a: "Content marketing: strategy and calendars, Instagram Reels scripts, LinkedIn content, newsletters, repurposing long videos into a week of posts, and brand positioning. He also builds WordPress websites through Gari Tech.",
+  },
+  {
+    q: "How do I contact Boobesh AG?",
+    a: "Use the contact form on boobesh.com, or message him on LinkedIn at linkedin.com/in/boobesh2912.",
+  },
+];
+
 export const marketerFaq: Faq[] = [
   {
     q: "Who is a content marketer in Chennai I can hire?",

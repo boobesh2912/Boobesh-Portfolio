@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { getAllPosts } from "@/lib/blog";
+import { getBooks } from "@/content/books";
 
 const BASE_URL = "https://boobesh.com";
 
@@ -20,6 +21,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/about`, lastModified: UPDATED, changeFrequency: "monthly", priority: 0.9 },
     { url: `${BASE_URL}/blog`, lastModified: UPDATED, changeFrequency: "weekly", priority: 0.8 },
     { url: `${BASE_URL}/personal`, lastModified: UPDATED, changeFrequency: "monthly", priority: 0.7 },
+    ...getBooks().map((book) => ({
+      url: `${BASE_URL}/personal/books/${book.slug}`,
+      lastModified: UPDATED,
+      changeFrequency: "monthly" as const,
+      priority: 0.5,
+    })),
     ...posts.map((post) => ({
       url: `${BASE_URL}/blog/${post.slug}`,
       lastModified: new Date(post.date),

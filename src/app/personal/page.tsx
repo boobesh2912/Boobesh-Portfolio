@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import PersonalExperience from "@/components/personal/PersonalExperience";
+import BookShelf from "@/components/personal/BookShelf";
 
 export const metadata: Metadata = {
   title: "the real me | Boobesh AG",
@@ -18,7 +19,7 @@ export const metadata: Metadata = {
 export default function PersonalPage() {
   return (
     <div className="min-h-screen bg-night">
-      <PersonalExperience />
+      <PersonalExperience shelf={<BookShelf />} />
     </div>
   );
 }

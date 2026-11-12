@@ -2,11 +2,14 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Marked from "@/components/Marked";
-import ThemeToggle from "@/components/ThemeToggle";
-import { books, getBook } from "@/content/books";
+import BookReader from "@/components/personal/BookReader";
+import JsonLd, { breadcrumbSchema } from "@/components/JsonLd";
+import { getBook, getBooks } from "@/content/books";
+import { paginate } from "@/lib/paginate";
+import { SITE } from "@/content/entity";
 
 export function generateStaticParams() {
-  return books.filter((b) => b.ready).map((b) => ({ slug: b.slug }));
+  return getBooks().map((b) => ({ slug: b.slug }));
 }
 
 export async function generateMetadata({
@@ -17,7 +20,7 @@ export async function generateMetadata({
   const { slug } = await params;
   const book = getBook(slug);
   if (!book) return {};
-  const url = `https://boobesh.com/personal/books/${slug}`;
+  const url = `${SITE}/personal/books/${slug}`;
   return {
     title: `${book.title} | Boobesh AG`,
     description: book.blurb,
@@ -32,100 +35,113 @@ export default async function BookPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const book = getBook(slug);
-  if (!book) notFound();
+  const books = getBooks();
+  const i = books.findIndex((b) => b.slug === slug);
+  if (i < 0) notFound();
+  const book = books[i];
+  const nextBook = books[(i + 1) % books.length];
+  const pages = paginate(book.blocks);
 
   return (
-    <div className="min-h-screen bg-night text-moon">
-      <div className="fixed right-5 top-5 z-30">
-        <ThemeToggle />
-      </div>
-
-      <article className="mx-auto max-w-2xl px-6 pb-24 pt-16 sm:px-8">
+    <div
+      className="min-h-screen text-[#f1d98e]"
+      style={{
+        backgroundColor: "#15100b",
+        backgroundImage:
+          "radial-gradient(ellipse 60% 45% at 50% 18%, rgba(255,196,110,0.2), transparent 70%), linear-gradient(180deg, transparent 55%, rgba(0,0,0,0.5)), repeating-linear-gradient(90deg, rgba(255,255,255,0.02) 0 2px, transparent 2px 9px)",
+      }}
+    >
+      <JsonLd
+        data={breadcrumbSchema([
+          { name: "Boobesh AG", url: SITE },
+          { name: "The real me", url: `${SITE}/personal` },
+          { name: book.title, url: `${SITE}/personal/books/${slug}` },
+        ])}
+      />
+      <main className="mx-auto max-w-5xl px-3 pb-24 pt-8 sm:px-6">
         <Link
           href="/personal#shelf"
-          className="font-hand text-xl text-ember hover:underline"
+          className="ml-2 inline-block font-hand text-xl text-[#f1d98e]/70 hover:text-[#f1d98e]"
         >
           ← back to the shelf
         </Link>
 
-        {/* the cover */}
-        <header
-          className="mt-8 rounded-r-2xl border border-moon/10 bg-white/[0.03] p-8"
-          style={{ borderLeft: `14px solid ${book.color}` }}
-        >
-          <p className="font-body text-[10px] font-semibold uppercase tracking-[0.28em] text-ember">
-            a book by Boobesh AG · {book.minutes} min read
-          </p>
-          <h1 className="mt-3 font-display text-3xl font-semibold leading-[1.1] text-moon sm:text-5xl">
-            {book.title}
-          </h1>
-          <p className="mt-4 font-body text-[16px] leading-[1.8] text-moon/65">{book.blurb}</p>
-        </header>
+        <div className="mt-8">
+          <BookReader
+            slug={slug}
+            title={book.title}
+            blurb={book.blurb}
+            color={book.color}
+            minutes={book.minutes}
+            pages={pages}
+            next={{ slug: nextBook.slug, title: nextBook.title }}
+          />
+        </div>
 
-        <div className="mt-12 space-y-5">
-          {book.blocks.map((b, i) => {
-            if (b.type === "h") {
+        {/* the same book as plain text: for screen readers, search engines and anyone who prefers it */}
+        <details className="mx-auto mt-16 max-w-2xl rounded-xl border border-[#f1d98e]/15 bg-black/20 p-6">
+          <summary className="cursor-pointer font-body text-sm font-semibold text-[#f1d98e]/80">
+            read this book as plain text
+          </summary>
+          <article className="mt-6 space-y-4 font-body text-[16px] leading-[1.8] text-[#f1d98e]/80">
+            <h2 className="font-display text-2xl font-semibold text-[#f1d98e]">{book.title}</h2>
+            <p className="text-[#f1d98e]/60">{book.blurb}</p>
+            {book.blocks.map((b, n) => {
+              if (b.type === "h")
+                return (
+                  <h3 key={n} className="pt-4 font-display text-xl font-semibold text-[#f1d98e]">
+                    {b.text}
+                  </h3>
+                );
+              if (b.type === "p")
+                return (
+                  <p key={n}>
+                    <Marked text={b.text} markClass="mark-paper" />
+                  </p>
+                );
+              if (b.type === "quote")
+                return (
+                  <blockquote key={n} className="border-l-2 border-[#f1d98e]/40 pl-4 italic">
+                    {b.text}
+                  </blockquote>
+                );
+              if (b.type === "link")
+                return (
+                  <p key={n}>
+                    <Link href={b.href} className="underline">
+                      {b.text}
+                    </Link>
+                  </p>
+                );
+              if (b.type === "photos")
+                return (
+                  <div key={n} className="grid grid-cols-2 gap-2">
+                    {b.items.map((ph) => (
+                      // eslint-disable-next-line @next/next/no-img-element -- static file in /public
+                      <img key={ph.src} src={ph.src} alt={ph.alt} loading="lazy" className="w-full rounded-lg" />
+                    ))}
+                  </div>
+                );
               return (
-                <h2 key={i} className="pt-6 font-display text-2xl font-semibold text-moon">
-                  {b.text}
-                </h2>
-              );
-            }
-            if (b.type === "p") {
-              return (
-                <p key={i} className="font-body text-[17px] leading-[1.85] text-moon/75">
-                  <Marked text={b.text} markClass="mark-clay" />
-                </p>
-              );
-            }
-            if (b.type === "photos") {
-              return (
-                <div key={i} className="grid grid-cols-2 gap-3 py-2">
-                  {b.items.map((ph, n) => (
-                    // eslint-disable-next-line @next/next/no-img-element -- static file in /public
-                    <img
-                      key={ph.src}
-                      src={ph.src}
-                      alt={ph.alt}
-                      loading="lazy"
-                      className={`w-full rounded-xl border border-moon/10 object-cover ${
-                        n >= 2 ? "col-span-2 aspect-[21/9]" : "aspect-[3/4]"
-                      }`}
-                    />
-                  ))}
-                </div>
-              );
-            }
-            return (
-              <div key={i} className="flex flex-wrap justify-center gap-6 py-2">
-                {b.items.map((v) => (
-                  <figure key={v.src} className="w-full max-w-[16rem]">
+                <div key={n} className="flex flex-wrap gap-4">
+                  {b.items.map((v) => (
                     <video
+                      key={v.src}
                       src={v.src}
                       poster={v.poster}
                       controls
                       playsInline
                       preload="none"
                       aria-label={v.alt}
-                      className="aspect-[9/16] w-full rounded-xl border border-moon/10 bg-black object-cover"
+                      className="w-40 rounded-lg"
                     />
-                    <figcaption className="mt-2 text-center font-hand text-lg text-moon/60">
-                      {v.caption}
-                    </figcaption>
-                  </figure>
-                ))}
-              </div>
-            );
-          })}
-        </div>
-
-        <div className="mt-16 border-t border-moon/10 pt-8 text-center">
-          <Link href="/personal#shelf" className="font-hand text-2xl text-ember hover:underline">
-            put it back on the shelf
-          </Link>
-        </div>
-      </article>
+                  ))}
+                </div>
+              );
+            })}
+          </article>
+        </details>
+      </main>
     </div>
   );
 }

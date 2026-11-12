@@ -434,3 +434,8 @@ textarea,
     }
   }
 }
+
+/* highlighter on printed pages in the book reader */
+.mark-paper {
+  background-image: linear-gradient(transparent 56%, rgba(226, 163, 74, 0.5) 56%);
+}

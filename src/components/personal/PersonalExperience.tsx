@@ -7,21 +7,15 @@ import MusicToggle from "@/components/MusicToggle";
 import ThemeToggle from "@/components/ThemeToggle";
 import NightRoom from "@/components/personal/NightRoom";
 import LetterWidget from "@/components/personal/LetterWidget";
-import ChapterVisual from "@/components/personal/ChapterVisual";
 import ProjectGame from "@/components/personal/ProjectGame";
 import GuessGame from "@/components/personal/GuessGame";
 import PersonalEnding from "@/components/personal/PersonalEnding";
-import BookShelf from "@/components/personal/BookShelf";
-import LinkedInFlank from "@/components/personal/LinkedInFlank";
-import GariTechDrop from "@/components/personal/GariTechDrop";
 import ScrollRider from "@/components/personal/ScrollRider";
 import TvSocials from "@/components/personal/TvSocials";
 import {
   DriveStats,
   LabelCloud,
-  LifeStrip,
   MemeBreak,
-  PullQuote,
   SongSection,
   fadeUp,
 } from "@/components/personal/blocks";
@@ -34,78 +28,9 @@ import {
   storyClosing,
   storySignOff,
   thankYouNames,
-  pullQuotes,
 } from "@/content/story";
 
-/* Visual breathers, keyed to the chapter they follow. */
-const interludes: Record<string, React.ReactNode> = {
-  "it started with curiosity": <LifeStrip />,
-  "then money entered the picture": (
-    <>
-      <PullQuote>{pullQuotes.money}</PullQuote>
-      <GuessGame />
-    </>
-  ),
-  "then gari tech happened": <PullQuote>{pullQuotes.wordpress}</PullQuote>,
-  /*
-    The games sit here, in the middle of the read, rather than at the end
-    where nobody who is tired of reading would ever reach them.
-  */
-  "the ones I started and stopped": (
-    <>
-      <DriveStats />
-      <ProjectGame />
-      <MemeBreak />
-    </>
-  ),
-  "maybe this sounds familiar": (
-    <PullQuote>{pullQuotes.consistency}</PullQuote>
-  ),
-};
-
-function Chapter({
-  index,
-  total,
-  heading,
-  paragraphs,
-}: {
-  index: number;
-  total: number;
-  heading: string;
-  paragraphs: string[];
-}) {
-  return (
-    <motion.section {...fadeUp} className="mt-24">
-      {/*
-        Each chapter opens on its own rule and says where you are in the read,
-        so the page feels like parts rather than one long scroll of text.
-      */}
-      <div className="flex items-center gap-4">
-        <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-ember/40 font-display text-xs text-ember">
-          {String(index).padStart(2, "0")}
-        </span>
-        <span className="h-px flex-1 bg-[rgba(var(--card-skin),0.12)]" />
-        <span className="font-body text-[10px] font-semibold uppercase tracking-[0.24em] text-moon/35">
-          chapter {index} of {total}
-        </span>
-      </div>
-
-      <h2 className="mt-6 font-display text-2xl font-semibold leading-snug text-moon sm:text-[1.85rem]">
-        {heading}
-      </h2>
-
-      <div className="mt-5 space-y-5 font-body text-[17px] leading-[1.85] text-moon/70">
-        {paragraphs.map((p, i) => (
-          <p key={i}>
-            <Marked text={p} markClass="mark-clay" />
-          </p>
-        ))}
-      </div>
-    </motion.section>
-  );
-}
-
-export default function PersonalExperience() {
+export default function PersonalExperience({ shelf }: { shelf: React.ReactNode }) {
   return (
     <>
       <NightRoom />
@@ -240,33 +165,34 @@ export default function PersonalExperience() {
           </motion.div>
         </header>
 
-        {/* chapters with breathers between them */}
+        {/* the short version: what I am doing right now, then a little play */}
         <div className="relative mx-auto max-w-2xl px-6 sm:px-8">
-          {storySections.map((section, i) => {
-            const heading = section.heading!;
-            const chapter = (
-              <Chapter
-                index={i + 1}
-                total={storySections.length}
-                heading={heading}
-                paragraphs={section.paragraphs}
-              />
-            );
-
+          {(() => {
+            const now = storySections.find((x) => x.heading === "what I am doing right now");
+            if (!now) return null;
             return (
-              <div key={heading}>
-                {heading === "then linkedin entered my life" ? (
-                  <LinkedInFlank>{chapter}</LinkedInFlank>
-                ) : heading === "then gari tech happened" ? (
-                  <GariTechDrop>{chapter}</GariTechDrop>
-                ) : (
-                  chapter
-                )}
-                <ChapterVisual heading={heading} />
-                {interludes[heading] ?? null}
-              </div>
+              <motion.section {...fadeUp} className="mt-16">
+                <h2 className="font-display text-2xl font-semibold leading-snug text-moon sm:text-[1.85rem]">
+                  {now.heading}
+                </h2>
+                <div className="mt-5 space-y-5 font-body text-[17px] leading-[1.85] text-moon/70">
+                  {now.paragraphs.map((p, i) => (
+                    <p key={i}>
+                      <Marked text={p} markClass="mark-clay" />
+                    </p>
+                  ))}
+                </div>
+              </motion.section>
             );
-          })}
+          })()}
+
+          <motion.section {...fadeUp} className="mt-20">
+            <p className="font-hand text-2xl text-ember">while you are here</p>
+            <GuessGame />
+            <DriveStats />
+            <ProjectGame />
+            <MemeBreak />
+          </motion.section>
         </div>
 
         {/* the song gets its own room */}
@@ -313,7 +239,7 @@ export default function PersonalExperience() {
             </div>
           </motion.section>
 
-          <BookShelf />
+          {shelf}
 
           {/* closing */}
           <motion.div

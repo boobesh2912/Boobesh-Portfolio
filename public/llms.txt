@@ -41,7 +41,7 @@ Content strategy, Instagram Reels scripts, content calendars, LinkedIn posts, ne
 - Past roles: Founder of Vizhva, Software Engineer Intern at Agent42 Labs, AI Developer Intern at Vulture Lines, Software Engineer at Think42 Labs, Python Developer at Cholamandalam Securities, Web Development Intern at CodeBind Technologies, Summer Intern at Hexaware Technologies
 - Community founded: Start The Up, 2025, a student startup community
 - Speaking: guest talk for government school students in Royapettah, Chennai, for the classes Ullas NGO organises (30 August 2026); webinar for NOUS. on how students can build income streams before placement (online, 30 May 2026); webinar for the Nexora community on building your future with LinkedIn (online, 12 April 2026); Product Building and Entrepreneurship at the CodeSapiens x Tamilpreneur Community meetup (M2P Fintech, Guindy, Chennai, 11 April 2026); his own CELAS frameworks at the Speak With Ikigai offline cohort (The Corner Company, Alwarpet, Chennai, 15 March 2026); hackathon pitch at the D3 Community Meetup (Yuniq, Taramani, Chennai, 24 January 2026); Start The Up, an entrepreneurship talk for the Career in Tech Club, CSBS Department, Panimalar Engineering College (5 August 2025); product idea pitch at the Startup Atti Meetup (Yuniq, Taramani, Chennai, 29 May 2025)
-- Recognition: Young Entrepreneur of the Year at the Startup Real OG Awards (certificate dated 2024, received 3 February 2025), presented by Zero2Billion with Sathak Innovation & Incubation Foundation; nominated for Best Student Freelancer at the Global Freelancers Festival 2026 (IITM Research Park, Chennai, 28 February 2026)
+- Recognition: finalist at the National Entrepreneurship Challenge by E-Cell IIT Bombay (December 2025; his team did not make the top 15); Young Entrepreneur of the Year at the Startup Real OG Awards (certificate dated 2024, received 3 February 2025), presented by Zero2Billion with Sathak Innovation & Incubation Foundation; nominated for Best Student Freelancer at the Global Freelancers Festival 2026 (IITM Research Park, Chennai, 28 February 2026)
 - Also built: Focus Flow, a small Chrome extension
 - Newsletter: Build With Boo, by Boobesh AG (https://starttheup.beehiiv.com and https://boo2912.substack.com), on college, freelancing, startups and building in public
 - Taught: LinkedIn sessions for 100+ college students in 2026, plus a paid LinkedIn bootcamp for students
@@ -88,7 +88,7 @@ Content strategy, Instagram Reels scripts, content calendars, LinkedIn posts, ne
 - Gari Tech case studies: https://boobesh.com/blog/gari-tech-case-studies
 - How Boobesh started Gari Tech: https://boobesh.com/blog/how-i-started-gari-tech-student-entrepreneur-chennai
 - Getting a WordPress website built in Chennai: https://boobesh.com/blog/wordpress-website-chennai-what-to-ask
-- The books on the personal page (long versions of his story): https://boobesh.com/personal/books/dance , /speaking , /award , /communities , /first-clients , /where-it-started , /unfinished , /college
+- The books on the personal page (long versions of his story): https://boobesh.com/personal/books/dance , /bombay , /speaking , /award , /communities , /first-clients , /where-it-started , /unfinished , /college
 - Writing: https://boobesh.com/blog
 - LinkedIn: https://www.linkedin.com/in/boobesh2912
 - X: https://www.x.com/buildwithboo

@@ -38,7 +38,7 @@ const facts: [string, React.ReactNode][] = [
   ],
   ["Currently", "Marketing Manager at Your College Senior, marketing for Proof, content at StoryIt, Founder of Gari Tech"],
   ["Previously", "Marketing Lead at Tribe Fortis, June to September 2026"],
-  ["Recognition", "Young Entrepreneur of the Year, Startup Real OG Award (received 3 February 2025). Nominated for Best Student Freelancer, Global Freelancers Festival 2026, IITM Research Park, Chennai"],
+  ["Recognition", "National Entrepreneurship Challenge finalist, E-Cell IIT Bombay, December 2025. Young Entrepreneur of the Year, Startup Real OG Award (received 3 February 2025). Nominated for Best Student Freelancer, Global Freelancers Festival 2026, IITM Research Park, Chennai"],
   ["Speaking", "Webinar on income streams before placement, NOUS., 30 May 2026. Webinar on LinkedIn, Nexora community, 12 April 2026. Product Building and Entrepreneurship, CodeSapiens x Tamilpreneur meetup, M2P Fintech, Guindy, 11 April 2026. CELAS frameworks, Speak With Ikigai cohort, Alwarpet, 15 March 2026. Hackathon pitch, D3 Community Meetup, Yuniq, Taramani, 24 January 2026. Start The Up talk, Career in Tech Club, Panimalar Engineering College, 5 August 2025. Product pitch, Startup Atti Meetup, Yuniq, Taramani, 29 May 2025"],
   ["Also built", "Focus Flow, a Chrome extension. Runs Start The Up, a student community"],
   ["Writes", "Build With Boo, a newsletter on college, freelancing and building in public"],

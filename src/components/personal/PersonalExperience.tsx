@@ -11,6 +11,7 @@ import ChapterVisual from "@/components/personal/ChapterVisual";
 import ProjectGame from "@/components/personal/ProjectGame";
 import GuessGame from "@/components/personal/GuessGame";
 import PersonalEnding from "@/components/personal/PersonalEnding";
+import BookShelf from "@/components/personal/BookShelf";
 import LinkedInFlank from "@/components/personal/LinkedInFlank";
 import GariTechDrop from "@/components/personal/GariTechDrop";
 import ScrollRider from "@/components/personal/ScrollRider";
@@ -29,8 +30,6 @@ import {
   storyIntro,
   storySections,
   storyLoves,
-  storyDance,
-  storyDanceVideos,
   storyPositioning,
   storyClosing,
   storySignOff,
@@ -297,69 +296,6 @@ export default function PersonalExperience() {
             </Link>
           </motion.section>
 
-          {/* dancing: PACE first, then Revel Dance Academy */}
-          <motion.section {...fadeUp} className="mt-20">
-            <h2 className="font-display text-2xl font-semibold text-moon sm:text-[1.75rem]">
-              {storyDance.heading}
-            </h2>
-
-            <div className="mt-6 space-y-4 font-body text-[16px] leading-[1.85] text-moon/70">
-              {storyDance.pace.paragraphs.map((p, i) => (
-                <p key={i}>
-                  <Marked text={p} markClass="mark-clay" />
-                </p>
-              ))}
-            </div>
-            <div className="mt-8 grid grid-cols-2 gap-3">
-              {storyDance.pace.photos.slice(0, 2).map((ph) => (
-                // eslint-disable-next-line @next/next/no-img-element -- static file in /public
-                <img
-                  key={ph.src}
-                  src={ph.src}
-                  alt={ph.alt}
-                  loading="lazy"
-                  className="aspect-[3/4] w-full rounded-xl border border-moon/10 object-cover"
-                />
-              ))}
-              {storyDance.pace.photos.slice(2).map((ph) => (
-                // eslint-disable-next-line @next/next/no-img-element -- static file in /public
-                <img
-                  key={ph.src}
-                  src={ph.src}
-                  alt={ph.alt}
-                  loading="lazy"
-                  className="col-span-2 aspect-[21/9] w-full rounded-xl border border-moon/10 object-cover"
-                />
-              ))}
-            </div>
-
-            <div className="mt-12 space-y-4 font-body text-[16px] leading-[1.85] text-moon/70">
-              {storyDance.revel.paragraphs.map((p, i) => (
-                <p key={i}>
-                  <Marked text={p} markClass="mark-clay" />
-                </p>
-              ))}
-            </div>
-            <div className="mt-8 flex flex-wrap justify-center gap-6">
-              {storyDanceVideos.map((v) => (
-                <figure key={v.src} className="w-full max-w-[16rem]">
-                  <video
-                    src={v.src}
-                    poster={v.poster}
-                    controls
-                    playsInline
-                    preload="none"
-                    aria-label={v.alt}
-                    className="aspect-[9/16] w-full rounded-xl border border-moon/10 bg-black object-cover"
-                  />
-                  <figcaption className="mt-2 text-center font-hand text-lg text-moon/60">
-                    {v.caption}
-                  </figcaption>
-                </figure>
-              ))}
-            </div>
-          </motion.section>
-
           {/* where I stand */}
           <motion.section
             {...fadeUp}
@@ -376,6 +312,8 @@ export default function PersonalExperience() {
               ))}
             </div>
           </motion.section>
+
+          <BookShelf />
 
           {/* closing */}
           <motion.div

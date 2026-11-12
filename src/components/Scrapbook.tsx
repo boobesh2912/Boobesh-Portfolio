@@ -66,7 +66,7 @@ const frames = [
 
 export default function Scrapbook() {
   return (
-    <section className="bg-halftone relative px-4 py-24 sm:px-8" aria-label="Photos from the last year">
+    <section className="bg-halftone relative overflow-x-clip px-4 py-24 sm:px-8" aria-label="Photos from the last year">
       <div className="mx-auto max-w-6xl">
         <Reveal>
           <p className="font-hand text-3xl text-coral-deep">a few frames from the last year</p>

@@ -18,7 +18,10 @@ export default function EducationSection() {
         <div className="mt-12 grid gap-6 sm:grid-cols-2">
           {schooling.map((s, i) => (
             <Reveal key={s.stage} delay={0.08 * i}>
-              <div className="h-full rounded-2xl border border-line bg-paper p-7">
+              <div className={`pop relative h-full rounded-2xl border-2 border-ink bg-paper p-7 ${i % 2 ? "[--r:1deg] rotate-1" : "[--r:-1deg] -rotate-1"}`}>
+                <span aria-hidden className="absolute -top-3 right-5 rotate-6 rounded-md border-2 border-coral bg-paper px-2 py-0.5 font-hand text-lg text-coral-deep">
+                  {i === 0 ? "school" : "college"}
+                </span>
                 <p className="font-body text-[11px] font-semibold uppercase tracking-[0.22em] text-ink-soft">
                   {s.stage}
                 </p>
@@ -53,7 +56,7 @@ export default function EducationSection() {
         <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {teachers.map((t, i) => (
             <Reveal key={t.name} delay={0.06 * i}>
-              <div className="group h-full rounded-2xl border border-line bg-paper p-5 transition-colors hover:border-coral/50">
+              <div className={`group h-full rounded-sm border border-line bg-paper p-5 pb-6 shadow-[0_10px_24px_rgba(23,20,15,0.12)] transition-transform duration-300 hover:-translate-y-2 hover:rotate-0 ${["-rotate-2","rotate-1","rotate-2","-rotate-1"][i % 4]}`}>
                 <ImageSlot
                   src={t.image}
                   alt={t.name}

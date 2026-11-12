@@ -9,7 +9,8 @@ import { LINKEDIN } from "@/content/entity";
 export default function QuickFacts() {
   return (
     <section className="px-4 pt-10 sm:px-8" aria-label="Boobesh AG in brief">
-      <div className="mx-auto max-w-6xl rounded-2xl border border-line bg-paper px-6 py-6 sm:px-8">
+      <div className="relative mx-auto max-w-6xl rounded-2xl border-2 border-ink bg-paper px-6 py-6 shadow-[6px_6px_0_var(--ink)] sm:px-8">
+        <span aria-hidden className="absolute -top-3 left-6 -rotate-2 rounded-md bg-butter px-2.5 py-0.5 font-hand text-lg text-[#17140f]">press card</span>
         <p className="font-body text-[16px] leading-[1.8] text-ink">
           <strong className="font-semibold">Boobesh AG</strong> (Boo) is a
           content marketer and young entrepreneur from Chennai. He founded the

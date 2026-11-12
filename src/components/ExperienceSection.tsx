@@ -25,7 +25,7 @@ export default function ExperienceSection() {
   return (
     <section
       id="experience"
-      className="bg-rules border-y border-line bg-cream-deep/40 px-4 py-24 sm:px-8"
+      className="bg-notebook border-y border-line bg-paper px-4 py-24 sm:px-8 sm:pl-24"
     >
       <div className="mx-auto max-w-4xl">
         <Reveal>
@@ -49,7 +49,7 @@ export default function ExperienceSection() {
 
             return (
               <Reveal key={`${role.org}-${role.title}`} delay={0.03 * i}>
-                <div className="border-t border-line last:border-b">
+                <div className={`border-t border-line transition-colors last:border-b ${isOpen ? "bg-butter/10" : ""}`}>
                   <button
                     onClick={() => setOpen(isOpen ? null : i)}
                     className="group flex w-full items-start gap-4 py-6 text-left"

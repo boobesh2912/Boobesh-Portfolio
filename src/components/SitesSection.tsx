@@ -43,7 +43,7 @@ export default function SitesSection() {
                   href={s.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex h-full flex-col overflow-hidden rounded-3xl border border-line bg-paper shadow-[0_10px_30px_rgba(23,20,15,0.06)] transition-transform hover:-translate-y-1"
+                  className="group flex h-full flex-col overflow-hidden rounded-2xl border-2 border-ink bg-paper shadow-[6px_6px_0_var(--ink)] transition-all duration-200 hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[10px_10px_0_var(--coral)]"
                 >
                   <div className="relative overflow-hidden bg-cream-deep">
                     {/* a small browser bar so the screenshot reads as a live site */}

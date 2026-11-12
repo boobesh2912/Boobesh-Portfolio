@@ -7,7 +7,7 @@ import { award } from "@/content/award";
 */
 export default function AwardSection() {
   return (
-    <section id="award" className="border-y border-line bg-cream-deep/40 px-4 py-20 sm:px-8">
+    <section id="award" className="wash-butter bg-halftone border-y-2 border-ink px-4 py-24 sm:px-8">
       <div className="mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-[0.9fr_1.1fr]">
         <Reveal>
           <p className="font-hand text-2xl text-coral-deep">a shiny thing on a shelf</p>
@@ -46,14 +46,14 @@ export default function AwardSection() {
               src={award.handover.src}
               alt={award.handover.alt}
               loading="lazy"
-              className="h-full max-h-[26rem] w-full rounded-3xl border border-line object-cover object-[35%_50%] shadow-[0_10px_30px_rgba(23,20,15,0.08)] sm:row-span-2"
+              className="h-full max-h-[26rem] w-full -rotate-2 rounded-xl border-[6px] border-paper object-cover object-[35%_50%] shadow-[0_14px_34px_rgba(23,20,15,0.25)] transition-transform duration-300 hover:rotate-0 sm:row-span-2"
             />
             {/* eslint-disable-next-line @next/next/no-img-element -- static file in /public */}
             <img
               src={award.certificate.src}
               alt={award.certificate.alt}
               loading="lazy"
-              className="w-full rounded-3xl border border-line object-cover shadow-[0_10px_30px_rgba(23,20,15,0.08)]"
+              className="w-full rotate-2 rounded-xl border-[6px] border-paper object-cover shadow-[0_14px_34px_rgba(23,20,15,0.25)] transition-transform duration-300 hover:rotate-0"
             />
             <video
               src={award.video.src}
@@ -62,7 +62,7 @@ export default function AwardSection() {
               playsInline
               preload="none"
               aria-label={award.video.label}
-              className="aspect-[4/5] w-full rounded-3xl border border-line bg-black object-cover shadow-[0_10px_30px_rgba(23,20,15,0.08)] sm:col-start-2"
+              className="aspect-[4/5] w-full rounded-xl border-[6px] border-paper bg-black object-cover shadow-[0_14px_34px_rgba(23,20,15,0.25)] sm:col-start-2"
             />
           </div>
         </Reveal>

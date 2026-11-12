@@ -63,7 +63,7 @@ const featured = [
 
 export default function FeaturedWorkSection() {
   return (
-    <section id="work" className="wash-clay px-4 py-24 sm:px-8">
+    <section id="work" className="wash-clay bg-halftone px-4 py-24 sm:px-8">
       <div className="mx-auto max-w-6xl">
         <Reveal>
           <p className="font-body text-[11px] font-semibold uppercase tracking-[0.25em] text-coral">
@@ -105,7 +105,7 @@ export default function FeaturedWorkSection() {
                   <div
                     className={`absolute -inset-4 rounded-[2rem] bg-gradient-to-br ${f.tint} blur-2xl`}
                   />
-                  <div className="relative overflow-hidden rounded-2xl border border-line bg-paper p-2 shadow-[0_20px_60px_rgba(23,20,15,0.10)]">
+                  <div className="relative overflow-hidden rounded-2xl border-2 border-ink bg-paper p-2 shadow-[10px_10px_0_var(--ink)] transition-transform duration-300 hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[14px_14px_0_var(--ink)]">
                     <div className="flex items-center gap-1.5 px-3 py-2">
                       <span className="h-2.5 w-2.5 rounded-full bg-coral/50" />
                       <span className="h-2.5 w-2.5 rounded-full bg-butter/60" />

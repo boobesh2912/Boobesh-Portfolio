@@ -515,6 +515,50 @@ textarea,
   background-image: repeating-linear-gradient(90deg, rgba(0, 0, 0, 0.18) 0 6px, transparent 6px 12px);
 }
 
+/* an inverted, ink-black section for contrast, whatever the page theme */
+.theme-ink {
+  --cream: #0f0d0a;
+  --cream-deep: #17130e;
+  --ink: #f5f1e8;
+  --ink-soft: #b3a995;
+  --coral: #ff8d66;
+  --coral-deep: #ffa688;
+  --butter: #f2c25a;
+  --sage: #a3bd86;
+  --sage-deep: #b8cfa0;
+  --lavender: #c9a3b8;
+  --paper: #1a1610;
+  --line: #3a3226;
+  background-color: #0f0d0a;
+  background-image:
+    radial-gradient(45% 40% at 12% 0%, rgba(242, 194, 90, 0.14), transparent 70%),
+    radial-gradient(45% 40% at 92% 100%, rgba(255, 141, 102, 0.14), transparent 70%);
+  color: var(--ink);
+}
+
+/* ruled notebook paper with a red margin line */
+.bg-notebook {
+  background-image:
+    linear-gradient(to right, transparent 2.6rem, color-mix(in srgb, var(--coral) 45%, transparent) 2.6rem, color-mix(in srgb, var(--coral) 45%, transparent) calc(2.6rem + 1px), transparent calc(2.6rem + 1px)),
+    repeating-linear-gradient(to bottom, transparent 0 31px, color-mix(in srgb, var(--ink) 11%, transparent) 31px 32px);
+}
+
+/* hard offset shadow tiles that jump when you touch them */
+.pop {
+  box-shadow: 5px 5px 0 var(--ink);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.pop:hover {
+  transform: translate(-3px, -3px) rotate(var(--r, 0deg));
+  box-shadow: 9px 9px 0 var(--ink);
+}
+
+/* big hollow numerals */
+.outline-num {
+  color: transparent;
+  -webkit-text-stroke: 1.5px color-mix(in srgb, var(--ink) 55%, transparent);
+}
+
 @media (prefers-reduced-motion: reduce) {
   .animate-marquee-rev,
   .stage-cone,

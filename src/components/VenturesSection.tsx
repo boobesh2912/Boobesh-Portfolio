@@ -55,18 +55,19 @@ const ventures = [
 
 export default function VenturesSection() {
   return (
-    <section className="bg-diagonal px-4 pb-24 sm:px-8">
+    <section className="theme-ink bg-diagonal px-4 py-24 sm:px-8">
       <div className="mx-auto max-w-6xl">
         <Reveal>
-          <p className="font-hand text-2xl text-coral-deep">
-            the rest of the cast
-          </p>
+          <p className="font-hand text-3xl text-butter">the rest of the cast</p>
+          <h2 className="mt-1 max-w-xl font-display text-3xl font-semibold leading-[1.15] text-ink sm:text-[2.6rem]">
+            Things I started. Some are still breathing.
+          </h2>
         </Reveal>
 
         <div className="mt-7 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {ventures.map((v, i) => (
             <Reveal key={v.name} delay={0.06 * i}>
-              <div className="flex h-full flex-col rounded-2xl border border-line bg-paper p-6 transition-colors hover:border-coral/40">
+              <div className="group relative flex h-full flex-col rounded-2xl border border-dashed border-ink-soft/50 bg-paper p-6 transition-all duration-300 hover:-translate-y-1 hover:border-butter hover:shadow-[0_0_0_1px_var(--butter),0_18px_40px_rgba(242,194,90,0.12)] before:absolute before:-left-2 before:top-1/2 before:h-4 before:w-4 before:-translate-y-1/2 before:rounded-full before:bg-cream after:absolute after:-right-2 after:top-1/2 after:h-4 after:w-4 after:-translate-y-1/2 after:rounded-full after:bg-cream">
                 <div className="flex items-start justify-between gap-4">
                   <div>
                     <h3 className="font-display text-xl font-semibold text-ink">

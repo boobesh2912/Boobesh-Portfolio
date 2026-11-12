@@ -32,7 +32,8 @@ type Props = {
   color: string;
   minutes: number;
   pages: Page[];
-  next?: { slug: string; title: string };
+  /** when the book is in a popup, closing is a callback instead of a link */
+  onClose?: () => void;
 };
 
 const query = "(min-width: 820px)";
@@ -165,14 +166,14 @@ function Face({
   title,
   color,
   slug,
-  next,
+  onClose,
 }: {
   sheet: Sheet;
   side: "left" | "right";
   title: string;
   color: string;
   slug: string;
-  next?: Props["next"];
+  onClose?: () => void;
 }) {
   if (sheet.kind === "endpaper") return <Endpaper color={color} />;
   if (sheet.kind === "blank") return <Paper side={side}>{null}</Paper>;
@@ -199,18 +200,13 @@ function Face({
         <div className="flex h-full flex-col items-center justify-center gap-5 px-10 text-center">
           <p className="font-display text-2xl italic text-[#5c4a36]">the end</p>
           <div className="h-px w-10 bg-[#8a6a43]/50" />
-          <Link
-            href="/personal#shelf"
-            className="font-hand text-2xl text-[#a24b2a] hover:underline"
-          >
-            put it back on the shelf
-          </Link>
-          {next && (
-            <Link
-              href={`/personal/books/${next.slug}`}
-              className="font-body text-[13px] text-[#5c4a36] underline-offset-4 hover:underline"
-            >
-              next book: {next.title}
+          {onClose ? (
+            <button onClick={onClose} className="font-hand text-2xl text-[#a24b2a] hover:underline">
+              close the book
+            </button>
+          ) : (
+            <Link href="/personal" className="font-hand text-2xl text-[#a24b2a] hover:underline">
+              back to the story
             </Link>
           )}
           <span className="sr-only">{slug}</span>
@@ -323,7 +319,7 @@ function Face({
 
 /* ---------- the book ---------- */
 
-export default function BookReader({ slug, title, color, pages, next }: Props) {
+export default function BookReader({ slug, title, color, pages, onClose }: Props) {
   const wide = useWide();
   const reduced = usePrefersReducedMotion();
 
@@ -402,7 +398,7 @@ export default function BookReader({ slug, title, color, pages, next }: Props) {
   const touch = useRef<number | null>(null);
 
   const face = (s: Sheet | undefined, side: "left" | "right") =>
-    s ? <Face sheet={s} side={side} title={title} color={color} slug={slug} next={next} /> : null;
+    s ? <Face sheet={s} side={side} title={title} color={color} slug={slug} onClose={onClose} /> : null;
 
   /* what is under the turning leaf, and what the leaf shows on each side */
   const eased = [0.4, 0.05, 0.2, 1] as const;
@@ -605,9 +601,15 @@ export default function BookReader({ slug, title, color, pages, next }: Props) {
         </button>
       </div>
       <div className="mt-4 flex items-center gap-5 font-body text-[12px] text-[#f1d98e]/50">
-        <Link href="/personal#shelf" className="hover:text-[#f1d98e]">
-          close the book
-        </Link>
+        {onClose ? (
+          <button onClick={onClose} className="hover:text-[#f1d98e]">
+            close the book
+          </button>
+        ) : (
+          <Link href="/personal" className="hover:text-[#f1d98e]">
+            back to the story
+          </Link>
+        )}
         <button onClick={() => setSound((s) => !s)} className="hover:text-[#f1d98e]">
           page sound: {sound ? "on" : "off"}
         </button>

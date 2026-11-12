@@ -39,7 +39,6 @@ export default async function BookPage({
   const i = books.findIndex((b) => b.slug === slug);
   if (i < 0) notFound();
   const book = books[i];
-  const nextBook = books[(i + 1) % books.length];
   const pages = paginate(book.blocks);
 
   return (
@@ -60,10 +59,10 @@ export default async function BookPage({
       />
       <main className="mx-auto max-w-5xl px-3 pb-24 pt-8 sm:px-6">
         <Link
-          href="/personal#shelf"
+          href="/personal"
           className="ml-2 inline-block font-hand text-xl text-[#f1d98e]/70 hover:text-[#f1d98e]"
         >
-          ← back to the shelf
+          ← back to the story
         </Link>
 
         <div className="mt-8">
@@ -74,7 +73,6 @@ export default async function BookPage({
             color={book.color}
             minutes={book.minutes}
             pages={pages}
-            next={{ slug: nextBook.slug, title: nextBook.title }}
           />
         </div>
 

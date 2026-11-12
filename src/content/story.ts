@@ -126,6 +126,14 @@ export const storySections: StorySection[] = [
     ],
   },
   {
+    heading: "then I went to Bombay to win",
+    paragraphs: [
+      "In December 2025 our NEC team of 20 made it to the national finals at IIT Bombay, and honestly, this trip hit different. We did not have the support we expected, so we planned and managed everything on our own.",
+      "1000+ km on a train. A case study round we never prepared for. A trek where I asked, \"can we go back?\" and a live pitch where a startup raised 35 lakh rupees right in front of us. And **we did not make the top 15.**",
+      "Somehow, it still gave me some of the best memories I did not even know I needed.",
+    ],
+  },
+  {
     heading: "the ones I started and stopped",
     paragraphs: [
       "In 2025 I started a community called Start The Up. Simple idea, get students thinking like founders. We ran four webinars. Then engagement dropped, and it stopped. Just like that. Around the same time I started Vizhva, a learning initiative about how Gen Z actually learns, and I paused that one too.",
@@ -137,6 +145,13 @@ export const storySections: StorySection[] = [
     paragraphs: [
       "Maybe you also have folders full of ideas. Projects you started with full excitement, told your friends about, genuinely believed in. And then slowly, you stopped. Not because you are lazy. Because something new caught your eye. A new idea, a new chance, a new direction. Suddenly the old thing feels boring. So you move again.",
       "If that sounds like you, you are not alone. I am still working out **how to turn curiosity into consistency.**",
+    ],
+  },
+  {
+    heading: "and then there is the dancing",
+    paragraphs: [
+      "**I am bad at dancing.** The only dancing I had done was at marriage functions with friends. Then on 13 September 2025 I danced on the PACE stage at Panimalar, in front of 3000+ students, and a year later I randomly joined a dance academy because I saw an ad on Instagram.",
+      "I always put myself in uncomfortable spaces on purpose. This was one of them.",
     ],
   },
   {

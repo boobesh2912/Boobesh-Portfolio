@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import PersonalExperience from "@/components/personal/PersonalExperience";
-import BookShelf from "@/components/personal/BookShelf";
+import { getBooks } from "@/content/books";
+import { paginate } from "@/lib/paginate";
 
 export const metadata: Metadata = {
   title: "the real me | Boobesh AG",
@@ -17,9 +18,12 @@ export const metadata: Metadata = {
 };
 
 export default function PersonalPage() {
+  const dives = Object.fromEntries(
+    getBooks().map((b) => [b.slug, { title: b.title, color: b.color, pages: paginate(b.blocks) }])
+  );
   return (
     <div className="min-h-screen bg-night">
-      <PersonalExperience shelf={<BookShelf />} />
+      <PersonalExperience dives={dives} />
     </div>
   );
 }

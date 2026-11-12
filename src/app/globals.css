@@ -439,3 +439,86 @@ textarea,
 .mark-paper {
   background-image: linear-gradient(transparent 56%, rgba(226, 163, 74, 0.5) 56%);
 }
+
+/* ---------- unique section worlds ---------- */
+
+/* A section lit like a stage at night, whatever theme the rest is in. Tokens
+   are overridden locally, so every component inside just adapts. */
+.theme-stage {
+  --cream: #140e1f;
+  --cream-deep: #1c1430;
+  --ink: #f6eedd;
+  --ink-soft: #b9acc9;
+  --coral: #ff9470;
+  --coral-deep: #ffb093;
+  --butter: #f6c85f;
+  --lavender: #d2a8e0;
+  --paper: #1e1631;
+  --line: #3b2c56;
+  background-color: #140e1f;
+  background-image:
+    radial-gradient(60% 50% at 50% 0%, rgba(255, 190, 110, 0.12), transparent 70%),
+    radial-gradient(50% 40% at 90% 100%, rgba(176, 110, 220, 0.18), transparent 70%),
+    radial-gradient(50% 40% at 5% 80%, rgba(240, 120, 90, 0.12), transparent 70%);
+  color: var(--ink);
+}
+@keyframes cone-sway {
+  from {
+    transform: rotate(-7deg);
+  }
+  to {
+    transform: rotate(7deg);
+  }
+}
+.stage-cone {
+  position: absolute;
+  top: -12%;
+  width: 34%;
+  height: 120%;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(255, 214, 140, 0.2), transparent 75%);
+  clip-path: polygon(46% 0, 54% 0, 100% 100%, 0 100%);
+  transform-origin: 50% 0;
+  mix-blend-mode: screen;
+  animation: cone-sway 9s ease-in-out infinite alternate;
+}
+
+/* aurora: slow drifting colour behind a calm section */
+@keyframes aurora-drift {
+  0% {
+    background-position: 0% 0%, 100% 0%, 50% 100%;
+  }
+  100% {
+    background-position: 100% 30%, 0% 40%, 40% 0%;
+  }
+}
+.bg-aurora {
+  background-image:
+    radial-gradient(40% 55% at 20% 30%, color-mix(in srgb, var(--butter) 28%, transparent), transparent 70%),
+    radial-gradient(38% 50% at 80% 25%, color-mix(in srgb, var(--coral) 22%, transparent), transparent 70%),
+    radial-gradient(45% 55% at 55% 90%, color-mix(in srgb, var(--lavender) 24%, transparent), transparent 70%);
+  background-size: 160% 160%;
+  animation: aurora-drift 18s ease-in-out infinite alternate;
+}
+
+/* halftone dots and blueprint grid, for sections that want a texture */
+.bg-halftone {
+  background-image: radial-gradient(color-mix(in srgb, var(--ink) 14%, transparent) 1.2px, transparent 1.4px);
+  background-size: 18px 18px;
+}
+
+/* tape strips between sections */
+.animate-marquee-rev {
+  animation: marquee 40s linear infinite reverse;
+}
+.tape-edge {
+  background-image: repeating-linear-gradient(90deg, rgba(0, 0, 0, 0.18) 0 6px, transparent 6px 12px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee-rev,
+  .stage-cone,
+  .bg-aurora {
+    animation: none;
+  }
+}

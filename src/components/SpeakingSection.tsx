@@ -10,8 +10,11 @@ export default function SpeakingSection() {
   const events = getEvents();
 
   return (
-    <section id="speaking" className="wash-plum px-4 py-20 sm:px-8">
-      <div className="mx-auto max-w-6xl">
+    <section id="speaking" className="theme-stage relative overflow-x-clip px-4 py-24 sm:px-8">
+      {/* two moving spotlights */}
+      <div aria-hidden className="stage-cone left-[8%]" />
+      <div aria-hidden className="stage-cone right-[6%]" style={{ animationDelay: "-4s", animationDirection: "alternate-reverse" }} />
+      <div className="relative mx-auto max-w-6xl">
         <div className="mb-10 max-w-xl">
           <p className="font-hand text-2xl text-coral-deep">
             a mic makes everything better

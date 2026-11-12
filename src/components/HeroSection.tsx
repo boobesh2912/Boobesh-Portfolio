@@ -7,6 +7,7 @@ import AskAI from "@/components/AskAI";
 import ImageSlot from "@/components/ImageSlot";
 import Magnetic from "@/components/Magnetic";
 import Galaxy, { warp } from "@/components/Galaxy";
+import HeroStickers from "@/components/HeroStickers";
 
 const ticker = [
   "LED MARKETING AT TRIBE FORTIS, JUN TO SEP 2026",
@@ -61,6 +62,7 @@ export default function HeroSection() {
         <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_260px_at_var(--gx,70%)_var(--gy,30%),rgba(255,236,206,0.16),transparent_70%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
         <div className="grain pointer-events-none absolute inset-0 -z-10 opacity-30" />
         <Galaxy />
+        <HeroStickers />
 
         <div className="relative mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-[1.3fr_0.7fr]">
           <div>

@@ -147,8 +147,53 @@ export default function PersonalExperience() {
 
         <LetterWidget />
 
+        {/* the first thing you see: a meme, then the story */}
+        <section className="relative flex min-h-screen flex-col items-center justify-center px-6 pb-10 pt-24 text-center">
+          <motion.p
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.7, duration: 0.7 }}
+            className="font-hand text-2xl text-ember"
+          >
+            before anything else
+          </motion.p>
+          <motion.figure
+            initial={{ opacity: 0, scale: 0.92, y: 18 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{ delay: 0.85, duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+            className="mt-5"
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element -- static file in /public */}
+            <img
+              src="/shots/meme-oru-kadha-sollatuma.jpg"
+              alt="Meme: a man in a black shirt leaning over a table with both hands flat on it, captioned Oru kadha sollatuma sir, which means shall I tell you a story, sir"
+              className="mx-auto max-h-[58vh] w-auto max-w-full rounded-2xl border border-moon/15 shadow-[0_20px_60px_rgba(0,0,0,0.35)]"
+            />
+          </motion.figure>
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1.6, duration: 0.8 }}
+            className="mt-8 font-hand text-2xl text-moon/70"
+          >
+            yes. go on. tell the story.
+          </motion.p>
+          <motion.span
+            aria-hidden
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1, y: [0, 8, 0] }}
+            transition={{
+              opacity: { delay: 1.9, duration: 0.6 },
+              y: { delay: 1.9, duration: 1.6, repeat: Infinity, ease: "easeInOut" },
+            }}
+            className="mt-3 text-2xl text-ember"
+          >
+            ↓
+          </motion.span>
+        </section>
+
         {/* opening */}
-        <header className="relative mx-auto max-w-2xl px-6 pt-28 sm:px-8 sm:pt-36">
+        <header className="relative mx-auto max-w-2xl px-6 pt-10 sm:px-8 sm:pt-16">
           <motion.p
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}

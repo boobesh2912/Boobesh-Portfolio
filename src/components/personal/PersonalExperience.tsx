@@ -10,7 +10,7 @@ import LetterWidget from "@/components/personal/LetterWidget";
 import ChapterVisual from "@/components/personal/ChapterVisual";
 import ProjectGame from "@/components/personal/ProjectGame";
 import GuessGame from "@/components/personal/GuessGame";
-import WalkEnding from "@/components/personal/WalkEnding";
+import PersonalEnding from "@/components/personal/PersonalEnding";
 import LinkedInFlank from "@/components/personal/LinkedInFlank";
 import GariTechDrop from "@/components/personal/GariTechDrop";
 import ScrollRider from "@/components/personal/ScrollRider";
@@ -252,20 +252,21 @@ export default function PersonalExperience() {
             </Link>
           </motion.section>
 
-          {/* the one time I danced on a stage */}
+          {/* dancing: PACE first, then Revel Dance Academy */}
           <motion.section {...fadeUp} className="mt-20">
             <h2 className="font-display text-2xl font-semibold text-moon sm:text-[1.75rem]">
               {storyDance.heading}
             </h2>
+
             <div className="mt-6 space-y-4 font-body text-[16px] leading-[1.85] text-moon/70">
-              {storyDance.paragraphs.map((p, i) => (
+              {storyDance.pace.paragraphs.map((p, i) => (
                 <p key={i}>
                   <Marked text={p} markClass="mark-clay" />
                 </p>
               ))}
             </div>
             <div className="mt-8 grid grid-cols-2 gap-3">
-              {storyDance.photos.slice(0, 2).map((ph) => (
+              {storyDance.pace.photos.slice(0, 2).map((ph) => (
                 // eslint-disable-next-line @next/next/no-img-element -- static file in /public
                 <img
                   key={ph.src}
@@ -275,7 +276,7 @@ export default function PersonalExperience() {
                   className="aspect-[3/4] w-full rounded-xl border border-moon/10 object-cover"
                 />
               ))}
-              {storyDance.photos.slice(2).map((ph) => (
+              {storyDance.pace.photos.slice(2).map((ph) => (
                 // eslint-disable-next-line @next/next/no-img-element -- static file in /public
                 <img
                   key={ph.src}
@@ -287,7 +288,14 @@ export default function PersonalExperience() {
               ))}
             </div>
 
-            <div className="mt-10 flex flex-wrap justify-center gap-6">
+            <div className="mt-12 space-y-4 font-body text-[16px] leading-[1.85] text-moon/70">
+              {storyDance.revel.paragraphs.map((p, i) => (
+                <p key={i}>
+                  <Marked text={p} markClass="mark-clay" />
+                </p>
+              ))}
+            </div>
+            <div className="mt-8 flex flex-wrap justify-center gap-6">
               {storyDanceVideos.map((v) => (
                 <figure key={v.src} className="w-full max-w-[16rem]">
                   <video
@@ -355,7 +363,7 @@ export default function PersonalExperience() {
           </motion.div>
         </div>
 
-        <WalkEnding />
+        <PersonalEnding />
       </div>
     </>
   );

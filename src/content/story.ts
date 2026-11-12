@@ -163,30 +163,36 @@ export const storyLoves: StorySection = {
   ],
 };
 
-/* The one time on a stage. Photos from the PACE cultural festival. */
+/* Dancing, told in two parts: the PACE stage, then Revel Dance Academy. */
 export const storyDance = {
   heading: "and then there is the dancing",
-  paragraphs: [
-    "**I am bad at dancing.** The only dancing I had ever done was at marriage functions with my friends, and it was bad there too.",
-    "On 13 September 2025 I danced on the PACE stage, the annual cultural festival at Panimalar Engineering College, in front of 3000+ students. First time ever on a stage.",
-    "I was in third year and I knew college was ending. Fourth year would be busy, and in two years I had done nothing like this in college. So I thought, let me just try it. Somehow I danced, I guess. It was funny. **I did not try it again for a year.**",
-    "Then in September 2026 I randomly saw an ad for Revel Dance Academy on Instagram. I always have the urge to try something new, so I went for a trial class. I paid for the next class, and ended up joining for a month.",
-    "On the first day I honestly thought, can I even make it? But I always put myself in uncomfortable spaces on purpose, so I stayed. We shot a video of me dancing in class. And one day the academy asked us to choreograph something ourselves and dance to it. I did, and **I enjoyed that whole phase.**",
-  ],
-  photos: [
-    {
-      src: "/uploads/pace-cultural-fest-dance-1.webp",
-      alt: "Boobesh dancing on the PACE stage at Panimalar Engineering College, smiling, with stage smoke around him",
-    },
-    {
-      src: "/uploads/pace-cultural-fest-dance-2.webp",
-      alt: "Boobesh dancing on stage in a pose under purple lights at the PACE cultural festival",
-    },
-    {
-      src: "/uploads/pace-cultural-fest-dance-3.webp",
-      alt: "Three dancers on the PACE stage under purple and pink lights at Panimalar's annual cultural festival",
-    },
-  ],
+  pace: {
+    paragraphs: [
+      "**I am bad at dancing.** The only dancing I had ever done was at marriage functions with my friends, and it was bad there too.",
+      "On 13 September 2025 I danced on the PACE stage, the annual cultural festival at Panimalar Engineering College, in front of 3000+ students. First time ever on a stage.",
+      "I was in third year and I knew college was ending. Fourth year would be busy, and in two years I had done nothing like this in college. So I thought, let me just try it. Somehow I danced, I guess. It was funny. **I did not try it again for a year.**",
+    ],
+    photos: [
+      {
+        src: "/uploads/pace-cultural-fest-dance-1.webp",
+        alt: "Boobesh dancing on the PACE stage at Panimalar Engineering College, smiling, with stage smoke around him",
+      },
+      {
+        src: "/uploads/pace-cultural-fest-dance-2.webp",
+        alt: "Boobesh dancing on stage in a pose under purple lights at the PACE cultural festival",
+      },
+      {
+        src: "/uploads/pace-cultural-fest-dance-3.webp",
+        alt: "Three dancers on the PACE stage under purple and pink lights at Panimalar's annual cultural festival",
+      },
+    ],
+  },
+  revel: {
+    paragraphs: [
+      "Then in September 2026 I randomly saw an ad for Revel Dance Academy on Instagram. I always have the urge to try something new, so I went for a trial class. I paid for the next class, and ended up joining for a month.",
+      "On the first day I honestly thought, can I even make it? But I always put myself in uncomfortable spaces on purpose, so I stayed. We shot a video of me dancing in class. And one day the academy asked all of us students to choreograph something together and dance to it. We did, and **I enjoyed that whole phase.**",
+    ],
+  },
 };
 
 /* Added as they arrive. Each is a portrait clip with a poster frame. */
@@ -200,8 +206,8 @@ export const storyDanceVideos = [
   {
     src: "/uploads/revel-dance-academy-choreography.mp4",
     poster: "/uploads/revel-dance-academy-choreography-poster.jpg",
-    caption: "the choreography we put together",
-    alt: "Four dancers performing a choreography in the Revel Dance Academy studio",
+    caption: "the choreography all the students put together",
+    alt: "Four students performing a group choreography in the Revel Dance Academy studio",
   },
 ];
 

@@ -197,6 +197,12 @@ export const storyDanceVideos = [
     caption: "in class at Revel Dance Academy",
     alt: "Boobesh dancing in a Revel Dance Academy class while classmates stand behind him and clap",
   },
+  {
+    src: "/uploads/revel-dance-academy-choreography.mp4",
+    poster: "/uploads/revel-dance-academy-choreography-poster.jpg",
+    caption: "the choreography we put together",
+    alt: "Four dancers performing a choreography in the Revel Dance Academy studio",
+  },
 ];
 
 export const storySong = {

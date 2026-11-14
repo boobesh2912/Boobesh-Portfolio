@@ -60,6 +60,8 @@ export default function Footer() {
               <a href="https://garitech.co.in" target="_blank" rel="noopener" className="hover:text-coral">garitech.co.in</a>
               <Link href="/content-marketer-in-chennai" className="hover:text-coral">Content marketer in Chennai</Link>
               <Link href="/marketing-expert-in-tamil-nadu" className="hover:text-coral">Marketing expert in Tamil Nadu</Link>
+              <Link href="/services" className="hover:text-coral">Services in Chennai</Link>
+              <Link href="/contact" className="hover:text-coral">Contact</Link>
               <Link href="/press" className="hover:text-coral">speaker bio and media kit</Link>
             </nav>
             <Link

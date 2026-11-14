@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { getAllPosts } from "@/lib/blog";
 import { getBooks } from "@/content/books";
+import { services } from "@/content/services";
 
 const BASE_URL = "https://boobesh.com";
 
@@ -18,6 +19,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/gari-tech`, lastModified: UPDATED, changeFrequency: "monthly", priority: 0.9 },
     { url: `${BASE_URL}/content-marketer-in-chennai`, lastModified: UPDATED, changeFrequency: "monthly", priority: 0.9 },
     { url: `${BASE_URL}/marketing-expert-in-tamil-nadu`, lastModified: UPDATED, changeFrequency: "monthly", priority: 0.9 },
+    { url: `${BASE_URL}/services`, lastModified: UPDATED, changeFrequency: "monthly", priority: 0.9 },
+    ...services.map((s) => ({
+      url: `${BASE_URL}/services/${s.slug}`,
+      lastModified: UPDATED,
+      changeFrequency: "monthly" as const,
+      priority: 0.8,
+    })),
+    { url: `${BASE_URL}/contact`, lastModified: UPDATED, changeFrequency: "yearly", priority: 0.6 },
     { url: `${BASE_URL}/press`, lastModified: UPDATED, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE_URL}/about`, lastModified: UPDATED, changeFrequency: "monthly", priority: 0.9 },
     { url: `${BASE_URL}/blog`, lastModified: UPDATED, changeFrequency: "weekly", priority: 0.8 },

@@ -106,6 +106,10 @@ export default function GariTechPage() {
                 </li>
               ))}
             </ul>
+            <p className="mt-4 font-body text-[15px] text-ink-soft">
+              Each one has its own page:{" "}
+              <Link href="/services" className="text-coral-deep underline">see all Gari Tech services in Chennai</Link>.
+            </p>
 
             <h2 className="mt-16 font-display text-2xl font-semibold text-ink">
               Looking for the best marketing agency in Chennai?

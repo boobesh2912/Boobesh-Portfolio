@@ -50,8 +50,8 @@ export default function LoadingScreen() {
         clearInterval(grow);
         clearInterval(flick);
         setVisible(false);
-        timers.push(setTimeout(() => setMounted(false), 700));
-      }, 1700)
+        timers.push(setTimeout(() => setMounted(false), 550));
+      }, 1200)
     );
 
     return () => {
@@ -69,7 +69,7 @@ export default function LoadingScreen() {
         <motion.div
           className="fixed inset-0 z-[100] flex flex-col items-center justify-center overflow-hidden bg-coral px-6"
           exit={{ clipPath: "circle(0% at 50% 50%)" }}
-          transition={{ duration: 0.65, ease: [0.76, 0, 0.24, 1] }}
+          transition={{ duration: 0.5, ease: [0.76, 0, 0.24, 1] }}
           style={{ clipPath: "circle(150% at 50% 50%)" }}
         >
           <div className="grain absolute inset-0 opacity-30" />

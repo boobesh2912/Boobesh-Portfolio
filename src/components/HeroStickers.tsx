@@ -9,7 +9,7 @@ import { motion } from "framer-motion";
 const stickers = [
   { t: "reselling since 15", cls: "right-[22%] top-[9%] bg-butter text-[#241a05]", rot: -8, d: 0 },
   { t: "6 × 5★ on Google", cls: "right-[2%] top-[22%] bg-[#fff8ec] text-[#241a05]", rot: 7, d: 0.6 },
-  { t: "Young Entrepreneur of the Year", cls: "right-[30%] bottom-[24%] bg-coral text-[#fff8ec]", rot: -5, d: 1.1 },
+  { t: "Young Entrepreneur of the Year", cls: "right-[30%] bottom-[24%] bg-[#9c422b] text-[#fff8ec]", rot: -5, d: 1.1 },
   { t: "NEC finalist, IIT Bombay", cls: "right-[3%] bottom-[12%] bg-[#8fe3c4] text-[#0d2b21]", rot: 6, d: 1.7 },
 ];
 

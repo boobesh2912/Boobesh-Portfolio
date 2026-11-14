@@ -57,13 +57,26 @@ export default function EducationSection() {
           {teachers.map((t, i) => (
             <Reveal key={t.name} delay={0.06 * i}>
               <div className={`group h-full rounded-sm border border-line bg-paper p-5 pb-6 shadow-[0_10px_24px_rgba(23,20,15,0.12)] transition-transform duration-300 hover:-translate-y-2 hover:rotate-0 ${["-rotate-2","rotate-1","rotate-2","-rotate-1"][i % 4]}`}>
-                <ImageSlot
-                  src={t.image}
-                  alt={t.name}
-                  label="photo"
-                  className="h-20 w-20"
-                  rounded="rounded-full"
-                />
+                {t.image ? (
+                  <ImageSlot
+                    src={t.image}
+                    alt={t.name}
+                    label="photo"
+                    className="h-20 w-20"
+                    rounded="rounded-full"
+                  />
+                ) : (
+                  <div
+                    aria-hidden
+                    className="flex h-20 w-20 items-center justify-center rounded-full border border-line bg-cream-deep font-display text-2xl font-semibold text-coral-deep"
+                  >
+                    {t.name
+                      .split(" ")
+                      .map((w) => w[0])
+                      .slice(0, 2)
+                      .join("")}
+                  </div>
+                )}
                 <h4 className="mt-4 font-display text-lg font-semibold text-ink">
                   {t.name}
                 </h4>

@@ -13,7 +13,7 @@ const featured = [
     since: "Sep 2025 → now",
     site: "youtube.com/@yourcollegesenior",
     href: "https://www.youtube.com/@yourcollegesenior",
-    shot: "/shots/ycs.png",
+    shot: "/shots/ycs.webp",
     blurb:
       "A channel that helps students figure out careers. I own content marketing across LinkedIn, YouTube and the newsletter, mostly by turning long videos into everything else.",
     points: [

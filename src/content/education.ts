@@ -29,8 +29,8 @@ export type Teacher = {
   name: string;
   known: string;
   taught: string;
-  /* Drop a square image at this path and the avatar fills itself in. */
-  image: string;
+  /* Optional square photo. Without one the avatar shows initials. */
+  image?: string;
 };
 
 export const teachers: Teacher[] = [
@@ -39,27 +39,23 @@ export const teachers: Teacher[] = [
     known: "YouTube, 7.2L+ followers",
     taught:
       "The one I learned the most from. Watching how he explains things is a large part of how I think about content now.",
-    image: "/shots/teacher-rahul.jpg",
   },
   {
     name: "Alex Hormozi",
     known: "Founder, author",
     taught:
       "Offers, pricing, and the idea that most businesses fail on clarity, not effort.",
-    image: "/shots/teacher-hormozi.jpg",
   },
   {
     name: "Ali Abdaal",
     known: "YouTube, productivity",
     taught:
       "How to keep publishing without burning out, and how to make learning look easy on camera.",
-    image: "/shots/teacher-ali.jpg",
   },
   {
     name: "G Surendar Thina",
     known: "Mentor",
     taught:
       "Straight advice at the points where I was overthinking the next move.",
-    image: "/shots/teacher-surendar.jpg",
   },
 ];

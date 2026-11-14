@@ -17,6 +17,9 @@ export default function ImageSlot({
   className = "",
   rounded = "rounded-2xl",
   fit = "cover",
+  priority = false,
+  width,
+  height,
 }: {
   src: string;
   alt: string;
@@ -25,6 +28,10 @@ export default function ImageSlot({
   rounded?: string;
   /* logos need containing, photographs want filling */
   fit?: "cover" | "contain";
+  /* the biggest image above the fold: fetch it first, never lazy */
+  priority?: boolean;
+  width?: number;
+  height?: number;
 }) {
   const [failed, setFailed] = useState(false);
 
@@ -56,6 +63,11 @@ export default function ImageSlot({
       ref={check}
       src={src}
       alt={alt}
+      width={width}
+      height={height}
+      loading={priority ? "eager" : "lazy"}
+      decoding="async"
+      fetchPriority={priority ? "high" : undefined}
       onError={() => setFailed(true)}
       className={`${fit === "contain" ? "object-contain" : "object-cover"} ${rounded} ${className}`}
     />

@@ -49,9 +49,10 @@ export default function HeroSection() {
           className="absolute inset-0 -z-10"
         >
           <ImageSlot
-            src="/shots/hero-bg.jpg"
+            src="/shots/hero-bg.webp"
             alt=""
             label="hero background"
+            priority
             className="h-full w-full"
             rounded="rounded-none"
           />
@@ -170,9 +171,10 @@ export default function HeroSection() {
           >
             <div className="rounded-[1.4rem] border border-white/15 bg-white/10 p-2.5 backdrop-blur">
               <ImageSlot
-                src="/shots/boobesh.jpg"
+                src="/shots/boobesh.webp"
                 alt="Boobesh AG"
                 label="your photo goes here"
+                priority
                 className="h-[20rem] w-full"
                 rounded="rounded-[1rem]"
               />

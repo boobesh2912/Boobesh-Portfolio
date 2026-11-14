@@ -5,7 +5,7 @@
 */
 const tones = {
   ink: "bg-ink text-cream",
-  coral: "bg-coral text-[#fff8ec]",
+  coral: "bg-coral-deep text-[#fff8ec]",
   butter: "bg-butter text-[#241a05]",
   sage: "bg-sage-deep text-[#f6f1e4]",
 } as const;

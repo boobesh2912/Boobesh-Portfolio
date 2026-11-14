@@ -404,37 +404,6 @@ textarea,
 }
 
 
-/* ---------- text that arrives as you scroll ----------
-   Body text rises from faint to full as it enters the viewport, tied to the
-   scroll position rather than fired once. Browsers without scroll driven
-   animations simply show the text at full strength. Skipped in the hero,
-   inside long reading (blog posts), and for anyone who prefers less motion. */
-
-@keyframes scroll-text-in {
-  from {
-    opacity: 0.1;
-  }
-  to {
-    opacity: 1;
-  }
-}
-@supports (animation-timeline: view()) {
-  @media (prefers-reduced-motion: no-preference) {
-    main
-      :is(p, h2, h3, h4, li, dt, dd, blockquote):not(
-        .hero *,
-        .prose-post *,
-        .no-scroll-fade,
-        .no-scroll-fade *
-      ) {
-      animation: scroll-text-in linear both;
-      animation-timeline: view();
-      /* from the moment it peeks in until it is a quarter of the way up */
-      animation-range: entry 0% cover 28%;
-    }
-  }
-}
-
 /* highlighter on printed pages in the book reader */
 .mark-paper {
   background-image: linear-gradient(transparent 56%, rgba(226, 163, 74, 0.5) 56%);
@@ -483,22 +452,12 @@ textarea,
   animation: cone-sway 9s ease-in-out infinite alternate;
 }
 
-/* aurora: slow drifting colour behind a calm section */
-@keyframes aurora-drift {
-  0% {
-    background-position: 0% 0%, 100% 0%, 50% 100%;
-  }
-  100% {
-    background-position: 100% 30%, 0% 40%, 40% 0%;
-  }
-}
+/* aurora: soft colour behind a calm section */
 .bg-aurora {
   background-image:
     radial-gradient(40% 55% at 20% 30%, color-mix(in srgb, var(--butter) 28%, transparent), transparent 70%),
     radial-gradient(38% 50% at 80% 25%, color-mix(in srgb, var(--coral) 22%, transparent), transparent 70%),
     radial-gradient(45% 55% at 55% 90%, color-mix(in srgb, var(--lavender) 24%, transparent), transparent 70%);
-  background-size: 160% 160%;
-  animation: aurora-drift 18s ease-in-out infinite alternate;
 }
 
 /* halftone dots and blueprint grid, for sections that want a texture */
@@ -561,8 +520,7 @@ textarea,
 
 @media (prefers-reduced-motion: reduce) {
   .animate-marquee-rev,
-  .stage-cone,
-  .bg-aurora {
+  .stage-cone {
     animation: none;
   }
 }

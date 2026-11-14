@@ -55,7 +55,7 @@ export default function ReviewsSection({
     <section id="reviews" className="bg-rules border-y border-line pt-24">
       <div className="mx-auto max-w-6xl px-4 sm:px-8">
         <Reveal>
-          <p className="font-body text-[11px] font-semibold uppercase tracking-[0.25em] text-coral">
+          <p className="font-body text-[11px] font-semibold uppercase tracking-[0.25em] text-coral-deep">
             {eyebrow}
           </p>
           <h2 className="mt-3 max-w-xl font-display text-3xl font-semibold leading-[1.15] text-ink sm:text-[2.6rem]">
@@ -73,7 +73,7 @@ export default function ReviewsSection({
             label={tejasviVideo.label}
           />
           <div>
-            <p className="font-body text-[11px] font-semibold uppercase tracking-[0.25em] text-coral">
+            <p className="font-body text-[11px] font-semibold uppercase tracking-[0.25em] text-coral-deep">
               watch, with sound
             </p>
             <blockquote className="mt-4 font-display text-3xl font-semibold leading-[1.15] text-ink sm:text-[2.6rem]">

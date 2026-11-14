@@ -29,7 +29,7 @@ export default function Galaxy() {
     let warpUntil = 0;
     const mouse = { x: 0, y: 0, tx: 0, ty: 0 };
 
-    const stars: Star[] = Array.from({ length: 240 }, () => ({
+    const stars: Star[] = Array.from({ length: window.innerWidth < 768 ? 90 : 240 }, () => ({
       x: Math.random(),
       y: Math.random(),
       z: 0.15 + Math.random() * 0.85,
@@ -39,7 +39,7 @@ export default function Galaxy() {
 
     const resize = () => {
       const r = el.getBoundingClientRect();
-      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
       w = r.width;
       h = r.height;
       el.width = w * dpr;

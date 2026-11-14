@@ -7,7 +7,7 @@ export default function EducationSection() {
     <section id="education" className="wash-sage px-4 py-24 sm:px-8">
       <div className="mx-auto max-w-5xl">
         <Reveal>
-          <p className="font-body text-[11px] font-semibold uppercase tracking-[0.25em] text-coral">
+          <p className="font-body text-[11px] font-semibold uppercase tracking-[0.25em] text-coral-deep">
             S1 · E5 · where I learned
           </p>
           <h2 className="mt-6 max-w-2xl font-display text-3xl font-semibold leading-[1.15] text-ink sm:text-[2.6rem]">

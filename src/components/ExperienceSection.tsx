@@ -29,7 +29,7 @@ export default function ExperienceSection() {
     >
       <div className="mx-auto max-w-4xl">
         <Reveal>
-          <p className="font-body text-[11px] font-semibold uppercase tracking-[0.25em] text-coral">
+          <p className="font-body text-[11px] font-semibold uppercase tracking-[0.25em] text-coral-deep">
             S1 · E4 · what I did
           </p>
           <h2 className="mt-6 font-display text-3xl font-semibold leading-[1.15] text-ink sm:text-[2.6rem]">

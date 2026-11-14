@@ -28,7 +28,7 @@ export default function MetricsSection() {
     >
       <div className="mx-auto max-w-6xl">
         <Reveal>
-          <p className="font-body text-[11px] font-semibold uppercase tracking-[0.25em] text-coral">
+          <p className="font-body text-[11px] font-semibold uppercase tracking-[0.25em] text-coral-deep">
             impact, in numbers
           </p>
           <h2 className="mt-3 max-w-2xl font-display text-3xl font-semibold leading-[1.15] text-ink sm:text-[2.6rem]">

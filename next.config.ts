@@ -15,6 +15,8 @@ const securityHeaders = [
 ];
 
 const nextConfig: NextConfig = {
+  // Tailwind output is small; inlining it removes the render-blocking stylesheet request
+  experimental: { inlineCss: true },
   async headers() {
     return [{ source: "/:path*", headers: securityHeaders }];
   },

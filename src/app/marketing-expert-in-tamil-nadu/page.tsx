@@ -47,7 +47,7 @@ export default function MarketingExpertTamilNaduPage() {
     description: DESCRIPTION,
     about: { "@id": PERSON_ID },
     mainEntity: { "@id": PERSON_ID },
-    dateModified: "2026-11-12",
+    dateModified: "2026-11-12T09:00:00+05:30",
   };
 
   return (

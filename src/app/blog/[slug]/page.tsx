@@ -57,7 +57,7 @@ export default async function BlogPostPage({
     "@type": "BlogPosting",
     headline: post.title,
     description: post.excerpt,
-    datePublished: post.date,
+    datePublished: `${post.date}T09:00:00+05:30`,
     author: { "@id": "https://boobesh.com/#person" },
     publisher: { "@id": "https://boobesh.com/#person" },
     mainEntityOfPage: `https://boobesh.com/blog/${slug}`,

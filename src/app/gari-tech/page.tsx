@@ -39,7 +39,7 @@ export default function GariTechPage() {
     description: DESCRIPTION,
     about: { "@id": AGENCY_ID },
     mainEntity: { "@id": AGENCY_ID },
-    dateModified: "2026-09-30",
+    dateModified: "2026-09-30T09:00:00+05:30",
   };
 
   return (

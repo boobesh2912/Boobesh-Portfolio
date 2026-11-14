@@ -47,7 +47,7 @@ export default function ContentMarketerChennaiPage() {
     description: DESCRIPTION,
     about: { "@id": PERSON_ID },
     mainEntity: { "@id": PERSON_ID },
-    dateModified: "2026-11-11",
+    dateModified: "2026-11-11T09:00:00+05:30",
   };
 
   return (

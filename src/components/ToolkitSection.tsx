@@ -1,11 +1,6 @@
 import Reveal from "@/components/Reveal";
 
-const stickers = [
-  "bg-coral/20 border-coral/60 -rotate-2",
-  "bg-butter/35 border-butter rotate-1",
-  "bg-sage/25 border-sage/70 -rotate-1",
-  "bg-lavender/25 border-lavender/70 rotate-2",
-];
+const dots = ["bg-coral", "bg-butter", "bg-sage", "bg-lavender"];
 
 const toolkit = [
   {
@@ -53,7 +48,7 @@ const toolkit = [
 
 export default function ToolkitSection() {
   return (
-    <section id="toolkit" className="bg-halftone border-t border-line px-4 py-24 sm:px-8">
+    <section id="toolkit" className="bg-grid border-t border-line px-4 py-24 sm:px-8">
       <div className="mx-auto max-w-5xl">
         <Reveal>
           <p className="font-body text-[11px] font-semibold uppercase tracking-[0.25em] text-coral">
@@ -75,8 +70,9 @@ export default function ToolkitSection() {
                   {group.items.map((item) => (
                     <span
                       key={item}
-                      className={`cursor-default rounded-lg border-2 px-4 py-1.5 font-body text-sm font-semibold text-ink shadow-[2px_2px_0_var(--ink)] transition-transform duration-200 hover:-translate-y-1 hover:rotate-0 hover:scale-110 ${stickers[(i + item.length) % stickers.length]}`}
+                      className="inline-flex items-center gap-2 rounded-full border border-line bg-paper px-4 py-1.5 font-body text-sm text-ink"
                     >
+                      <span aria-hidden className={`h-1.5 w-1.5 rounded-full ${dots[i % dots.length]}`} />
                       {item}
                     </span>
                   ))}

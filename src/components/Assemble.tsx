@@ -25,7 +25,7 @@ const VECTORS: Record<Side, { x: number; y: number; r: number }> = {
 
 export default function Assemble({
   from,
-  distance = 240,
+  distance = 120,
   children,
   className = "",
 }: {
@@ -40,15 +40,15 @@ export default function Assemble({
 
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ["start 1.05", "start 0.55"],
+    offset: ["start 1.15", "start 0.8"],
   });
-  const p = useSpring(scrollYProgress, { stiffness: 110, damping: 26, restDelta: 0.001 });
+  const p = useSpring(scrollYProgress, { stiffness: 170, damping: 28, restDelta: 0.001 });
 
   const x = useTransform(p, [0, 1], [v.x * distance, 0]);
   const y = useTransform(p, [0, 1], [v.y * distance * 0.6, 0]);
   const rotate = useTransform(p, [0, 1], [v.r, 0]);
-  const scale = useTransform(p, [0, 1], [0.86, 1]);
-  const opacity = useTransform(p, [0, 0.55], [0, 1]);
+  const scale = useTransform(p, [0, 1], [0.94, 1]);
+  const opacity = useTransform(p, [0, 0.25], [0, 1]);
 
   return (
     <motion.div

@@ -40,7 +40,7 @@ const services = [
 
 export default function WhatIDoSection() {
   return (
-    <section id="services" className="bg-notebook overflow-x-clip border-y border-line bg-paper px-4 py-24 sm:px-8 sm:pl-24">
+    <section id="services" className="bg-dots overflow-x-clip border-y border-line bg-cream-deep/40 px-4 py-24 sm:px-8">
       <div className="mx-auto max-w-6xl">
         <Reveal>
           <p className="font-body text-[11px] font-semibold uppercase tracking-[0.25em] text-coral">
@@ -53,12 +53,12 @@ export default function WhatIDoSection() {
 
         <div className="mt-12 grid gap-x-10 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((s, i) => (
-            <Assemble key={s.n} from={sides[i % sides.length]} distance={150}>
-              <div className="group relative rounded-xl border border-line bg-cream/80 p-6 backdrop-blur-[1px] transition-all duration-300 hover:-rotate-1 hover:border-coral hover:shadow-[6px_6px_0_var(--coral)]">
-                <span className="outline-num absolute right-4 top-1 font-display text-6xl font-bold leading-none">
+            <Assemble key={s.n} from={sides[i % sides.length]} distance={100}>
+              <div className="group h-full rounded-2xl border border-line bg-paper p-6 shadow-[0_8px_24px_rgba(23,20,15,0.05)] transition-colors hover:border-coral/50">
+                <span className="font-body text-[11px] font-semibold tracking-[0.2em] text-coral/70">
                   {s.n}
                 </span>
-                <h3 className="mt-2 pr-14 font-display text-xl font-semibold text-ink">
+                <h3 className="mt-3 font-display text-xl font-semibold text-ink">
                   {s.title}
                 </h3>
                 <p className="mt-2 font-body text-[15px] leading-[1.7] text-ink-soft">

@@ -28,9 +28,9 @@ const featured = [
     name: "Gari Tech",
     role: "Founder",
     since: "Feb 2024 → now",
-    site: "the one that is mine",
-    href: "https://www.linkedin.com/in/boobesh2912",
-    shot: "/shots/gari-tech.png",
+    site: "garitech.co.in",
+    href: "https://garitech.co.in",
+    shot: "/shots/gari-tech.webp",
     blurb:
       "Started as a Canva shop in my first year of college and turned into a content and web studio. It runs on referrals and trials, which is a polite way of saying we earn every client twice.",
     points: [

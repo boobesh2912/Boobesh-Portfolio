@@ -81,7 +81,7 @@ export const metadata: Metadata = {
     url: "https://boobesh.com",
     siteName: "Boobesh AG",
     locale: "en_IN",
-    type: "profile",
+    type: "website",
   },
   twitter: {
     card: "summary_large_image",

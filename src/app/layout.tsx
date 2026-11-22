@@ -103,7 +103,7 @@ const jsonLd = {
       "@type": "Person",
       "@id": "https://boobesh.com/#person",
       name: "Boobesh AG",
-      alternateName: ["Boo", "Boobesh", "Boobesh AG", "Boobesh Ganesan", "buildwithboo"],
+      alternateName: ["Boo", "Boobesh", "Boobesh AG", "Boobesh A G", "Boobesh Ganesan", "Boobehs AG", "buildwithboo"],
       mainEntityOfPage: "https://boobesh.com/about",
       url: "https://boobesh.com",
       image: "https://boobesh.com/shots/boobesh.jpg",

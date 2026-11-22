@@ -64,6 +64,11 @@ export default function Footer() {
               <Link href="/contact" className="hover:text-coral">Contact</Link>
               <Link href="/press" className="hover:text-coral">speaker bio and media kit</Link>
             </nav>
+            <p className="font-body text-[12px] leading-relaxed text-ink-soft">
+              Also searched as: Boobesh, Boo, Boobesh AG, Boobesh Ganesan, buildwithboo, and sometimes
+              &ldquo;Boobehs AG&rdquo; (a common misspelling). Same person: a content marketer in Chennai
+              and the founder of Gari Tech.
+            </p>
             <Link
               href="/personal"
               className="font-hand text-xl text-coral-deep hover:underline"

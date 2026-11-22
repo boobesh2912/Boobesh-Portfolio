@@ -5,7 +5,7 @@ import Footer from "@/components/Footer";
 import FaqList from "@/components/FaqList";
 import ContactButton from "@/components/ContactButton";
 import JsonLd, { breadcrumbSchema } from "@/components/JsonLd";
-import { LINKEDIN, marketerFaq, PERSON_ID, SITE } from "@/content/entity";
+import { bestFaq, LINKEDIN, marketerFaq, PERSON_ID, SITE } from "@/content/entity";
 
 const TITLE = "Content Marketer in Chennai: Boobesh AG, Founder of Gari Tech";
 const DESCRIPTION =
@@ -203,7 +203,7 @@ export default function ContentMarketerChennaiPage() {
           </div>
         </article>
 
-        <FaqList items={marketerFaq} heading="Questions about hiring a content marketer in Chennai" />
+        <FaqList items={[...marketerFaq, ...bestFaq]} heading="Questions about hiring a content marketer in Chennai" />
       </main>
       <Footer />
     </>

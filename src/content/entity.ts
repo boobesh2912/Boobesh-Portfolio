@@ -84,6 +84,21 @@ export const agencyFaq: Faq[] = [
   },
 ];
 
+export const bestFaq: Faq[] = [
+  {
+    q: "Who is the best content marketer in Chennai?",
+    a: "There is no single best, because it depends on your business, budget and goals, and anyone who names themselves the best is guessing. Boobesh AG is a content marketer in Chennai and the founder of Gari Tech, with six five star Google reviews and live websites you can open. Judge any marketer, him included, by real work, named reviews, a written scope and a straight answer about what will not work.",
+  },
+  {
+    q: "Who is the best marketer in Chennai for a small business?",
+    a: "The best marketer for a small business is the one who can show real work for businesses like yours, explains the plan in plain words and agrees the scope and price in writing. Boobesh AG of Gari Tech is one option to look at, especially for content marketing, social media and websites for startups and personal brands.",
+  },
+  {
+    q: "Which is the best content creation agency in Chennai?",
+    a: "Compare agencies on proof, not slogans: live work, real reviews, who actually creates your content, what is included and how many changes you get. Gari Tech is a content creation and content marketing agency in Chennai, founded by Boobesh AG, that writes Reels scripts, coordinates video editing, designs posts and builds WordPress websites.",
+  },
+];
+
 export const tnFaq: Faq[] = [
   {
     q: "Who is a marketing expert in Tamil Nadu I can hire?",
@@ -92,6 +107,10 @@ export const tnFaq: Faq[] = [
   {
     q: "Do you work with businesses outside Chennai?",
     a: "Yes. Most of the work happens online through calls, shared documents and WhatsApp, so a business in any Tamil Nadu city can work with him.",
+  },
+  {
+    q: "Who is the best marketing expert in Tamil Nadu?",
+    a: "Nobody can honestly name one best expert for every business. Boobesh AG is a Chennai based content marketer and the founder of Gari Tech who works with businesses across Tamil Nadu, mostly online. Check real work, named reviews and a written scope for him and for anyone else you consider.",
   },
   {
     q: "How do I choose the best marketing expert in Tamil Nadu?",

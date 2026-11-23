@@ -9,7 +9,7 @@ const BASE_URL = "https://boobesh.com";
   Fixed dates, bumped by hand when a page really changes. A lastModified of
   "now" on every build tells crawlers nothing and teaches them to ignore it.
 */
-const UPDATED = new Date("2026-11-22");
+const UPDATED = new Date("2026-11-23");
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const posts = getAllPosts();
@@ -18,6 +18,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: BASE_URL, lastModified: UPDATED, changeFrequency: "weekly", priority: 1 },
     { url: `${BASE_URL}/gari-tech`, lastModified: UPDATED, changeFrequency: "monthly", priority: 0.9 },
     { url: `${BASE_URL}/content-marketer-in-chennai`, lastModified: UPDATED, changeFrequency: "monthly", priority: 0.9 },
+    { url: `${BASE_URL}/best-content-marketing-expert-in-chennai`, lastModified: UPDATED, changeFrequency: "monthly", priority: 0.9 },
     { url: `${BASE_URL}/marketing-expert-in-tamil-nadu`, lastModified: UPDATED, changeFrequency: "monthly", priority: 0.9 },
     { url: `${BASE_URL}/services`, lastModified: UPDATED, changeFrequency: "monthly", priority: 0.9 },
     ...services.map((s) => ({
